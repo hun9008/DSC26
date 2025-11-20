@@ -26,6 +26,70 @@ plt.rcParams['axes.unicode_minus'] = False
 
 warnings.filterwarnings('ignore')
 
+def evaluate_score_general(
+    y_ng,            # NG=1, Good=0 (Series or 1D array)
+    prob_ng,         # NG일 확률 (predict_proba()[:,1])
+    n_select_each=200,
+    profit_good=100,
+    cost_ng=2000
+):
+    y_ng = np.asarray(y_ng)
+    prob_ng = np.asarray(prob_ng)
+    n = len(y_ng)
+    assert len(prob_ng) == n
+
+    # Good을 1, NG를 0으로 변환
+    y_good = 1 - y_ng
+    prob_good = 1.0 - prob_ng
+
+    eval_df = pd.DataFrame({
+        "y_good": y_good,
+        "prob_ng": prob_ng,
+        "prob_good": prob_good
+    })
+
+    # L/P 반으로 나누기
+    half = n // 2
+    eval_df["decision"] = False
+
+    # 각 구간에서 NG 확률이 낮은 순으로 n_select_each개 선택
+    top_L = eval_df.iloc[:half].sort_values("prob_ng").iloc[:n_select_each].index
+    top_P = eval_df.iloc[half:].sort_values("prob_ng").iloc[:n_select_each].index
+
+    eval_df.loc[top_L, "decision"] = True
+    eval_df.loc[top_P, "decision"] = True
+
+    # ROC-AUC (Good=1, prob_good 사용)
+    roc_auc = roc_auc_score(eval_df["y_good"], eval_df["prob_good"])
+
+    # 이익 계산
+    is_decision = eval_df["decision"]
+    is_good = eval_df["y_good"] == 1
+    is_ng = eval_df["y_good"] == 0
+
+    total_net_profit = (
+        profit_good * (is_decision & is_good).sum()
+        - cost_ng * (is_decision & is_ng).sum()
+    )
+
+    # 정규화: AUC는 0.5~1 → 0~1로
+    part_auc = max(roc_auc - 0.5, 0) / 0.5
+
+    # 이론적 최대 이익 = 전부 Good인 경우
+    n_decision = int(is_decision.sum())
+    max_profit = profit_good * n_decision if n_decision > 0 else profit_good
+
+    part_profit = max(total_net_profit, 0) / max_profit if max_profit > 0 else 0.0
+
+    # 둘 다 [0,1] 이므로 total_score ∈ [0,1]
+    total_score = np.sqrt(part_auc * part_profit)
+
+    print(f"ROC-AUC Score        : {roc_auc:.6f}")
+    print(f"Total Net Profit     : {total_net_profit}")
+    print(f"Final Total Score    : {total_score:.6f}")
+
+    return roc_auc, total_net_profit, total_score
+
 # ----------------------------------------------------
 # 1. 데이터 전처리 클래스 (display.py와 동일)
 # ----------------------------------------------------
@@ -43,7 +107,7 @@ class DataProcessor:
         self.y_max_global = None
         self.basic_feature_dim = None 
     
-    def load_data(self, train_path="train.csv", test_path="test.csv"): 
+    def load_data(self, train_path="./data/train.csv", test_path="./data/test.csv"): 
         """데이터 로딩"""
         self.train = pd.read_csv(train_path)
         self.test = pd.read_csv(test_path)
@@ -326,7 +390,7 @@ class ProductionPipeline:
         # 1. 데이터 로딩
         print("\n📁 1단계: 데이터 로딩 (train.csv, test.csv)")
         train_df, test_df, train_X_basic_df, train_Y_series, test_X_basic_df = \
-            self.data_processor.load_data(train_path="train.csv", test_path="test.csv")
+            self.data_processor.load_data(train_path="./data/train.csv", test_path="./data/test.csv")
         
         # 2. 좌표 범위 분석
         print("\n📊 2단계: 좌표 범위 분석 (Train+Test 통합)")
@@ -382,30 +446,34 @@ class ProductionPipeline:
         self.rf_model.fit(X_train_hybrid, train_Y_series)
         print("✅ RandomForest 모델 학습 완료.")
         
-        # 10. Test 데이터 예측
-        print("\n🔮 10단계: Test 데이터 불량률 예측")
-        test_prob = self.rf_model.predict_proba(X_test_hybrid)[:, 1]  # NG(1)일 확률
+        print("\n10단계: Train 성능 평가 (ROC-AUC, Total Net Profit, Final Score)")
+
+        train_prob_ng = self.rf_model.predict_proba(X_train_hybrid)[:, 1]
+        roc_auc, total_net_profit, total_score = evaluate_score_general(
+            y_ng=train_Y_series.values,
+            prob_ng=train_prob_ng,
+            n_select_each=200,
+            profit_good=100,
+            cost_ng=2000
+        )
+
+        print("\n🔮 11단계: Test 데이터 불량률 예측")
+        test_prob = self.rf_model.predict_proba(X_test_hybrid)[:, 1]
         print(f"  예측 완료: {len(test_prob)}개 샘플")
         print(f"  불량률 범위: {test_prob.min():.4f} ~ {test_prob.max():.4f}")
-        
-        # 11. 제출 파일 생성 (Sample_code.ipynb 양식)
-        print("\n📝 11단계: 제출 파일 생성")
-        submission = pd.read_csv("sample_submission.csv")
-        
-        # 🔥 Sample_code.ipynb와 동일한 방식으로 처리
-        # test 데이터의 불량률을 L, P 각각에 복사 (concatenate)
+
+        print("\n📝 12단계: 제출 파일 생성")
+        submission = pd.read_csv("./data/sample_submission.csv")
         submission['probability'] = np.concatenate([test_prob, test_prob])
-        
-        # 불량률이 낮은 순서로 Top 200개씩 선택
+
         decision_id_L_list = submission.iloc[:466].sort_values('probability').iloc[:200]['ID']
         decision_id_P_list = submission.iloc[466:].sort_values('probability').iloc[:200]['ID']
-        
-        # decision=True로 설정
+
         submission.loc[submission['ID'].isin(decision_id_L_list), 'decision'] = True
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
         
         # 제출 파일 저장
-        submission.to_csv("hybrid_submission.csv", index=False)
+        submission.to_csv("./data/hybrid_submission.csv", index=False)
         
         print("✅ 제출 파일 생성 완료: hybrid_submission.csv")
         print(f"   - L 타입에서 선택된 개수: {len(decision_id_L_list)}")
