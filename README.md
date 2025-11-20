@@ -9,3 +9,4 @@
 | E2E ViT+RandomForest.py | Feature Encoder : ViT + MLP / Main Model : RandomForest | 1.0 | 1.0 | 0.18614 | 
 | CNN_MLP_Ensemble.py | Feature Encoder : CNN + MLP / Main Model : {DT, RandomForest, ExtraTrees, GradientBoosting, AdaBoost, HistGB, XGBoost, LightGBM, CatBoost, SVM} voting | 1.0 | 1.0 | Not submit | 
 
+add one
