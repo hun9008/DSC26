@@ -2,6 +2,7 @@
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
 
+import sys
 import pandas as pd
 import numpy as np
 import torch
@@ -22,6 +23,7 @@ from util.eval import (
     calculate_competition_score,
 )
 
+from util.logger import TeeLogger
 
 # ----------------------------------------------------
 # 5. Main Model (RandomForest 기반 이진 분류기)
@@ -145,6 +147,12 @@ class ProductionPipeline:
 
     # ---------------- 전체 파이프라인 실행 ----------------
     def run_production_pipeline(self):
+
+        logger = TeeLogger()
+        sys.stdout = logger
+
+        print("[Main] Start Production Pipeline")
+
         # 1. 데이터 로딩
         train_df, test_df, train_X_basic_df, train_Y_series, test_X_basic_df = \
             self.data_processor.load_data("../data/train.csv", "../data/test.csv")
@@ -278,6 +286,10 @@ class ProductionPipeline:
 
         selected_count = submission['decision'].sum()
         print(f"[Main] Total selected products: {selected_count}")
+
+        logger.close()
+        sys.stdout = sys.__stdout__
+        print(f"[Main] Log saved to: {logger.log_path}")
 
         return submission
 

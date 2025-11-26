@@ -1,0 +1,6 @@
+ROC-AUC Score     : 0.937034
+Total Net Profit  : 25300
+Final Total Score : 1.051521
+ROC-AUC Score        : 0.937034
+Total Net Profit     : 25300
+Final Total Score    : 1.051521

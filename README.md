@@ -85,7 +85,36 @@ from util.eval import (
 )
 ```
 
+### logger code (./src/util/logger.py)
+
+로그 모듈도 따로 분리하였습니다. 
+./src/util/logger.py 에 define 되어 있고 _main.py, _encoder.py 에서 import 하여 사용합니다. 
+
+```
+# RF_main.py 참고.
+from util.logger import TeeLogger
+import sys
+
+# 학습 혹은 로그 남길 부분에 아래 코드 삽입
+
+logger = TeeLogger()
+sys.stdout = logger
+
+### 실행 코드 ###
+
+logger.close()
+sys.stdout = sys.__stdout__
+print(f"[Main] Log saved to: {logger.log_path}")
+```
+
 ## baseline
+
+| file | details | ROC-AUC | Net Profit | Total Score | Submission Score |
+| --- | --- | --- | --- | --- | --- |
+| sample_code_eval.py | 0.937034 | 25300 | 1.051521 | 0.34052 |
+| RF_main.py | 0.836593 | -180 | 0.138163 | 0.41330 |
+
+### dummy (ignored)
 
 | file | details | ROC-AUC | Total | Submission Score |
 | --- | --- | --- | --- | --- |

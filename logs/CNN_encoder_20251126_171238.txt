@@ -1,0 +1,23 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[EncoderTrain] Epoch 1/13 Loss=0.7051
+[EncoderTrain] Epoch 2/13 Loss=0.6347
+[EncoderTrain] Epoch 3/13 Loss=0.6144
+[EncoderTrain] Epoch 4/13 Loss=0.5595
+[EncoderTrain] Epoch 5/13 Loss=0.5123
+[EncoderTrain] Epoch 6/13 Loss=0.4793
+[EncoderTrain] Epoch 7/13 Loss=0.4484
+[EncoderTrain] Epoch 8/13 Loss=0.4158
+[EncoderTrain] Epoch 9/13 Loss=0.3986
+[EncoderTrain] Epoch 10/13 Loss=0.3694
+[EncoderTrain] Epoch 11/13 Loss=0.3508
+[EncoderTrain] Epoch 12/13 Loss=0.3300
+[EncoderTrain] Epoch 13/13 Loss=0.3199
+[EncoderTrain] Saved encoder weights to: ../weight/feature_encoder_20251126.pth

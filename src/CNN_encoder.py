@@ -12,6 +12,8 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from datetime import datetime
 
+from util.logger import TeeLogger
+import sys
 
 # ----------------------------------------------------
 # 1. 데이터 전처리
@@ -255,6 +257,11 @@ class MultiModalDataset(Dataset):
 # 5. FeatureEncoder 학습 루틴
 # ----------------------------------------------------
 def train_encoder(n_epochs=13, batch_size=32, save_dir="../weight"):
+    
+    logger = TeeLogger()
+    sys.stdout = logger
+
+    
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"[EncoderTrain] Device: {device}")
 
@@ -303,6 +310,9 @@ def train_encoder(n_epochs=13, batch_size=32, save_dir="../weight"):
     torch.save(model.state_dict(), save_path)
     print(f"[EncoderTrain] Saved encoder weights to: {save_path}")
 
+    logger.close()
+    sys.stdout = sys.__stdout__
+    print(f"[Main] Log saved to: {logger.log_path}")
 
 if __name__ == "__main__":
     train_encoder()

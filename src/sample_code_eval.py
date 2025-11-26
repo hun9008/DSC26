@@ -8,6 +8,9 @@ from util.eval import (
     calculate_competition_score,
 )
 
+from util.logger import TeeLogger
+import sys
+
 train = pd.read_csv("../data/train.csv")
 test = pd.read_csv("../data/test.csv")
 submission = pd.read_csv("../data/submission/sample_submission.csv")
@@ -31,6 +34,8 @@ def preprocess(dataset: pd.DataFrame) -> np.ndarray:
     Xn = np.array(dataset[num_list])
     return np.concatenate([Xc, Xn], axis=1)
 
+logger = TeeLogger()
+sys.stdout = logger
 
 model = RandomForestClassifier(
     n_estimators=1000,
@@ -80,3 +85,7 @@ submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
 submission.to_csv("../data/submission/my_submission.csv", index=False)
 # display(submission)  
+
+logger.close()
+sys.stdout = sys.__stdout__
+print(f"[Main] Log saved to: {logger.log_path}")
