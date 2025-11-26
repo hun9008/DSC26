@@ -83,6 +83,15 @@ from util.eval import (
     evaluate_score_general,
     calculate_competition_score,
 )
+
+# 대회 조건 평가
+calculate_competition_score(
+                y_true=y_val,
+                y_prob=val_prob_ng,
+                k=15,
+                profit_good=100,
+                cost_ng=2000
+            )
 ```
 
 ### logger code (./src/util/logger.py)
@@ -111,19 +120,5 @@ print(f"[Main] Log saved to: {logger.log_path}")
 
 | file | details | ROC-AUC | Net Profit | Total Score | Submission Score |
 | --- | --- | --- | --- | --- | --- |
-| sample_code_eval.py | 0.937034 | 25300 | 1.051521 | 0.34052 |
-| RF_main.py | 0.836593 | -180 | 0.138163 | 0.41330 |
-
-### dummy (ignored)
-
-| file | details | ROC-AUC | Total | Submission Score |
-| --- | --- | --- | --- | --- |
-| sample_code_cross_val.py | base code | 0.770370 | 0.447200 | 0.34052 |
-| CNN_MLP_RandomForest_cross_val.py | Feature Encoder : CNN + MLP / Main Model : RandomForest | 0.857778 | 0.770516 | 0.52622 |
-| E2E ViT+RandomForest.py | Feature Encoder : ViT + MLP / Main Model : RandomForest | 1.0 | 1.0 | 0.18614 | 
-| CNN_MLP_Ensemble.py | Feature Encoder : CNN + MLP / Main Model : {RandomForest, ExtraTrees, GradientBoosting, HistGB, SVM} voting | 0.866667 | 0.523397 | Not submit | 
-
-| file | details | ROC-AUC | Total | Submission Score |
-| --- | --- | --- | --- | --- |
-| CNN_MLP_RF|  |  |  | 0.22090 | 
-| CNN_MLP_Ensemble_optuna.py | Feature Encoder : CNN + MLP / Main Model : {RandomForest, ExtraTrees, GradientBoosting, HistGB, SVM} voting | 0.899556 | 0.546529 | 0.34231 | 
+| sample_code_eval.py | basecode | 0.937034 | 1500 | 0.256269 | 0.34052 |
+| RF_main.py | CNN + RandomForest | 0.836593 | -180 | 0.138163 | 0.41330 |

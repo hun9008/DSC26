@@ -256,7 +256,7 @@ class MultiModalDataset(Dataset):
 # ----------------------------------------------------
 # 5. FeatureEncoder 학습 루틴
 # ----------------------------------------------------
-def train_encoder(n_epochs=13, batch_size=32, save_dir="../weight"):
+def train_encoder(n_epochs=1, batch_size=32, save_dir="../weight"):
     
     logger = TeeLogger()
     sys.stdout = logger
@@ -268,7 +268,7 @@ def train_encoder(n_epochs=13, batch_size=32, save_dir="../weight"):
     os.makedirs(save_dir, exist_ok=True)
 
     # 날짜 suffix 추가
-    date_str = datetime.now().strftime("%Y%m%d")
+    date_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     save_path = os.path.join(save_dir, f"feature_encoder_{date_str}.pth")
 
     dp = DataProcessor()

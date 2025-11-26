@@ -1,0 +1,68 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 137)
+[Main] Hybrid features (Test) : (466, 137)
+
+[Main] Cross Validation with 5 folds (each val: 60 samples, NG=15, Good=45)
+(k=15 선택, Task1/Task2 공식 기반 점수)
+
+===== Fold 1 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.911852
+  Net Profit     : 1500
+  Total Score    : 0.248551
+  Selected k     : 15 (Good=15, NG=0)
+
+===== Fold 2 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.870370
+  Net Profit     : 1500
+  Total Score    : 0.235702
+  Selected k     : 15 (Good=15, NG=0)
+
+===== Fold 3 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.831852
+  Net Profit     : -600
+  Total Score    : 0.000000
+  Selected k     : 15 (Good=14, NG=1)
+
+===== Fold 4 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.784444
+  Net Profit     : 1500
+  Total Score    : 0.206559
+  Selected k     : 15 (Good=15, NG=0)
+
+===== Fold 5 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.784444
+  Net Profit     : -4800
+  Total Score    : 0.000000
+  Selected k     : 15 (Good=12, NG=3)
+
+===== CV Summary (k=15, NG15/Good45) =====
+ROC-AUC  mean/std : 0.836593 / 0.049530
+Profit   mean/std : -180.00 / 2449.00
+Score    mean/std : 0.138163 / 0.113627
+
+[Main] Test prob range: 0.0000 ~ 0.9700
+[Main] Saved submission to ../data/submission/CNN_RF_submission.csv
+[Main] Total selected products: 340

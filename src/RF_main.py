@@ -9,6 +9,7 @@ import torch
 from torch.utils.data import DataLoader
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
+from datetime import datetime
 
 from CNN_encoder import (
     DataProcessor,
@@ -281,8 +282,11 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_L_list), 'decision'] = True
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
-        submission.to_csv("../data/submission/CNN_RF_submission.csv", index=False)
-        print("[Main] Saved submission to ../data/submission/CNN_RF_submission.csv")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        save_path = f"../data/submission/CNN_RF_submission_{timestamp}.csv"
+
+        submission.to_csv(save_path, index=False)
+        print(f"[Main] Saved submission to {save_path}")
 
         selected_count = submission['decision'].sum()
         print(f"[Main] Total selected products: {selected_count}")

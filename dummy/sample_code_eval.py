@@ -6,14 +6,6 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import roc_auc_score
 from datetime import datetime
 
-from util.eval import (
-    evaluate_score_general,
-    calculate_competition_score,
-)
-
-from util.logger import TeeLogger
-import sys
-
 train = pd.read_csv("../data/train.csv")
 test = pd.read_csv("../data/test.csv")
 submission = pd.read_csv("../data/submission/sample_submission.csv")
@@ -41,23 +33,58 @@ def preprocess(dataset):
     Xn = np.array(dataset[num_list])
     return np.concatenate([Xc, Xn], axis=1)
 
-logger = TeeLogger()
-sys.stdout = logger
+n_estimators=200
+random_state=42
+n_jobs=-1
 
-model = RandomForestClassifier(n_estimators=1000, max_depth=5)
+model = RandomForestClassifier(
+            n_estimators=n_estimators,
+            random_state=random_state,
+            n_jobs=n_jobs
+        )
 model.fit(preprocess(train_X), train_Y)
 
 pred = model.predict_proba(preprocess(test_X))[:,1]
 
 train_pred = model.predict_proba(preprocess(train_X))[:, 1]
 
-roc_auc, total_net_profit, total_score = calculate_competition_score(
-                y_true=train_Y.values,
-                y_prob=train_pred,
-                k=15,
-                profit_good=100,
-                cost_ng=2000
-            )
+eval_df = pd.DataFrame({
+    "y": train_Y.values,   # 정답 레이블 (0/1)
+    "prob": train_pred
+})
+
+n = len(eval_df)
+half = n // 2
+
+eval_df["decision"] = False
+
+# L 구간
+top_L = eval_df.iloc[:half].sort_values("prob").iloc[:200].index
+# P 구간
+top_P = eval_df.iloc[half:].sort_values("prob").iloc[:200].index
+
+eval_df.loc[top_L, "decision"] = True
+eval_df.loc[top_P, "decision"] = True
+
+roc_auc = roc_auc_score(eval_df["y"], eval_df["prob"])
+
+# ------------------------
+# 5) Total Net Profit 계산
+#    y=1 => Good, y=0 => NG 라고 가정
+# ------------------------
+is_decision = eval_df["decision"]
+is_good = eval_df["y"] == 1
+is_ng = eval_df["y"] == 0
+
+total_net_profit = (
+    100 * (is_decision & is_good).sum()
+    - 2000 * (is_decision & is_ng).sum()
+)
+
+part_auc = max(roc_auc - 0.5, 0) / 0.5
+part_profit = max(total_net_profit, 0) / 20000
+
+total_score = np.sqrt(part_auc * part_profit)
 
 print(f"ROC-AUC Score        : {roc_auc:.6f}")
 print(f"Total Net Profit     : {total_net_profit}")
@@ -73,12 +100,5 @@ submission.loc[submission['ID'].isin(decision_id_L_list), 'decision'] = True
 submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
 
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-save_path = f"../data/submission/my_submission_{timestamp}.csv"
-
-submission.to_csv(save_path, index=False)
-print(f"[Main] Saved submission to {save_path}")
-
-logger.close()
-sys.stdout = sys.__stdout__
-print(f"[Main] Log saved to: {logger.log_path}")
+submission.to_csv("../data/submission/my_submission_test_v2.csv", index=False)
+# display(submission)
