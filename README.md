@@ -1,12 +1,100 @@
 # 제 5회 KAIST-POSTECH-UNIST AI & 데이터사이언스 경진대회
 
+## 폴더 구조
+
+```
+DSC26/
+├── data/
+│   ├── train.csv
+│   ├── test.csv
+│   ├── submission/
+│   │   ├── CNN_RF_submission.csv
+│   │   └── sample_submission.csv
+│   └── submission_dummy/
+├── src/
+│   ├── CNN_encoder.py
+│   ├── RF_main.py
+│   ├── sample_code_eval.py
+│   ├── sample_code.py
+│   └── util/
+│       └── eval.py
+├── weight/
+│   └── feature_encoder.pth
+├── dummy/
+│   ├── CNN_MLP_Ensemble_cross_val_optuna_v2.py
+│   ├── CNN_MLP_Ensemble_cross_val_optuna.py
+│   ├── CNN_MLP_Ensemble_cross_val.py
+│   ├── CNN_MLP_Ensemble.py
+│   ├── CNN_MLP_RandomForest_cross_val_v2_same_eval.py
+│   ├── CNN_MLP_RandomForest_cross_val_v2.py
+│   ├── CNN_MLP_RandomForest_cross_val.py
+│   ├── CNN_MLP_RandomForest_v3.py
+│   ├── CNN_MLP_RandomForest_val.py
+│   ├── CNN_MLP_RandomForest.py
+│   ├── E2E 2DCNN+RandomForest.py
+│   ├── E2E ViT+RandomForest.py
+│   ├── eval_form.py
+│   ├── evaluation_form.py
+│   ├── feature_ablation.ipynb
+│   ├── naive_ensemble.py
+│   ├── raw_E2E.py
+│   ├── RF.py
+│   ├── sample_code_cross_val.py
+│   ├── sample_code.ipynb
+│   ├── sample_code.py
+│   ├── csv_modify.py
+│   ├── best_model.pth
+│   ├── feature_encoder.pth
+│   └── production_model.pth
+├── catboost_info/
+└── README.md
+```
+
+### 데이터
+
+학습데이터는 data/train.csv, data/test.csv 사용.
+제출 결과물은 submission/ 아래 저장.
+이전 제출 버전은 submission_dummy/* 에 존재.
+
+### source code
+
+CNN encoder를 별도로 학습. 
+
+```
+cd src
+python3 CNN_encoder.py
+```
+
+이후 _main.py 모델 코드 실행으로 submission 생성.
+
+```
+cd src
+python3 RF_main.py
+```
+
+### evaluation code (./src/util/eval.py)
+
+평가부분은 따로 분리하였습니다. 
+./src/util/eval.py 에 define 되어 있고 _main.py 에서 import 하여 사용합니다. 
+
+```
+# RF_main.py 참고.
+from util.eval import (
+    evaluate_score_general,
+    calculate_competition_score,
+)
+```
+
 ## baseline
 
 | file | details | ROC-AUC | Total | Submission Score |
 | --- | --- | --- | --- | --- |
-| sample_code.py | base code | 0.937034 | 0.743538 | 0.34052 |
-| E2E 2DCNN+RandomForest.py | Feature Encoder : CNN + MLP / Main Model : RandomForest | 1.0 | 1.0 | 0.52622 |
+| sample_code_cross_val.py | base code | 0.770370 | 0.447200 | 0.34052 |
+| CNN_MLP_RandomForest_cross_val.py | Feature Encoder : CNN + MLP / Main Model : RandomForest | 0.857778 | 0.770516 | 0.52622 |
 | E2E ViT+RandomForest.py | Feature Encoder : ViT + MLP / Main Model : RandomForest | 1.0 | 1.0 | 0.18614 | 
-| CNN_MLP_Ensemble.py | Feature Encoder : CNN + MLP / Main Model : {DT, RandomForest, ExtraTrees, GradientBoosting, AdaBoost, HistGB, XGBoost, LightGBM, CatBoost, SVM} voting | 1.0 | 1.0 | Not submit | 
+| CNN_MLP_Ensemble.py | Feature Encoder : CNN + MLP / Main Model : {RandomForest, ExtraTrees, GradientBoosting, HistGB, SVM} voting | 0.866667 | 0.523397 | Not submit | 
 
-add one
+| file | details | ROC-AUC | Total | Submission Score |
+| --- | --- | --- | --- | --- |
+| CNN_MLP_RF|  |  |  | 0.22090 | 
+| CNN_MLP_Ensemble_optuna.py | Feature Encoder : CNN + MLP / Main Model : {RandomForest, ExtraTrees, GradientBoosting, HistGB, SVM} voting | 0.899556 | 0.546529 | 0.34231 | 
