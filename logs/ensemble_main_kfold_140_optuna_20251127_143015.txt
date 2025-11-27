@@ -1,0 +1,701 @@
+[Main] Start Production Pipeline (with Optuna tuning)
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 137)
+[Main] Hybrid features (Test) : (466, 137)
+
+[Main] Start Optuna hyperparameter tuning...
+  ROC-AUC        : 0.856369
+  Net Profit     : 4000
+  Total Score    : 0.377555
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.831591
+  Net Profit     : 1900
+  Total Score    : 0.251003
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.892760
+  Net Profit     : 4000
+  Total Score    : 0.396364
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.869970
+  Net Profit     : 1900
+  Total Score    : 0.265131
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.875559
+  Net Profit     : 1900
+  Total Score    : 0.267126
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 0 mean_score=0.311435
+  ROC-AUC        : 0.865273
+  Net Profit     : 4000
+  Total Score    : 0.382242
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.828881
+  Net Profit     : 1900
+  Total Score    : 0.249975
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.893535
+  Net Profit     : 4000
+  Total Score    : 0.396754
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.873696
+  Net Profit     : 1900
+  Total Score    : 0.266462
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.878167
+  Net Profit     : 1900
+  Total Score    : 0.268052
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 1 mean_score=0.312697
+  ROC-AUC        : 0.863337
+  Net Profit     : 4000
+  Total Score    : 0.381228
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.838947
+  Net Profit     : 4000
+  Total Score    : 0.368210
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.902439
+  Net Profit     : 4000
+  Total Score    : 0.401218
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.870715
+  Net Profit     : 1900
+  Total Score    : 0.265398
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.882638
+  Net Profit     : 4000
+  Total Score    : 0.391223
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 2 mean_score=0.361455
+  ROC-AUC        : 0.863724
+  Net Profit     : 4000
+  Total Score    : 0.381431
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.828107
+  Net Profit     : 1900
+  Total Score    : 0.249680
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.893922
+  Net Profit     : 4000
+  Total Score    : 0.396949
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.865872
+  Net Profit     : 1900
+  Total Score    : 0.263658
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.879285
+  Net Profit     : 1900
+  Total Score    : 0.268448
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 3 mean_score=0.312033
+  ROC-AUC        : 0.864499
+  Net Profit     : 1900
+  Total Score    : 0.263163
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.835075
+  Net Profit     : 1900
+  Total Score    : 0.252318
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.900890
+  Net Profit     : 4000
+  Total Score    : 0.400445
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.866244
+  Net Profit     : 1900
+  Total Score    : 0.263792
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.887481
+  Net Profit     : 4000
+  Total Score    : 0.393691
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 4 mean_score=0.314682
+  ROC-AUC        : 0.855981
+  Net Profit     : 1900
+  Total Score    : 0.260070
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.840883
+  Net Profit     : 1900
+  Total Score    : 0.254495
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.902439
+  Net Profit     : 4000
+  Total Score    : 0.401218
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.864009
+  Net Profit     : 1900
+  Total Score    : 0.262986
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.883010
+  Net Profit     : 1900
+  Total Score    : 0.269763
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 5 mean_score=0.289706
+  ROC-AUC        : 0.862563
+  Net Profit     : 4000
+  Total Score    : 0.380822
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.826945
+  Net Profit     : 1900
+  Total Score    : 0.249238
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.896632
+  Net Profit     : 4000
+  Total Score    : 0.398312
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.867735
+  Net Profit     : 1900
+  Total Score    : 0.264329
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.881148
+  Net Profit     : 4000
+  Total Score    : 0.390460
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 6 mean_score=0.336632
+  ROC-AUC        : 0.855594
+  Net Profit     : 1900
+  Total Score    : 0.259929
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.826945
+  Net Profit     : 1900
+  Total Score    : 0.249238
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.902826
+  Net Profit     : 4000
+  Total Score    : 0.401411
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.862891
+  Net Profit     : 1900
+  Total Score    : 0.262582
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.883010
+  Net Profit     : 4000
+  Total Score    : 0.391413
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 7 mean_score=0.312914
+  ROC-AUC        : 0.864111
+  Net Profit     : 4000
+  Total Score    : 0.381634
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.826171
+  Net Profit     : 1900
+  Total Score    : 0.248943
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.895470
+  Net Profit     : 4000
+  Total Score    : 0.397729
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.863264
+  Net Profit     : 1900
+  Total Score    : 0.262717
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.878539
+  Net Profit     : 1900
+  Total Score    : 0.268184
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 8 mean_score=0.311841
+  ROC-AUC        : 0.859079
+  Net Profit     : 1900
+  Total Score    : 0.261199
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.838560
+  Net Profit     : 4000
+  Total Score    : 0.368000
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.890825
+  Net Profit     : 1900
+  Total Score    : 0.272501
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.864754
+  Net Profit     : 1900
+  Total Score    : 0.263255
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.880402
+  Net Profit     : 4000
+  Total Score    : 0.390078
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 9 mean_score=0.311007
+  ROC-AUC        : 0.864499
+  Net Profit     : 1900
+  Total Score    : 0.263163
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.845916
+  Net Profit     : 4000
+  Total Score    : 0.371976
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.909021
+  Net Profit     : 4000
+  Total Score    : 0.404485
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.874069
+  Net Profit     : 4000
+  Total Score    : 0.386817
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.887854
+  Net Profit     : 4000
+  Total Score    : 0.393880
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 10 mean_score=0.364064
+  ROC-AUC        : 0.865660
+  Net Profit     : 1900
+  Total Score    : 0.263582
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.847851
+  Net Profit     : 4000
+  Total Score    : 0.373015
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.907085
+  Net Profit     : 4000
+  Total Score    : 0.403527
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.873696
+  Net Profit     : 4000
+  Total Score    : 0.386624
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883383
+  Net Profit     : 4000
+  Total Score    : 0.391603
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 11 mean_score=0.363670
+  ROC-AUC        : 0.861014
+  Net Profit     : 1900
+  Total Score    : 0.261902
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.845141
+  Net Profit     : 4000
+  Total Score    : 0.371560
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.905536
+  Net Profit     : 4000
+  Total Score    : 0.402759
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.872206
+  Net Profit     : 4000
+  Total Score    : 0.385853
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.890462
+  Net Profit     : 4000
+  Total Score    : 0.395202
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 12 mean_score=0.363455
+  ROC-AUC        : 0.862950
+  Net Profit     : 1900
+  Total Score    : 0.262603
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.844754
+  Net Profit     : 4000
+  Total Score    : 0.371351
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.901278
+  Net Profit     : 4000
+  Total Score    : 0.400638
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.871833
+  Net Profit     : 1900
+  Total Score    : 0.265797
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.887481
+  Net Profit     : 4000
+  Total Score    : 0.393691
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 13 mean_score=0.338816
+  ROC-AUC        : 0.861789
+  Net Profit     : 1900
+  Total Score    : 0.262183
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.832365
+  Net Profit     : 1900
+  Total Score    : 0.251296
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.892373
+  Net Profit     : 4000
+  Total Score    : 0.396168
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.871088
+  Net Profit     : 4000
+  Total Score    : 0.385273
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885991
+  Net Profit     : 1900
+  Total Score    : 0.270810
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 14 mean_score=0.313146
+  ROC-AUC        : 0.863337
+  Net Profit     : 1900
+  Total Score    : 0.262743
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.847464
+  Net Profit     : 4000
+  Total Score    : 0.372808
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.900890
+  Net Profit     : 4000
+  Total Score    : 0.400445
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.862146
+  Net Profit     : 1900
+  Total Score    : 0.262312
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.884501
+  Net Profit     : 4000
+  Total Score    : 0.392174
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 15 mean_score=0.338096
+  ROC-AUC        : 0.859466
+  Net Profit     : 1900
+  Total Score    : 0.261340
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.845916
+  Net Profit     : 4000
+  Total Score    : 0.371976
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.905923
+  Net Profit     : 4000
+  Total Score    : 0.402951
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.864382
+  Net Profit     : 1900
+  Total Score    : 0.263121
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.887481
+  Net Profit     : 4000
+  Total Score    : 0.393691
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 16 mean_score=0.338616
+  ROC-AUC        : 0.859853
+  Net Profit     : 1900
+  Total Score    : 0.261480
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.837011
+  Net Profit     : 4000
+  Total Score    : 0.367157
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.894696
+  Net Profit     : 4000
+  Total Score    : 0.397339
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.868480
+  Net Profit     : 1900
+  Total Score    : 0.264596
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.885991
+  Net Profit     : 1900
+  Total Score    : 0.270810
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 17 mean_score=0.312277
+  ROC-AUC        : 0.866047
+  Net Profit     : 1900
+  Total Score    : 0.263721
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.840108
+  Net Profit     : 1900
+  Total Score    : 0.254206
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.901665
+  Net Profit     : 4000
+  Total Score    : 0.400832
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.866244
+  Net Profit     : 1900
+  Total Score    : 0.263792
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.888227
+  Net Profit     : 4000
+  Total Score    : 0.394069
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 18 mean_score=0.315324
+  ROC-AUC        : 0.860240
+  Net Profit     : 1900
+  Total Score    : 0.261621
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.830817
+  Net Profit     : 4000
+  Total Score    : 0.363767
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.897406
+  Net Profit     : 4000
+  Total Score    : 0.398701
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.868852
+  Net Profit     : 1900
+  Total Score    : 0.264730
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.885246
+  Net Profit     : 4000
+  Total Score    : 0.392554
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 19 mean_score=0.336275
+  ROC-AUC        : 0.864499
+  Net Profit     : 1900
+  Total Score    : 0.263163
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.838947
+  Net Profit     : 1900
+  Total Score    : 0.253771
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.900503
+  Net Profit     : 4000
+  Total Score    : 0.400252
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.867735
+  Net Profit     : 1900
+  Total Score    : 0.264329
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.889344
+  Net Profit     : 4000
+  Total Score    : 0.394636
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 20 mean_score=0.315230
+  ROC-AUC        : 0.864499
+  Net Profit     : 1900
+  Total Score    : 0.263163
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.842431
+  Net Profit     : 4000
+  Total Score    : 0.370098
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.903600
+  Net Profit     : 4000
+  Total Score    : 0.401796
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.874441
+  Net Profit     : 4000
+  Total Score    : 0.387010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.888599
+  Net Profit     : 4000
+  Total Score    : 0.394258
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 21 mean_score=0.363265
+  ROC-AUC        : 0.862563
+  Net Profit     : 1900
+  Total Score    : 0.262463
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.845528
+  Net Profit     : 4000
+  Total Score    : 0.371768
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.900503
+  Net Profit     : 4000
+  Total Score    : 0.400252
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.871833
+  Net Profit     : 4000
+  Total Score    : 0.385659
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883383
+  Net Profit     : 4000
+  Total Score    : 0.391603
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 22 mean_score=0.362349
+  ROC-AUC        : 0.859466
+  Net Profit     : 1900
+  Total Score    : 0.261340
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.843206
+  Net Profit     : 4000
+  Total Score    : 0.370516
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.900890
+  Net Profit     : 4000
+  Total Score    : 0.400445
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.872206
+  Net Profit     : 4000
+  Total Score    : 0.385853
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.891207
+  Net Profit     : 4000
+  Total Score    : 0.395579
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 23 mean_score=0.362747
+  ROC-AUC        : 0.863337
+  Net Profit     : 1900
+  Total Score    : 0.262743
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.843980
+  Net Profit     : 4000
+  Total Score    : 0.370934
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.898180
+  Net Profit     : 4000
+  Total Score    : 0.399089
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.871088
+  Net Profit     : 1900
+  Total Score    : 0.265531
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.884873
+  Net Profit     : 4000
+  Total Score    : 0.392364
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 24 mean_score=0.338132
+  ROC-AUC        : 0.859853
+  Net Profit     : 1900
+  Total Score    : 0.261480
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.845528
+  Net Profit     : 4000
+  Total Score    : 0.371768
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.905536
+  Net Profit     : 4000
+  Total Score    : 0.402759
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.873323
+  Net Profit     : 4000
+  Total Score    : 0.386432
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886736
+  Net Profit     : 4000
+  Total Score    : 0.393312
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 25 mean_score=0.363150
+  ROC-AUC        : 0.859079
+  Net Profit     : 1900
+  Total Score    : 0.261199
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.832753
+  Net Profit     : 4000
+  Total Score    : 0.364830
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.900503
+  Net Profit     : 4000
+  Total Score    : 0.400252
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.874814
+  Net Profit     : 1900
+  Total Score    : 0.266861
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.885246
+  Net Profit     : 4000
+  Total Score    : 0.392554
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 26 mean_score=0.337139
+  ROC-AUC        : 0.864886
+  Net Profit     : 1900
+  Total Score    : 0.263303
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.848238
+  Net Profit     : 4000
+  Total Score    : 0.373223
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.901278
+  Net Profit     : 4000
+  Total Score    : 0.400638
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.866244
+  Net Profit     : 4000
+  Total Score    : 0.382750
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886364
+  Net Profit     : 4000
+  Total Score    : 0.393123
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 27 mean_score=0.362607
+  ROC-AUC        : 0.857530
+  Net Profit     : 1900
+  Total Score    : 0.260635
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.835463
+  Net Profit     : 1900
+  Total Score    : 0.252464
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.900116
+  Net Profit     : 4000
+  Total Score    : 0.400058
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.866617
+  Net Profit     : 1900
+  Total Score    : 0.263927
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.884128
+  Net Profit     : 1900
+  Total Score    : 0.270156
+  Selected k     : 40 (Good=39, NG=1)
+[Optuna] Trial 28 mean_score=0.289448
+  ROC-AUC        : 0.850949
+  Net Profit     : 1900
+  Total Score    : 0.258225
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.834688
+  Net Profit     : 4000
+  Total Score    : 0.365890
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.893148
+  Net Profit     : 4000
+  Total Score    : 0.396559
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.869598
+  Net Profit     : 1900
+  Total Score    : 0.264997
+  Selected k     : 40 (Good=39, NG=1)
+  ROC-AUC        : 0.879657
+  Net Profit     : 4000
+  Total Score    : 0.389696
+  Selected k     : 40 (Good=40, NG=0)
+[Optuna] Trial 29 mean_score=0.335073
+[Main] Optuna best score : 0.364064
+[Main] Optuna best params: {'rf_n_estimators': 600, 'rf_max_depth': 4, 'et_n_estimators': 200, 'et_max_depth': 6, 'gb_n_estimators': 100, 'gb_learning_rate': 0.011885385888986787, 'gb_max_depth': 2, 'hist_max_depth': 16, 'hist_learning_rate': 0.033722724504792426, 'hist_max_iter': 100, 'svm_C': 0.14136343325646714}
+
+[Main] CV with best params (approx each val size: 144)
+
+===== Fold 1 (best params) =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.864499
+  Net Profit     : 1900
+  Total Score    : 0.263163
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 2 (best params) =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.845916
+  Net Profit     : 4000
+  Total Score    : 0.371976
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 3 (best params) =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.909021
+  Net Profit     : 4000
+  Total Score    : 0.404485
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 4 (best params) =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.874069
+  Net Profit     : 4000
+  Total Score    : 0.386817
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 5 (best params) =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.887854
+  Net Profit     : 4000
+  Total Score    : 0.393880
+  Selected k     : 40 (Good=40, NG=0)
+
+===== CV Summary (best params) =====
+ROC-AUC  mean/std : 0.876271 / 0.021315
+Profit   mean/std : 3580.00 / 840.00
+Score    mean/std : 0.364064 / 0.051545
+
+[Main] Test prob range: 0.0290 ~ 0.8686
+[Main] Saved submission to ../data/submission/ensemble_optuna_submission_20251127_143822.csv
+[Main] Total selected products: 340
