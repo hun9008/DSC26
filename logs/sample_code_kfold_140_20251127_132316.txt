@@ -1,0 +1,50 @@
+[Main] Start CV-based training
+
+========== Fold 1 ==========
+[Fold 1] Train size: 576
+[Fold 1] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.828107
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+
+========== Fold 2 ==========
+[Fold 2] Train size: 576
+[Fold 2] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.751839
+  Net Profit     : 4000
+  Total Score    : 0.317389
+  Selected k     : 40 (Good=40, NG=0)
+
+========== Fold 3 ==========
+[Fold 3] Train size: 576
+[Fold 3] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.797909
+  Net Profit     : 1900
+  Total Score    : 0.237913
+  Selected k     : 40 (Good=39, NG=1)
+
+========== Fold 4 ==========
+[Fold 4] Train size: 576
+[Fold 4] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.729881
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+
+========== Fold 5 ==========
+[Fold 5] Train size: 576
+[Fold 5] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.707899
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+
+===== Cross Validation Summary =====
+ROC-AUC  mean/std : 0.763127 / 0.044080
+Profit   mean/std : 220.00 / 2449.00
+Score    mean/std : 0.111060 / 0.138323
+
+[Main] Training final model on full training set
+[Main] Test prob range: 0.0269 ~ 0.6927
+[Main] Saved submission to ../data/submission/my_submission_20251127_132320.csv

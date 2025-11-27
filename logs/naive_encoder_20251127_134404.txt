@@ -1,0 +1,11 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train features (all) : (720, 798)
+[EncoderTrain] Test features  (all) : (466, 798)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] Basic feature dim (all tabular incl. x/y/p): 809
+[EncoderTrain] Preprocessed train features: (720, 809)
+[EncoderTrain] Epoch 1/1 Loss=0.6751
+[EncoderTrain] Saved encoder weights to: ../weight/naive_feature_encoder_20251127_134404.pth
+[EncoderTrain] Basic feature dim used: 809

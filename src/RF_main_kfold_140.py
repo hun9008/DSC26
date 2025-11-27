@@ -9,6 +9,7 @@ import torch
 from torch.utils.data import DataLoader
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
 from CNN_encoder import (
@@ -25,6 +26,7 @@ from util.eval import (
 )
 
 from util.logger import TeeLogger
+
 
 # ----------------------------------------------------
 # 5. Main Model (RandomForest 기반 이진 분류기)
@@ -107,42 +109,21 @@ class ProductionPipeline:
 
         return np.concatenate(all_features, axis=0)
 
-    # ---------------- Validation 인덱스 생성 (NG 15, Good 45) ----------------
+    # ---------------- Stratified K-Fold CV splits 생성 ----------------
     @staticmethod
-    def make_fixed_validation_indices(y_series, n_ng_val=15, n_good_val=45, seed=42):
-        rng = np.random.RandomState(seed)
+    def make_cv_splits(y_series, n_splits=5, base_seed=42):
+        """
+        StratifiedKFold를 사용하여 label 비율을 유지한 채
+        대략 len(y_series) / n_splits 개씩 validation을 만드는 함수.
+        """
         y = y_series.values
-        all_idx = np.arange(len(y))
-
-        ng_idx = all_idx[y == 1]
-        good_idx = all_idx[y == 0]
-
-        if len(ng_idx) < n_ng_val or len(good_idx) < n_good_val:
-            raise ValueError("Validation에 필요한 NG 또는 Good 샘플 수가 부족합니다.")
-
-        rng.shuffle(ng_idx)
-        rng.shuffle(good_idx)
-
-        val_ng_idx = ng_idx[:n_ng_val]
-        val_good_idx = good_idx[:n_good_val]
-
-        val_idx = np.concatenate([val_ng_idx, val_good_idx])
-        rng.shuffle(val_idx)
-
-        train_idx = np.setdiff1d(all_idx, val_idx)
-
-        return train_idx, val_idx
-
-    def make_cv_splits(self, y_series, n_splits=5, n_ng_val=15, n_good_val=45, base_seed=42):
+        skf = StratifiedKFold(
+            n_splits=n_splits,
+            shuffle=True,
+            random_state=base_seed
+        )
         splits = []
-        for fold in range(n_splits):
-            seed = base_seed + fold
-            train_idx, val_idx = self.make_fixed_validation_indices(
-                y_series,
-                n_ng_val=n_ng_val,
-                n_good_val=n_good_val,
-                seed=seed
-            )
+        for train_idx, val_idx in skf.split(np.zeros(len(y)), y):
             splits.append((train_idx, val_idx))
         return splits
 
@@ -200,12 +181,10 @@ class ProductionPipeline:
         print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
         print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")
 
-        # 9. Cross Validation
+        # 9. Cross Validation (Stratified K-Fold)
         cv_splits = self.make_cv_splits(
             train_Y_series,
             n_splits=self.n_cv_splits,
-            n_ng_val=15,
-            n_good_val=45,
             base_seed=42
         )
 
@@ -213,9 +192,10 @@ class ProductionPipeline:
         cv_profit_list = []
         cv_score_list = []
 
+        approx_val_size = len(train_Y_series) // self.n_cv_splits
         print(f"\n[Main] Cross Validation with {self.n_cv_splits} folds "
-              f"(each val: 60 samples, NG=15, Good=45)")
-        print(f"(k=15 선택, Task1/Task2 공식 기반 점수)")
+              f"(approx each val size: {approx_val_size})")
+        print(f"(calculate_competition_score 사용, 기본 k=15)")
 
         for fold_idx, (train_idx, val_idx) in enumerate(cv_splits):
             print(f"\n===== Fold {fold_idx + 1} =====")
@@ -235,7 +215,7 @@ class ProductionPipeline:
 
             val_prob_ng = model.predict_proba(X_val)[:, 1]
 
-            # 공통 평가 함수 사용
+            # 공통 평가 함수 사용 (k는 기본값 15 사용)
             roc, profit, score = calculate_competition_score(
                 y_true=y_val,
                 y_prob=val_prob_ng,
@@ -245,7 +225,7 @@ class ProductionPipeline:
             cv_profit_list.append(profit)
             cv_score_list.append(score)
 
-        print("\n===== CV Summary (k=15, NG15/Good45) =====")
+        print("\n===== CV Summary (StratifiedKFold, approx val~146) =====")
         print(f"ROC-AUC  mean/std : {np.mean(cv_roc_list):.6f} / {np.std(cv_roc_list):.6f}")
         print(f"Profit   mean/std : {np.mean(cv_profit_list):.2f} / {np.std(cv_profit_list):.2f}")
         print(f"Score    mean/std : {np.mean(cv_score_list):.6f} / {np.std(cv_score_list):.6f}")
@@ -269,6 +249,7 @@ class ProductionPipeline:
         idx_L_sub = submission.index[:half_sub]
         idx_P_sub = submission.index[half_sub:]
 
+        # 여기서는 기존 로직 유지 (L/P 각각 170개 선택)
         decision_id_L_list = submission.loc[idx_L_sub].sort_values(
             'probability', ascending=True
         ).iloc[:170]['ID']
@@ -304,6 +285,7 @@ def main():
     )
     submission_result = pipeline.run_production_pipeline()
 
+        # 간단 확인용 출력
     print("\nSubmission head:")
     print(submission_result.head())
     print("\nSubmission tail:")

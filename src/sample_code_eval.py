@@ -54,9 +54,6 @@ train_pred = model.predict_proba(preprocess(train_X))[:, 1]
 roc_auc, total_net_profit, total_score = calculate_competition_score(
                 y_true=train_Y.values,
                 y_prob=train_pred,
-                k=15,
-                profit_good=100,
-                cost_ng=2000
             )
 
 print(f"ROC-AUC Score        : {roc_auc:.6f}")

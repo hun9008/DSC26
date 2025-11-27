@@ -1,0 +1,66 @@
+[Main] Start Production Pipeline (MLP-only encoder)
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train features (all) : (720, 798)
+[EncoderTrain] Test features  (all) : (466, 798)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] Basic feature dim (all tabular incl. x/y/p): 809
+[Main] Processed basic features (Train): (720, 809)
+[Main] Processed basic features (Test) : (466, 809)
+[Main] Loaded encoder weights from ../weight/naive_feature_encoder_20251127_134404.pth
+[Main] Encoded features (Train): (720, 64)
+[Main] Encoded features (Test) : (466, 64)
+[Main] Hybrid features (Train): (720, 873)
+[Main] Hybrid features (Test) : (466, 873)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.789199
+  Net Profit     : 1900
+  Total Score    : 0.234409
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.761711
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.716415
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.755775
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.625745
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+
+===== CV Summary (StratifiedKFold, approx val~146) =====
+ROC-AUC  mean/std : 0.729769 / 0.056970
+Profit   mean/std : -1460.00 / 2520.00
+Score    mean/std : 0.046882 / 0.093764
+
+[Main] Test prob range: 0.0000 ~ 0.7350
+[Main] Saved submission to ../data/submission/CNN_RF_kfold_140_naive_encoder_submission_20251127_135632.csv
+[Main] Total selected products: 340

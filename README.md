@@ -116,9 +116,10 @@ sys.stdout = sys.__stdout__
 print(f"[Main] Log saved to: {logger.log_path}")
 ```
 
-## baseline
+## baseline_140
 
 | file | details | ROC-AUC | Net Profit | Total Score | Submission Score |
 | --- | --- | --- | --- | --- | --- |
-| sample_code_eval.py | basecode | 0.937034 | 1500 | 0.256269 | 0.34052 |
-| RF_main.py | CNN + RandomForest | 0.836593 | -180 | 0.138163 | 0.41330 |
+| sample_code_eval.py | basecode | 0.763127 | 220 | 0.111060 | 0.34052 |
+| RF_main.py | CNN + RandomForest | 0.854064 | 2320 | 0.283572 | 0.41330 |
+| RF_main_k_fold_140_naive_encoder | MLP + RandomForest | 0.729769 | -1460 | 0.046882 | 0.24494 |

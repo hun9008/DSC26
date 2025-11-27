@@ -88,11 +88,12 @@ def evaluate_score_general(
 def calculate_competition_score(
     y_true,
     y_prob,
-    k=15,
+    k=40,
     profit_good=100,
     cost_ng=2000
 ):
     """
+    266 + 467(test) = 733 (train)
     validation 60개 기준의 간이 평가 함수
     - y_true: NG=1, Good=0
     - NG 확률이 가장 낮은 k개를 decision=True 로 선택
