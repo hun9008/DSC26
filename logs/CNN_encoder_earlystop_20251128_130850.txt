@@ -1,0 +1,19 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[EncoderTrain] Epoch 1/100 TrainLoss=0.6777 ValLoss=0.6193
+[EncoderTrain]  ✓ Best val loss updated: 0.6193
+[EncoderTrain] Epoch 2/100 TrainLoss=0.6122 ValLoss=0.5194
+[EncoderTrain]  ✓ Best val loss updated: 0.5194
+[EncoderTrain] Epoch 3/100 TrainLoss=0.5928 ValLoss=0.6218
+[EncoderTrain]  ↳ No improvement. patience=1/10
+[EncoderTrain] Epoch 4/100 TrainLoss=0.5750 ValLoss=0.5667
+[EncoderTrain]  ↳ No improvement. patience=2/10
+[EncoderTrain] Epoch 5/100 TrainLoss=0.5295 ValLoss=0.5438
+[EncoderTrain]  ↳ No improvement. patience=3/10
