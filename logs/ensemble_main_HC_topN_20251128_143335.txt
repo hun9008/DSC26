@@ -1,0 +1,2528 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 137)
+[Main] Hybrid features (Test) : (466, 137)
+[MainModel] Total base models: 26
+[Main] Base models (26): ['RF_depth8_ne500', 'RF_depth10_ne400', 'RF_depthNone_ne300', 'RF_depth6_ne600', 'ET_depthNone_ne500', 'ET_depth12_ne400', 'ET_depth8_ne600', 'GB_lr005_depth3_ne200', 'GB_lr01_depth3_ne150', 'GB_lr003_depth4_ne250', 'HGB_lr005_depth10_iter300', 'HGB_lr01_depth8_iter200', 'HGB_lr003_depth12_iter400', 'SVM_rbf_C1_gammaScale', 'SVM_rbf_C3_gammaScale', 'SVM_rbf_C1_gammaAuto', 'SVM_poly_C1_deg3', 'XGB_hist_lr005_depth6_ne400', 'XGB_hist_lr01_depth5_ne300', 'CatBoost_lr005_depth6_ne400', 'CatBoost_lr01_depth4_ne300', 'AdaBoost_stump_ne300', 'Bagging_DT_depth5_ne200', 'Bagging_SVC_rbf_C1', 'LogReg_l2_C1', 'MLP_2layer_64_32']
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[MainModel] Total base models: 26
+[MainModel] Fitting RF_depth8_ne500 ...
+[MainModel] Fitting RF_depth10_ne400 ...
+[MainModel] Fitting RF_depthNone_ne300 ...
+[MainModel] Fitting RF_depth6_ne600 ...
+[MainModel] Fitting ET_depthNone_ne500 ...
+[MainModel] Fitting ET_depth12_ne400 ...
+[MainModel] Fitting ET_depth8_ne600 ...
+[MainModel] Fitting GB_lr005_depth3_ne200 ...
+[MainModel] Fitting GB_lr01_depth3_ne150 ...
+[MainModel] Fitting GB_lr003_depth4_ne250 ...
+[MainModel] Fitting HGB_lr005_depth10_iter300 ...
+[MainModel] Fitting HGB_lr01_depth8_iter200 ...
+[MainModel] Fitting HGB_lr003_depth12_iter400 ...
+[MainModel] Fitting SVM_rbf_C1_gammaScale ...
+[MainModel] Fitting SVM_rbf_C3_gammaScale ...
+[MainModel] Fitting SVM_rbf_C1_gammaAuto ...
+[MainModel] Fitting SVM_poly_C1_deg3 ...
+[MainModel] Fitting XGB_hist_lr005_depth6_ne400 ...
+[MainModel] Fitting XGB_hist_lr01_depth5_ne300 ...
+[MainModel] Fitting CatBoost_lr005_depth6_ne400 ...
+[MainModel] Fitting CatBoost_lr01_depth4_ne300 ...
+[MainModel] Fitting AdaBoost_stump_ne300 ...
+[MainModel] Fitting Bagging_DT_depth5_ne200 ...
+[MainModel] Fitting Bagging_SVC_rbf_C1 ...
+[MainModel] Fitting LogReg_l2_C1 ...
+[MainModel] Fitting MLP_2layer_64_32 ...
+  ROC-AUC        : 0.854820
+  Net Profit     : 4000
+  Total Score    : 0.376733
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 1] RF_depth8_ne500           ROC=0.854820 Profit=4000.00 Score=0.376733
+  ROC-AUC        : 0.862950
+  Net Profit     : 4000
+  Total Score    : 0.381025
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 1] RF_depth10_ne400          ROC=0.862950 Profit=4000.00 Score=0.381025
+  ROC-AUC        : 0.867596
+  Net Profit     : 1900
+  Total Score    : 0.264279
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] RF_depthNone_ne300        ROC=0.867596 Profit=1900.00 Score=0.264279
+  ROC-AUC        : 0.855594
+  Net Profit     : 1900
+  Total Score    : 0.259929
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] RF_depth6_ne600           ROC=0.855594 Profit=1900.00 Score=0.259929
+  ROC-AUC        : 0.849400
+  Net Profit     : 4000
+  Total Score    : 0.373845
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 1] ET_depthNone_ne500        ROC=0.849400 Profit=4000.00 Score=0.373845
+  ROC-AUC        : 0.850174
+  Net Profit     : 4000
+  Total Score    : 0.374259
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 1] ET_depth12_ne400          ROC=0.850174 Profit=4000.00 Score=0.374259
+  ROC-AUC        : 0.854046
+  Net Profit     : 1900
+  Total Score    : 0.259362
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] ET_depth8_ne600           ROC=0.854046 Profit=1900.00 Score=0.259362
+  ROC-AUC        : 0.817267
+  Net Profit     : 1900
+  Total Score    : 0.245521
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] GB_lr005_depth3_ne200     ROC=0.817267 Profit=1900.00 Score=0.245521
+  ROC-AUC        : 0.820364
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] GB_lr01_depth3_ne150      ROC=0.820364 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.818041
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] GB_lr003_depth4_ne250     ROC=0.818041 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.821138
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] HGB_lr005_depth10_iter300 ROC=0.821138 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.813395
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] HGB_lr01_depth8_iter200   ROC=0.813395 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.828881
+  Net Profit     : 1900
+  Total Score    : 0.249975
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] HGB_lr003_depth12_iter400 ROC=0.828881 Profit=1900.00 Score=0.249975
+  ROC-AUC        : 0.869919
+  Net Profit     : 1900
+  Total Score    : 0.265112
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] SVM_rbf_C1_gammaScale     ROC=0.869919 Profit=1900.00 Score=0.265112
+  ROC-AUC        : 0.870306
+  Net Profit     : 1900
+  Total Score    : 0.265251
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] SVM_rbf_C3_gammaScale     ROC=0.870306 Profit=1900.00 Score=0.265251
+  ROC-AUC        : 0.841657
+  Net Profit     : 1900
+  Total Score    : 0.254784
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] SVM_rbf_C1_gammaAuto      ROC=0.841657 Profit=1900.00 Score=0.254784
+  ROC-AUC        : 0.872629
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] SVM_poly_C1_deg3          ROC=0.872629 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.818815
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] XGB_hist_lr005_depth6_ne400 ROC=0.818815 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.826945
+  Net Profit     : 1900
+  Total Score    : 0.249238
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] XGB_hist_lr01_depth5_ne300 ROC=0.826945 Profit=1900.00 Score=0.249238
+  ROC-AUC        : 0.846303
+  Net Profit     : 1900
+  Total Score    : 0.256510
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] CatBoost_lr005_depth6_ne400 ROC=0.846303 Profit=1900.00 Score=0.256510
+  ROC-AUC        : 0.835463
+  Net Profit     : 1900
+  Total Score    : 0.252464
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] CatBoost_lr01_depth4_ne300 ROC=0.835463 Profit=1900.00 Score=0.252464
+  ROC-AUC        : 0.856949
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] AdaBoost_stump_ne300      ROC=0.856949 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.866434
+  Net Profit     : 1900
+  Total Score    : 0.263861
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] Bagging_DT_depth5_ne200   ROC=0.866434 Profit=1900.00 Score=0.263861
+  ROC-AUC        : 0.870693
+  Net Profit     : 1900
+  Total Score    : 0.265390
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] Bagging_SVC_rbf_C1        ROC=0.870693 Profit=1900.00 Score=0.265390
+  ROC-AUC        : 0.853659
+  Net Profit     : 1900
+  Total Score    : 0.259220
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] LogReg_l2_C1              ROC=0.853659 Profit=1900.00 Score=0.259220
+  ROC-AUC        : 0.881920
+  Net Profit     : 1900
+  Total Score    : 0.269379
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] MLP_2layer_64_32          ROC=0.881920 Profit=1900.00 Score=0.269379
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[MainModel] Total base models: 26
+[MainModel] Fitting RF_depth8_ne500 ...
+[MainModel] Fitting RF_depth10_ne400 ...
+[MainModel] Fitting RF_depthNone_ne300 ...
+[MainModel] Fitting RF_depth6_ne600 ...
+[MainModel] Fitting ET_depthNone_ne500 ...
+[MainModel] Fitting ET_depth12_ne400 ...
+[MainModel] Fitting ET_depth8_ne600 ...
+[MainModel] Fitting GB_lr005_depth3_ne200 ...
+[MainModel] Fitting GB_lr01_depth3_ne150 ...
+[MainModel] Fitting GB_lr003_depth4_ne250 ...
+[MainModel] Fitting HGB_lr005_depth10_iter300 ...
+[MainModel] Fitting HGB_lr01_depth8_iter200 ...
+[MainModel] Fitting HGB_lr003_depth12_iter400 ...
+[MainModel] Fitting SVM_rbf_C1_gammaScale ...
+[MainModel] Fitting SVM_rbf_C3_gammaScale ...
+[MainModel] Fitting SVM_rbf_C1_gammaAuto ...
+[MainModel] Fitting SVM_poly_C1_deg3 ...
+[MainModel] Fitting XGB_hist_lr005_depth6_ne400 ...
+[MainModel] Fitting XGB_hist_lr01_depth5_ne300 ...
+[MainModel] Fitting CatBoost_lr005_depth6_ne400 ...
+[MainModel] Fitting CatBoost_lr01_depth4_ne300 ...
+[MainModel] Fitting AdaBoost_stump_ne300 ...
+[MainModel] Fitting Bagging_DT_depth5_ne200 ...
+[MainModel] Fitting Bagging_SVC_rbf_C1 ...
+[MainModel] Fitting LogReg_l2_C1 ...
+[MainModel] Fitting MLP_2layer_64_32 ...
+  ROC-AUC        : 0.828107
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 2] RF_depth8_ne500           ROC=0.828107 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.842044
+  Net Profit     : 1900
+  Total Score    : 0.254928
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] RF_depth10_ne400          ROC=0.842044 Profit=1900.00 Score=0.254928
+  ROC-AUC        : 0.833140
+  Net Profit     : 1900
+  Total Score    : 0.251588
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] RF_depthNone_ne300        ROC=0.833140 Profit=1900.00 Score=0.251588
+  ROC-AUC        : 0.836237
+  Net Profit     : 4000
+  Total Score    : 0.366735
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] RF_depth6_ne600           ROC=0.836237 Profit=4000.00 Score=0.366735
+  ROC-AUC        : 0.807975
+  Net Profit     : 1900
+  Total Score    : 0.241899
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] ET_depthNone_ne500        ROC=0.807975 Profit=1900.00 Score=0.241899
+  ROC-AUC        : 0.814944
+  Net Profit     : 4000
+  Total Score    : 0.354933
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] ET_depth12_ne400          ROC=0.814944 Profit=4000.00 Score=0.354933
+  ROC-AUC        : 0.825010
+  Net Profit     : 1900
+  Total Score    : 0.248499
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] ET_depth8_ne600           ROC=0.825010 Profit=1900.00 Score=0.248499
+  ROC-AUC        : 0.850561
+  Net Profit     : 4000
+  Total Score    : 0.374466
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] GB_lr005_depth3_ne200     ROC=0.850561 Profit=4000.00 Score=0.374466
+  ROC-AUC        : 0.843206
+  Net Profit     : 4000
+  Total Score    : 0.370516
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] GB_lr01_depth3_ne150      ROC=0.843206 Profit=4000.00 Score=0.370516
+  ROC-AUC        : 0.840108
+  Net Profit     : 4000
+  Total Score    : 0.368841
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] GB_lr003_depth4_ne250     ROC=0.840108 Profit=4000.00 Score=0.368841
+  ROC-AUC        : 0.804491
+  Net Profit     : 4000
+  Total Score    : 0.348993
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] HGB_lr005_depth10_iter300 ROC=0.804491 Profit=4000.00 Score=0.348993
+  ROC-AUC        : 0.788231
+  Net Profit     : 1900
+  Total Score    : 0.234017
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] HGB_lr01_depth8_iter200   ROC=0.788231 Profit=1900.00 Score=0.234017
+  ROC-AUC        : 0.821138
+  Net Profit     : 1900
+  Total Score    : 0.247015
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] HGB_lr003_depth12_iter400 ROC=0.821138 Profit=1900.00 Score=0.247015
+  ROC-AUC        : 0.854433
+  Net Profit     : 4000
+  Total Score    : 0.376528
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] SVM_rbf_C1_gammaScale     ROC=0.854433 Profit=4000.00 Score=0.376528
+  ROC-AUC        : 0.854433
+  Net Profit     : 4000
+  Total Score    : 0.376528
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] SVM_rbf_C3_gammaScale     ROC=0.854433 Profit=4000.00 Score=0.376528
+  ROC-AUC        : 0.781262
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[Fold 2] SVM_rbf_C1_gammaAuto      ROC=0.781262 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.854433
+  Net Profit     : 4000
+  Total Score    : 0.376528
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] SVM_poly_C1_deg3          ROC=0.854433 Profit=4000.00 Score=0.376528
+  ROC-AUC        : 0.796748
+  Net Profit     : 4000
+  Total Score    : 0.344527
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] XGB_hist_lr005_depth6_ne400 ROC=0.796748 Profit=4000.00 Score=0.344527
+  ROC-AUC        : 0.787844
+  Net Profit     : 4000
+  Total Score    : 0.339319
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] XGB_hist_lr01_depth5_ne300 ROC=0.787844 Profit=4000.00 Score=0.339319
+  ROC-AUC        : 0.833140
+  Net Profit     : 1900
+  Total Score    : 0.251588
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] CatBoost_lr005_depth6_ne400 ROC=0.833140 Profit=1900.00 Score=0.251588
+  ROC-AUC        : 0.820751
+  Net Profit     : 1900
+  Total Score    : 0.246866
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] CatBoost_lr01_depth4_ne300 ROC=0.820751 Profit=1900.00 Score=0.246866
+  ROC-AUC        : 0.800813
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 2] AdaBoost_stump_ne300      ROC=0.800813 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.822300
+  Net Profit     : 1900
+  Total Score    : 0.247461
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] Bagging_DT_depth5_ne200   ROC=0.822300 Profit=1900.00 Score=0.247461
+  ROC-AUC        : 0.857917
+  Net Profit     : 4000
+  Total Score    : 0.378374
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] Bagging_SVC_rbf_C1        ROC=0.857917 Profit=4000.00 Score=0.378374
+  ROC-AUC        : 0.793651
+  Net Profit     : 4000
+  Total Score    : 0.342725
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] LogReg_l2_C1              ROC=0.793651 Profit=4000.00 Score=0.342725
+  ROC-AUC        : 0.818041
+  Net Profit     : 4000
+  Total Score    : 0.356674
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] MLP_2layer_64_32          ROC=0.818041 Profit=4000.00 Score=0.356674
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[MainModel] Total base models: 26
+[MainModel] Fitting RF_depth8_ne500 ...
+[MainModel] Fitting RF_depth10_ne400 ...
+[MainModel] Fitting RF_depthNone_ne300 ...
+[MainModel] Fitting RF_depth6_ne600 ...
+[MainModel] Fitting ET_depthNone_ne500 ...
+[MainModel] Fitting ET_depth12_ne400 ...
+[MainModel] Fitting ET_depth8_ne600 ...
+[MainModel] Fitting GB_lr005_depth3_ne200 ...
+[MainModel] Fitting GB_lr01_depth3_ne150 ...
+[MainModel] Fitting GB_lr003_depth4_ne250 ...
+[MainModel] Fitting HGB_lr005_depth10_iter300 ...
+[MainModel] Fitting HGB_lr01_depth8_iter200 ...
+[MainModel] Fitting HGB_lr003_depth12_iter400 ...
+[MainModel] Fitting SVM_rbf_C1_gammaScale ...
+[MainModel] Fitting SVM_rbf_C3_gammaScale ...
+[MainModel] Fitting SVM_rbf_C1_gammaAuto ...
+[MainModel] Fitting SVM_poly_C1_deg3 ...
+[MainModel] Fitting XGB_hist_lr005_depth6_ne400 ...
+[MainModel] Fitting XGB_hist_lr01_depth5_ne300 ...
+[MainModel] Fitting CatBoost_lr005_depth6_ne400 ...
+[MainModel] Fitting CatBoost_lr01_depth4_ne300 ...
+[MainModel] Fitting AdaBoost_stump_ne300 ...
+[MainModel] Fitting Bagging_DT_depth5_ne200 ...
+[MainModel] Fitting Bagging_SVC_rbf_C1 ...
+[MainModel] Fitting LogReg_l2_C1 ...
+[MainModel] Fitting MLP_2layer_64_32 ...
+  ROC-AUC        : 0.884243
+  Net Profit     : 4000
+  Total Score    : 0.392042
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] RF_depth8_ne500           ROC=0.884243 Profit=4000.00 Score=0.392042
+  ROC-AUC        : 0.887340
+  Net Profit     : 4000
+  Total Score    : 0.393619
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] RF_depth10_ne400          ROC=0.887340 Profit=4000.00 Score=0.393619
+  ROC-AUC        : 0.882307
+  Net Profit     : 4000
+  Total Score    : 0.391054
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] RF_depthNone_ne300        ROC=0.882307 Profit=4000.00 Score=0.391054
+  ROC-AUC        : 0.890437
+  Net Profit     : 4000
+  Total Score    : 0.395190
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] RF_depth6_ne600           ROC=0.890437 Profit=4000.00 Score=0.395190
+  ROC-AUC        : 0.874371
+  Net Profit     : 1900
+  Total Score    : 0.266703
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] ET_depthNone_ne500        ROC=0.874371 Profit=1900.00 Score=0.266703
+  ROC-AUC        : 0.895858
+  Net Profit     : 4000
+  Total Score    : 0.397923
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] ET_depth12_ne400          ROC=0.895858 Profit=4000.00 Score=0.397923
+  ROC-AUC        : 0.888502
+  Net Profit     : 1900
+  Total Score    : 0.271690
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] ET_depth8_ne600           ROC=0.888502 Profit=1900.00 Score=0.271690
+  ROC-AUC        : 0.843980
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] GB_lr005_depth3_ne200     ROC=0.843980 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.861789
+  Net Profit     : 1900
+  Total Score    : 0.262183
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] GB_lr01_depth3_ne150      ROC=0.861789 Profit=1900.00 Score=0.262183
+  ROC-AUC        : 0.866434
+  Net Profit     : 1900
+  Total Score    : 0.263861
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] GB_lr003_depth4_ne250     ROC=0.866434 Profit=1900.00 Score=0.263861
+  ROC-AUC        : 0.855207
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] HGB_lr005_depth10_iter300 ROC=0.855207 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.845916
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] HGB_lr01_depth8_iter200   ROC=0.845916 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.857917
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] HGB_lr003_depth12_iter400 ROC=0.857917 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.921796
+  Net Profit     : 4000
+  Total Score    : 0.410754
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] SVM_rbf_C1_gammaScale     ROC=0.921796 Profit=4000.00 Score=0.410754
+  ROC-AUC        : 0.922184
+  Net Profit     : 4000
+  Total Score    : 0.410942
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] SVM_rbf_C3_gammaScale     ROC=0.922184 Profit=4000.00 Score=0.410942
+  ROC-AUC        : 0.828881
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] SVM_rbf_C1_gammaAuto      ROC=0.828881 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.921022
+  Net Profit     : 4000
+  Total Score    : 0.410376
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] SVM_poly_C1_deg3          ROC=0.921022 Profit=4000.00 Score=0.410376
+  ROC-AUC        : 0.862563
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] XGB_hist_lr005_depth6_ne400 ROC=0.862563 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.864499
+  Net Profit     : 1900
+  Total Score    : 0.263163
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] XGB_hist_lr01_depth5_ne300 ROC=0.864499 Profit=1900.00 Score=0.263163
+  ROC-AUC        : 0.873016
+  Net Profit     : 1900
+  Total Score    : 0.266220
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] CatBoost_lr005_depth6_ne400 ROC=0.873016 Profit=1900.00 Score=0.266220
+  ROC-AUC        : 0.846690
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] CatBoost_lr01_depth4_ne300 ROC=0.846690 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.900310
+  Net Profit     : 4000
+  Total Score    : 0.400155
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] AdaBoost_stump_ne300      ROC=0.900310 Profit=4000.00 Score=0.400155
+  ROC-AUC        : 0.881533
+  Net Profit     : 4000
+  Total Score    : 0.390657
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] Bagging_DT_depth5_ne200   ROC=0.881533 Profit=4000.00 Score=0.390657
+  ROC-AUC        : 0.922184
+  Net Profit     : 4000
+  Total Score    : 0.410942
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] Bagging_SVC_rbf_C1        ROC=0.922184 Profit=4000.00 Score=0.410942
+  ROC-AUC        : 0.900116
+  Net Profit     : 4000
+  Total Score    : 0.400058
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] LogReg_l2_C1              ROC=0.900116 Profit=4000.00 Score=0.400058
+  ROC-AUC        : 0.881533
+  Net Profit     : 1900
+  Total Score    : 0.269242
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] MLP_2layer_64_32          ROC=0.881533 Profit=1900.00 Score=0.269242
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+[MainModel] Total base models: 26
+[MainModel] Fitting RF_depth8_ne500 ...
+[MainModel] Fitting RF_depth10_ne400 ...
+[MainModel] Fitting RF_depthNone_ne300 ...
+[MainModel] Fitting RF_depth6_ne600 ...
+[MainModel] Fitting ET_depthNone_ne500 ...
+[MainModel] Fitting ET_depth12_ne400 ...
+[MainModel] Fitting ET_depth8_ne600 ...
+[MainModel] Fitting GB_lr005_depth3_ne200 ...
+[MainModel] Fitting GB_lr01_depth3_ne150 ...
+[MainModel] Fitting GB_lr003_depth4_ne250 ...
+[MainModel] Fitting HGB_lr005_depth10_iter300 ...
+[MainModel] Fitting HGB_lr01_depth8_iter200 ...
+[MainModel] Fitting HGB_lr003_depth12_iter400 ...
+[MainModel] Fitting SVM_rbf_C1_gammaScale ...
+[MainModel] Fitting SVM_rbf_C3_gammaScale ...
+[MainModel] Fitting SVM_rbf_C1_gammaAuto ...
+[MainModel] Fitting SVM_poly_C1_deg3 ...
+[MainModel] Fitting XGB_hist_lr005_depth6_ne400 ...
+[MainModel] Fitting XGB_hist_lr01_depth5_ne300 ...
+[MainModel] Fitting CatBoost_lr005_depth6_ne400 ...
+[MainModel] Fitting CatBoost_lr01_depth4_ne300 ...
+[MainModel] Fitting AdaBoost_stump_ne300 ...
+[MainModel] Fitting Bagging_DT_depth5_ne200 ...
+[MainModel] Fitting Bagging_SVC_rbf_C1 ...
+[MainModel] Fitting LogReg_l2_C1 ...
+[MainModel] Fitting MLP_2layer_64_32 ...
+  ROC-AUC        : 0.852832
+  Net Profit     : 1900
+  Total Score    : 0.258917
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] RF_depth8_ne500           ROC=0.852832 Profit=1900.00 Score=0.258917
+  ROC-AUC        : 0.851714
+  Net Profit     : 1900
+  Total Score    : 0.258507
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] RF_depth10_ne400          ROC=0.851714 Profit=1900.00 Score=0.258507
+  ROC-AUC        : 0.841654
+  Net Profit     : 1900
+  Total Score    : 0.254783
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] RF_depthNone_ne300        ROC=0.841654 Profit=1900.00 Score=0.254783
+  ROC-AUC        : 0.857675
+  Net Profit     : 1900
+  Total Score    : 0.260688
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] RF_depth6_ne600           ROC=0.857675 Profit=1900.00 Score=0.260688
+  ROC-AUC        : 0.845380
+  Net Profit     : 1900
+  Total Score    : 0.256168
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] ET_depthNone_ne500        ROC=0.845380 Profit=1900.00 Score=0.256168
+  ROC-AUC        : 0.864382
+  Net Profit     : 1900
+  Total Score    : 0.263121
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] ET_depth12_ne400          ROC=0.864382 Profit=1900.00 Score=0.263121
+  ROC-AUC        : 0.857675
+  Net Profit     : 1900
+  Total Score    : 0.260688
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] ET_depth8_ne600           ROC=0.857675 Profit=1900.00 Score=0.260688
+  ROC-AUC        : 0.856557
+  Net Profit     : 1900
+  Total Score    : 0.260280
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] GB_lr005_depth3_ne200     ROC=0.856557 Profit=1900.00 Score=0.260280
+  ROC-AUC        : 0.850969
+  Net Profit     : 1900
+  Total Score    : 0.258233
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] GB_lr01_depth3_ne150      ROC=0.850969 Profit=1900.00 Score=0.258233
+  ROC-AUC        : 0.863636
+  Net Profit     : 1900
+  Total Score    : 0.262851
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] GB_lr003_depth4_ne250     ROC=0.863636 Profit=1900.00 Score=0.262851
+  ROC-AUC        : 0.887481
+  Net Profit     : 1900
+  Total Score    : 0.271333
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] HGB_lr005_depth10_iter300 ROC=0.887481 Profit=1900.00 Score=0.271333
+  ROC-AUC        : 0.874814
+  Net Profit     : 1900
+  Total Score    : 0.266861
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] HGB_lr01_depth8_iter200   ROC=0.874814 Profit=1900.00 Score=0.266861
+  ROC-AUC        : 0.886736
+  Net Profit     : 1900
+  Total Score    : 0.271072
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] HGB_lr003_depth12_iter400 ROC=0.886736 Profit=1900.00 Score=0.271072
+  ROC-AUC        : 0.889717
+  Net Profit     : 4000
+  Total Score    : 0.394825
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] SVM_rbf_C1_gammaScale     ROC=0.889717 Profit=4000.00 Score=0.394825
+  ROC-AUC        : 0.889344
+  Net Profit     : 4000
+  Total Score    : 0.394636
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] SVM_rbf_C3_gammaScale     ROC=0.889344 Profit=4000.00 Score=0.394636
+  ROC-AUC        : 0.773100
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[Fold 4] SVM_rbf_C1_gammaAuto      ROC=0.773100 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.889344
+  Net Profit     : 4000
+  Total Score    : 0.394636
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] SVM_poly_C1_deg3          ROC=0.889344 Profit=4000.00 Score=0.394636
+  ROC-AUC        : 0.881520
+  Net Profit     : 4000
+  Total Score    : 0.390651
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] XGB_hist_lr005_depth6_ne400 ROC=0.881520 Profit=4000.00 Score=0.390651
+  ROC-AUC        : 0.864382
+  Net Profit     : 1900
+  Total Score    : 0.263121
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] XGB_hist_lr01_depth5_ne300 ROC=0.864382 Profit=1900.00 Score=0.263121
+  ROC-AUC        : 0.875931
+  Net Profit     : 4000
+  Total Score    : 0.387779
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] CatBoost_lr005_depth6_ne400 ROC=0.875931 Profit=4000.00 Score=0.387779
+  ROC-AUC        : 0.866617
+  Net Profit     : 4000
+  Total Score    : 0.382945
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] CatBoost_lr01_depth4_ne300 ROC=0.866617 Profit=4000.00 Score=0.382945
+  ROC-AUC        : 0.859165
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 4] AdaBoost_stump_ne300      ROC=0.859165 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.855067
+  Net Profit     : 1900
+  Total Score    : 0.259736
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 4] Bagging_DT_depth5_ne200   ROC=0.855067 Profit=1900.00 Score=0.259736
+  ROC-AUC        : 0.896796
+  Net Profit     : 4000
+  Total Score    : 0.398395
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] Bagging_SVC_rbf_C1        ROC=0.896796 Profit=4000.00 Score=0.398395
+  ROC-AUC        : 0.902385
+  Net Profit     : 4000
+  Total Score    : 0.401190
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] LogReg_l2_C1              ROC=0.902385 Profit=4000.00 Score=0.401190
+  ROC-AUC        : 0.897541
+  Net Profit     : 4000
+  Total Score    : 0.398769
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] MLP_2layer_64_32          ROC=0.897541 Profit=4000.00 Score=0.398769
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+[MainModel] Total base models: 26
+[MainModel] Fitting RF_depth8_ne500 ...
+[MainModel] Fitting RF_depth10_ne400 ...
+[MainModel] Fitting RF_depthNone_ne300 ...
+[MainModel] Fitting RF_depth6_ne600 ...
+[MainModel] Fitting ET_depthNone_ne500 ...
+[MainModel] Fitting ET_depth12_ne400 ...
+[MainModel] Fitting ET_depth8_ne600 ...
+[MainModel] Fitting GB_lr005_depth3_ne200 ...
+[MainModel] Fitting GB_lr01_depth3_ne150 ...
+[MainModel] Fitting GB_lr003_depth4_ne250 ...
+[MainModel] Fitting HGB_lr005_depth10_iter300 ...
+[MainModel] Fitting HGB_lr01_depth8_iter200 ...
+[MainModel] Fitting HGB_lr003_depth12_iter400 ...
+[MainModel] Fitting SVM_rbf_C1_gammaScale ...
+[MainModel] Fitting SVM_rbf_C3_gammaScale ...
+[MainModel] Fitting SVM_rbf_C1_gammaAuto ...
+[MainModel] Fitting SVM_poly_C1_deg3 ...
+[MainModel] Fitting XGB_hist_lr005_depth6_ne400 ...
+[MainModel] Fitting XGB_hist_lr01_depth5_ne300 ...
+[MainModel] Fitting CatBoost_lr005_depth6_ne400 ...
+[MainModel] Fitting CatBoost_lr01_depth4_ne300 ...
+[MainModel] Fitting AdaBoost_stump_ne300 ...
+[MainModel] Fitting Bagging_DT_depth5_ne200 ...
+[MainModel] Fitting Bagging_SVC_rbf_C1 ...
+[MainModel] Fitting LogReg_l2_C1 ...
+[MainModel] Fitting MLP_2layer_64_32 ...
+  ROC-AUC        : 0.872951
+  Net Profit     : 4000
+  Total Score    : 0.386239
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] RF_depth8_ne500           ROC=0.872951 Profit=4000.00 Score=0.386239
+  ROC-AUC        : 0.864009
+  Net Profit     : 4000
+  Total Score    : 0.381580
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] RF_depth10_ne400          ROC=0.864009 Profit=4000.00 Score=0.381580
+  ROC-AUC        : 0.853204
+  Net Profit     : 1900
+  Total Score    : 0.259054
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 5] RF_depthNone_ne300        ROC=0.853204 Profit=1900.00 Score=0.259054
+  ROC-AUC        : 0.868480
+  Net Profit     : 4000
+  Total Score    : 0.383917
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] RF_depth6_ne600           ROC=0.868480 Profit=4000.00 Score=0.383917
+  ROC-AUC        : 0.861773
+  Net Profit     : 4000
+  Total Score    : 0.380407
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] ET_depthNone_ne500        ROC=0.861773 Profit=4000.00 Score=0.380407
+  ROC-AUC        : 0.880775
+  Net Profit     : 4000
+  Total Score    : 0.390269
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] ET_depth12_ne400          ROC=0.880775 Profit=4000.00 Score=0.390269
+  ROC-AUC        : 0.884501
+  Net Profit     : 4000
+  Total Score    : 0.392174
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] ET_depth8_ne600           ROC=0.884501 Profit=4000.00 Score=0.392174
+  ROC-AUC        : 0.877422
+  Net Profit     : 4000
+  Total Score    : 0.388547
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] GB_lr005_depth3_ne200     ROC=0.877422 Profit=4000.00 Score=0.388547
+  ROC-AUC        : 0.856930
+  Net Profit     : 1900
+  Total Score    : 0.260416
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 5] GB_lr01_depth3_ne150      ROC=0.856930 Profit=1900.00 Score=0.260416
+  ROC-AUC        : 0.881148
+  Net Profit     : 4000
+  Total Score    : 0.390460
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] GB_lr003_depth4_ne250     ROC=0.881148 Profit=4000.00 Score=0.390460
+  ROC-AUC        : 0.862519
+  Net Profit     : 4000
+  Total Score    : 0.380798
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] HGB_lr005_depth10_iter300 ROC=0.862519 Profit=4000.00 Score=0.380798
+  ROC-AUC        : 0.864754
+  Net Profit     : 4000
+  Total Score    : 0.381971
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] HGB_lr01_depth8_iter200   ROC=0.864754 Profit=4000.00 Score=0.381971
+  ROC-AUC        : 0.858793
+  Net Profit     : 1900
+  Total Score    : 0.261095
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 5] HGB_lr003_depth12_iter400 ROC=0.858793 Profit=1900.00 Score=0.261095
+  ROC-AUC        : 0.891580
+  Net Profit     : 4000
+  Total Score    : 0.395767
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] SVM_rbf_C1_gammaScale     ROC=0.891580 Profit=4000.00 Score=0.395767
+  ROC-AUC        : 0.891580
+  Net Profit     : 4000
+  Total Score    : 0.395767
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] SVM_rbf_C3_gammaScale     ROC=0.891580 Profit=4000.00 Score=0.395767
+  ROC-AUC        : 0.797690
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[Fold 5] SVM_rbf_C1_gammaAuto      ROC=0.797690 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.889717
+  Net Profit     : 4000
+  Total Score    : 0.394825
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] SVM_poly_C1_deg3          ROC=0.889717 Profit=4000.00 Score=0.394825
+  ROC-AUC        : 0.883383
+  Net Profit     : 4000
+  Total Score    : 0.391603
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] XGB_hist_lr005_depth6_ne400 ROC=0.883383 Profit=4000.00 Score=0.391603
+  ROC-AUC        : 0.897168
+  Net Profit     : 4000
+  Total Score    : 0.398582
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] XGB_hist_lr01_depth5_ne300 ROC=0.897168 Profit=4000.00 Score=0.398582
+  ROC-AUC        : 0.896796
+  Net Profit     : 4000
+  Total Score    : 0.398395
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] CatBoost_lr005_depth6_ne400 ROC=0.896796 Profit=4000.00 Score=0.398395
+  ROC-AUC        : 0.874441
+  Net Profit     : 4000
+  Total Score    : 0.387010
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] CatBoost_lr01_depth4_ne300 ROC=0.874441 Profit=4000.00 Score=0.387010
+  ROC-AUC        : 0.872392
+  Net Profit     : 1900
+  Total Score    : 0.265997
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 5] AdaBoost_stump_ne300      ROC=0.872392 Profit=1900.00 Score=0.265997
+  ROC-AUC        : 0.854694
+  Net Profit     : 1900
+  Total Score    : 0.259600
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 5] Bagging_DT_depth5_ne200   ROC=0.854694 Profit=1900.00 Score=0.259600
+  ROC-AUC        : 0.885618
+  Net Profit     : 4000
+  Total Score    : 0.392743
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] Bagging_SVC_rbf_C1        ROC=0.885618 Profit=4000.00 Score=0.392743
+  ROC-AUC        : 0.927347
+  Net Profit     : 4000
+  Total Score    : 0.413448
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] LogReg_l2_C1              ROC=0.927347 Profit=4000.00 Score=0.413448
+  ROC-AUC        : 0.902757
+  Net Profit     : 4000
+  Total Score    : 0.401376
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] MLP_2layer_64_32          ROC=0.902757 Profit=4000.00 Score=0.401376
+
+===== OOF per-model performance =====
+  ROC-AUC        : 0.858502
+  Net Profit     : 4000
+  Total Score    : 0.378683
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] RF_depth8_ne500           ROC=0.858502 Profit=4000.00 Score=0.378683
+  ROC-AUC        : 0.863228
+  Net Profit     : 4000
+  Total Score    : 0.381171
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] RF_depth10_ne400          ROC=0.863228 Profit=4000.00 Score=0.381171
+  ROC-AUC        : 0.855011
+  Net Profit     : 4000
+  Total Score    : 0.376834
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] RF_depthNone_ne300        ROC=0.855011 Profit=4000.00 Score=0.376834
+  ROC-AUC        : 0.861231
+  Net Profit     : 4000
+  Total Score    : 0.380122
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] RF_depth6_ne600           ROC=0.861231 Profit=4000.00 Score=0.380122
+  ROC-AUC        : 0.846976
+  Net Profit     : 1900
+  Total Score    : 0.256759
+  Selected k     : 40 (Good=39, NG=1)
+[OOF] ET_depthNone_ne500        ROC=0.846976 Profit=1900.00 Score=0.256759
+  ROC-AUC        : 0.859424
+  Net Profit     : 4000
+  Total Score    : 0.379170
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] ET_depth12_ne400          ROC=0.859424 Profit=4000.00 Score=0.379170
+  ROC-AUC        : 0.861597
+  Net Profit     : 4000
+  Total Score    : 0.380314
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] ET_depth8_ne600           ROC=0.861597 Profit=4000.00 Score=0.380314
+  ROC-AUC        : 0.851458
+  Net Profit     : 1900
+  Total Score    : 0.258413
+  Selected k     : 40 (Good=39, NG=1)
+[OOF] GB_lr005_depth3_ne200     ROC=0.851458 Profit=1900.00 Score=0.258413
+  ROC-AUC        : 0.845680
+  Net Profit     : 1900
+  Total Score    : 0.256280
+  Selected k     : 40 (Good=39, NG=1)
+[OOF] GB_lr01_depth3_ne150      ROC=0.845680 Profit=1900.00 Score=0.256280
+  ROC-AUC        : 0.851656
+  Net Profit     : 1900
+  Total Score    : 0.258485
+  Selected k     : 40 (Good=39, NG=1)
+[OOF] GB_lr003_depth4_ne250     ROC=0.851656 Profit=1900.00 Score=0.258485
+  ROC-AUC        : 0.846519
+  Net Profit     : 4000
+  Total Score    : 0.372300
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] HGB_lr005_depth10_iter300 ROC=0.846519 Profit=4000.00 Score=0.372300
+  ROC-AUC        : 0.836433
+  Net Profit     : 4000
+  Total Score    : 0.366842
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] HGB_lr01_depth8_iter200   ROC=0.836433 Profit=4000.00 Score=0.366842
+  ROC-AUC        : 0.849461
+  Net Profit     : 4000
+  Total Score    : 0.373878
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] HGB_lr003_depth12_iter400 ROC=0.849461 Profit=4000.00 Score=0.373878
+  ROC-AUC        : 0.879374
+  Net Profit     : 4000
+  Total Score    : 0.389550
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] SVM_rbf_C1_gammaScale     ROC=0.879374 Profit=4000.00 Score=0.389550
+  ROC-AUC        : 0.877011
+  Net Profit     : 4000
+  Total Score    : 0.388335
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] SVM_rbf_C3_gammaScale     ROC=0.877011 Profit=4000.00 Score=0.388335
+  ROC-AUC        : 0.802000
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[OOF] SVM_rbf_C1_gammaAuto      ROC=0.802000 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.883757
+  Net Profit     : 4000
+  Total Score    : 0.391794
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] SVM_poly_C1_deg3          ROC=0.883757 Profit=4000.00 Score=0.391794
+  ROC-AUC        : 0.849934
+  Net Profit     : 4000
+  Total Score    : 0.374130
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] XGB_hist_lr005_depth6_ne400 ROC=0.849934 Profit=4000.00 Score=0.374130
+  ROC-AUC        : 0.848973
+  Net Profit     : 4000
+  Total Score    : 0.373616
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] XGB_hist_lr01_depth5_ne300 ROC=0.848973 Profit=4000.00 Score=0.373616
+  ROC-AUC        : 0.864722
+  Net Profit     : 4000
+  Total Score    : 0.381954
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] CatBoost_lr005_depth6_ne400 ROC=0.864722 Profit=4000.00 Score=0.381954
+  ROC-AUC        : 0.847738
+  Net Profit     : 4000
+  Total Score    : 0.372955
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] CatBoost_lr01_depth4_ne300 ROC=0.847738 Profit=4000.00 Score=0.372955
+  ROC-AUC        : 0.859996
+  Net Profit     : 4000
+  Total Score    : 0.379471
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] AdaBoost_stump_ne300      ROC=0.859996 Profit=4000.00 Score=0.379471
+  ROC-AUC        : 0.853928
+  Net Profit     : 4000
+  Total Score    : 0.376260
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] Bagging_DT_depth5_ne200   ROC=0.853928 Profit=4000.00 Score=0.376260
+  ROC-AUC        : 0.879968
+  Net Profit     : 4000
+  Total Score    : 0.389856
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] Bagging_SVC_rbf_C1        ROC=0.879968 Profit=4000.00 Score=0.389856
+  ROC-AUC        : 0.873580
+  Net Profit     : 4000
+  Total Score    : 0.386564
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] LogReg_l2_C1              ROC=0.873580 Profit=4000.00 Score=0.386564
+  ROC-AUC        : 0.865835
+  Net Profit     : 4000
+  Total Score    : 0.382536
+  Selected k     : 40 (Good=40, NG=0)
+[OOF] MLP_2layer_64_32          ROC=0.865835 Profit=4000.00 Score=0.382536
+
+===== Top-N models for 2nd-stage Hill Climbing =====
+[Rank 01] SVM_poly_C1_deg3          Score=0.391794
+[Rank 02] Bagging_SVC_rbf_C1        Score=0.389856
+[Rank 03] SVM_rbf_C1_gammaScale     Score=0.389550
+[Rank 04] SVM_rbf_C3_gammaScale     Score=0.388335
+[Rank 05] LogReg_l2_C1              Score=0.386564
+[Rank 06] MLP_2layer_64_32          Score=0.382536
+[Rank 07] CatBoost_lr005_depth6_ne400 Score=0.381954
+[Rank 08] RF_depth10_ne400          Score=0.381171
+[Rank 09] ET_depth8_ne600           Score=0.380314
+[Rank 10] RF_depth6_ne600           Score=0.380122
+  ROC-AUC        : 0.878154
+  Net Profit     : 4000
+  Total Score    : 0.388924
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] init score = 0.388924, init w = [0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1]
+  ROC-AUC        : 0.878474
+  Net Profit     : 4000
+  Total Score    : 0.389088
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877895
+  Net Profit     : 4000
+  Total Score    : 0.388790
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878489
+  Net Profit     : 4000
+  Total Score    : 0.389096
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877575
+  Net Profit     : 4000
+  Total Score    : 0.388626
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878154
+  Net Profit     : 4000
+  Total Score    : 0.388924
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877758
+  Net Profit     : 4000
+  Total Score    : 0.388720
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878322
+  Net Profit     : 4000
+  Total Score    : 0.389010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877834
+  Net Profit     : 4000
+  Total Score    : 0.388759
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878733
+  Net Profit     : 4000
+  Total Score    : 0.389221
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877178
+  Net Profit     : 4000
+  Total Score    : 0.388422
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877880
+  Net Profit     : 4000
+  Total Score    : 0.388783
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878017
+  Net Profit     : 4000
+  Total Score    : 0.388853
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877666
+  Net Profit     : 4000
+  Total Score    : 0.388673
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878413
+  Net Profit     : 4000
+  Total Score    : 0.389057
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877697
+  Net Profit     : 4000
+  Total Score    : 0.388688
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878642
+  Net Profit     : 4000
+  Total Score    : 0.389174
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877620
+  Net Profit     : 4000
+  Total Score    : 0.388649
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878520
+  Net Profit     : 4000
+  Total Score    : 0.389112
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877559
+  Net Profit     : 4000
+  Total Score    : 0.388618
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878764
+  Net Profit     : 4000
+  Total Score    : 0.389237
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 1: score = 0.389237, w = [0.10526316 0.10526316 0.10526316 0.10526316 0.10526316 0.10526316
+ 0.10526316 0.10526316 0.10526316 0.05263158]
+  ROC-AUC        : 0.879252
+  Net Profit     : 4000
+  Total Score    : 0.389488
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878413
+  Net Profit     : 4000
+  Total Score    : 0.389057
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878993
+  Net Profit     : 4000
+  Total Score    : 0.389355
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878520
+  Net Profit     : 4000
+  Total Score    : 0.389112
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879191
+  Net Profit     : 4000
+  Total Score    : 0.389456
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878322
+  Net Profit     : 4000
+  Total Score    : 0.389010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878947
+  Net Profit     : 4000
+  Total Score    : 0.389331
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878779
+  Net Profit     : 4000
+  Total Score    : 0.389245
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879526
+  Net Profit     : 4000
+  Total Score    : 0.389629
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.877742
+  Net Profit     : 4000
+  Total Score    : 0.388712
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878306
+  Net Profit     : 4000
+  Total Score    : 0.389002
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878916
+  Net Profit     : 4000
+  Total Score    : 0.389315
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878550
+  Net Profit     : 4000
+  Total Score    : 0.389127
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879115
+  Net Profit     : 4000
+  Total Score    : 0.389417
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878398
+  Net Profit     : 4000
+  Total Score    : 0.389049
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879496
+  Net Profit     : 4000
+  Total Score    : 0.389613
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878169
+  Net Profit     : 4000
+  Total Score    : 0.388931
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879435
+  Net Profit     : 4000
+  Total Score    : 0.389582
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878200
+  Net Profit     : 4000
+  Total Score    : 0.388947
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879801
+  Net Profit     : 4000
+  Total Score    : 0.389769
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 2: score = 0.389769, w = [0.11080332 0.11080332 0.11080332 0.11080332 0.11080332 0.11080332
+ 0.11080332 0.11080332 0.11080332 0.00277008]
+  ROC-AUC        : 0.880136
+  Net Profit     : 4000
+  Total Score    : 0.389942
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879160
+  Net Profit     : 4000
+  Total Score    : 0.389441
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880090
+  Net Profit     : 4000
+  Total Score    : 0.389918
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879145
+  Net Profit     : 4000
+  Total Score    : 0.389433
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879862
+  Net Profit     : 4000
+  Total Score    : 0.389801
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879267
+  Net Profit     : 4000
+  Total Score    : 0.389496
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879724
+  Net Profit     : 4000
+  Total Score    : 0.389730
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879435
+  Net Profit     : 4000
+  Total Score    : 0.389582
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880197
+  Net Profit     : 4000
+  Total Score    : 0.389973
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878566
+  Net Profit     : 4000
+  Total Score    : 0.389135
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879038
+  Net Profit     : 4000
+  Total Score    : 0.389378
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879892
+  Net Profit     : 4000
+  Total Score    : 0.389816
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879526
+  Net Profit     : 4000
+  Total Score    : 0.389629
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880106
+  Net Profit     : 4000
+  Total Score    : 0.389926
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879191
+  Net Profit     : 4000
+  Total Score    : 0.389456
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880166
+  Net Profit     : 4000
+  Total Score    : 0.389957
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879008
+  Net Profit     : 4000
+  Total Score    : 0.389362
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880380
+  Net Profit     : 4000
+  Total Score    : 0.390067
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.878871
+  Net Profit     : 4000
+  Total Score    : 0.389292
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 3: score = 0.390067, w = [0.11663508 0.11663508 0.11663508 0.11663508 0.11663508 0.11663508
+ 0.11663508 0.11663508 0.0640035  0.00291588]
+  ROC-AUC        : 0.880776
+  Net Profit     : 4000
+  Total Score    : 0.390270
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879877
+  Net Profit     : 4000
+  Total Score    : 0.389809
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880639
+  Net Profit     : 4000
+  Total Score    : 0.390199
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880136
+  Net Profit     : 4000
+  Total Score    : 0.389942
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880654
+  Net Profit     : 4000
+  Total Score    : 0.390207
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879892
+  Net Profit     : 4000
+  Total Score    : 0.389816
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880441
+  Net Profit     : 4000
+  Total Score    : 0.390098
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880288
+  Net Profit     : 4000
+  Total Score    : 0.390020
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880898
+  Net Profit     : 4000
+  Total Score    : 0.390332
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879267
+  Net Profit     : 4000
+  Total Score    : 0.389496
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880106
+  Net Profit     : 4000
+  Total Score    : 0.389926
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880654
+  Net Profit     : 4000
+  Total Score    : 0.390207
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879999
+  Net Profit     : 4000
+  Total Score    : 0.389871
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880746
+  Net Profit     : 4000
+  Total Score    : 0.390254
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879801
+  Net Profit     : 4000
+  Total Score    : 0.389769
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881249
+  Net Profit     : 4000
+  Total Score    : 0.390512
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879816
+  Net Profit     : 4000
+  Total Score    : 0.389777
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881447
+  Net Profit     : 4000
+  Total Score    : 0.390613
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.879480
+  Net Profit     : 4000
+  Total Score    : 0.389605
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 4: score = 0.390613, w = [0.12277377 0.12277377 0.12277377 0.12277377 0.12277377 0.12277377
+ 0.12277377 0.12277377 0.01474053 0.00306934]
+  ROC-AUC        : 0.881844
+  Net Profit     : 4000
+  Total Score    : 0.390816
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881066
+  Net Profit     : 4000
+  Total Score    : 0.390418
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881783
+  Net Profit     : 4000
+  Total Score    : 0.390785
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881127
+  Net Profit     : 4000
+  Total Score    : 0.390449
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881783
+  Net Profit     : 4000
+  Total Score    : 0.390785
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881096
+  Net Profit     : 4000
+  Total Score    : 0.390434
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881645
+  Net Profit     : 4000
+  Total Score    : 0.390715
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881279
+  Net Profit     : 4000
+  Total Score    : 0.390528
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882118
+  Net Profit     : 4000
+  Total Score    : 0.390957
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880426
+  Net Profit     : 4000
+  Total Score    : 0.390090
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881371
+  Net Profit     : 4000
+  Total Score    : 0.390574
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881401
+  Net Profit     : 4000
+  Total Score    : 0.390590
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880959
+  Net Profit     : 4000
+  Total Score    : 0.390364
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881752
+  Net Profit     : 4000
+  Total Score    : 0.390770
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880548
+  Net Profit     : 4000
+  Total Score    : 0.390153
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882545
+  Net Profit     : 4000
+  Total Score    : 0.391175
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880456
+  Net Profit     : 4000
+  Total Score    : 0.390106
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.880487
+  Net Profit     : 4000
+  Total Score    : 0.390121
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 5: score = 0.391175, w = [0.12923554 0.12923554 0.12923554 0.12923554 0.12923554 0.12923554
+ 0.12923554 0.07660396 0.01551634 0.00323089]
+  ROC-AUC        : 0.882667
+  Net Profit     : 4000
+  Total Score    : 0.391237
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882148
+  Net Profit     : 4000
+  Total Score    : 0.390972
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882743
+  Net Profit     : 4000
+  Total Score    : 0.391276
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882377
+  Net Profit     : 4000
+  Total Score    : 0.391089
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882575
+  Net Profit     : 4000
+  Total Score    : 0.391191
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882347
+  Net Profit     : 4000
+  Total Score    : 0.391074
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882469
+  Net Profit     : 4000
+  Total Score    : 0.391136
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882469
+  Net Profit     : 4000
+  Total Score    : 0.391136
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882865
+  Net Profit     : 4000
+  Total Score    : 0.391339
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881386
+  Net Profit     : 4000
+  Total Score    : 0.390582
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882255
+  Net Profit     : 4000
+  Total Score    : 0.391027
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882331
+  Net Profit     : 4000
+  Total Score    : 0.391066
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882011
+  Net Profit     : 4000
+  Total Score    : 0.390902
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882987
+  Net Profit     : 4000
+  Total Score    : 0.391401
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881462
+  Net Profit     : 4000
+  Total Score    : 0.390621
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883048
+  Net Profit     : 4000
+  Total Score    : 0.391432
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881356
+  Net Profit     : 4000
+  Total Score    : 0.390567
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.881401
+  Net Profit     : 4000
+  Total Score    : 0.390590
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 6: score = 0.391432, w = [0.13603741 0.13603741 0.13603741 0.13603741 0.13603741 0.13603741
+ 0.13603741 0.02800417 0.01633299 0.00340094]
+  ROC-AUC        : 0.883155
+  Net Profit     : 4000
+  Total Score    : 0.391487
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882957
+  Net Profit     : 4000
+  Total Score    : 0.391385
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883246
+  Net Profit     : 4000
+  Total Score    : 0.391533
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882957
+  Net Profit     : 4000
+  Total Score    : 0.391385
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883185
+  Net Profit     : 4000
+  Total Score    : 0.391502
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883048
+  Net Profit     : 4000
+  Total Score    : 0.391432
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883048
+  Net Profit     : 4000
+  Total Score    : 0.391432
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883338
+  Net Profit     : 4000
+  Total Score    : 0.391580
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883658
+  Net Profit     : 4000
+  Total Score    : 0.391744
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882148
+  Net Profit     : 4000
+  Total Score    : 0.390972
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882758
+  Net Profit     : 4000
+  Total Score    : 0.391284
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883338
+  Net Profit     : 4000
+  Total Score    : 0.391580
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882652
+  Net Profit     : 4000
+  Total Score    : 0.391230
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883551
+  Net Profit     : 4000
+  Total Score    : 0.391689
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882514
+  Net Profit     : 4000
+  Total Score    : 0.391159
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882164
+  Net Profit     : 4000
+  Total Score    : 0.390980
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882453
+  Net Profit     : 4000
+  Total Score    : 0.391128
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 7: score = 0.391744, w = [0.12955944 0.12955944 0.12955944 0.12955944 0.17717849 0.12955944
+ 0.12955944 0.02667064 0.01555523 0.00323899]
+  ROC-AUC        : 0.883734
+  Net Profit     : 4000
+  Total Score    : 0.391783
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883551
+  Net Profit     : 4000
+  Total Score    : 0.391689
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883795
+  Net Profit     : 4000
+  Total Score    : 0.391814
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883399
+  Net Profit     : 4000
+  Total Score    : 0.391611
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883749
+  Net Profit     : 4000
+  Total Score    : 0.391790
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883490
+  Net Profit     : 4000
+  Total Score    : 0.391658
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883582
+  Net Profit     : 4000
+  Total Score    : 0.391705
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883795
+  Net Profit     : 4000
+  Total Score    : 0.391814
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884252
+  Net Profit     : 4000
+  Total Score    : 0.392047
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882972
+  Net Profit     : 4000
+  Total Score    : 0.391393
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883704
+  Net Profit     : 4000
+  Total Score    : 0.391767
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883963
+  Net Profit     : 4000
+  Total Score    : 0.391899
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883322
+  Net Profit     : 4000
+  Total Score    : 0.391572
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884115
+  Net Profit     : 4000
+  Total Score    : 0.391977
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882774
+  Net Profit     : 4000
+  Total Score    : 0.391292
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882606
+  Net Profit     : 4000
+  Total Score    : 0.391206
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.882911
+  Net Profit     : 4000
+  Total Score    : 0.391362
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 8: score = 0.392047, w = [0.12338994 0.12338994 0.12338994 0.12338994 0.21636047 0.12338994
+ 0.12338994 0.02540061 0.01481451 0.00308475]
+  ROC-AUC        : 0.884344
+  Net Profit     : 4000
+  Total Score    : 0.392094
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883932
+  Net Profit     : 4000
+  Total Score    : 0.391884
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884283
+  Net Profit     : 4000
+  Total Score    : 0.392063
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884176
+  Net Profit     : 4000
+  Total Score    : 0.392008
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884344
+  Net Profit     : 4000
+  Total Score    : 0.392094
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883993
+  Net Profit     : 4000
+  Total Score    : 0.391915
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884207
+  Net Profit     : 4000
+  Total Score    : 0.392024
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884329
+  Net Profit     : 4000
+  Total Score    : 0.392086
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884390
+  Net Profit     : 4000
+  Total Score    : 0.392117
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883627
+  Net Profit     : 4000
+  Total Score    : 0.391728
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883749
+  Net Profit     : 4000
+  Total Score    : 0.391790
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884664
+  Net Profit     : 4000
+  Total Score    : 0.392257
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883658
+  Net Profit     : 4000
+  Total Score    : 0.391744
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884725
+  Net Profit     : 4000
+  Total Score    : 0.392288
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883612
+  Net Profit     : 4000
+  Total Score    : 0.391720
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883170
+  Net Profit     : 4000
+  Total Score    : 0.391495
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883277
+  Net Profit     : 4000
+  Total Score    : 0.391549
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 9: score = 0.392288, w = [0.12988415 0.12988415 0.12988415 0.12988415 0.22774786 0.12988415
+ 0.07725257 0.02673748 0.01559422 0.0032471 ]
+  ROC-AUC        : 0.884740
+  Net Profit     : 4000
+  Total Score    : 0.392296
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884588
+  Net Profit     : 4000
+  Total Score    : 0.392218
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884695
+  Net Profit     : 4000
+  Total Score    : 0.392273
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884649
+  Net Profit     : 4000
+  Total Score    : 0.392249
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884740
+  Net Profit     : 4000
+  Total Score    : 0.392296
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884466
+  Net Profit     : 4000
+  Total Score    : 0.392156
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884481
+  Net Profit     : 4000
+  Total Score    : 0.392164
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884801
+  Net Profit     : 4000
+  Total Score    : 0.392327
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884954
+  Net Profit     : 4000
+  Total Score    : 0.392405
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884130
+  Net Profit     : 4000
+  Total Score    : 0.391985
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884252
+  Net Profit     : 4000
+  Total Score    : 0.392047
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884969
+  Net Profit     : 4000
+  Total Score    : 0.392413
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884252
+  Net Profit     : 4000
+  Total Score    : 0.392047
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884893
+  Net Profit     : 4000
+  Total Score    : 0.392374
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884268
+  Net Profit     : 4000
+  Total Score    : 0.392055
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883734
+  Net Profit     : 4000
+  Total Score    : 0.391783
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883993
+  Net Profit     : 4000
+  Total Score    : 0.391915
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 10: score = 0.392413, w = [0.13672016 0.13672016 0.13672016 0.13672016 0.23973459 0.08408858
+ 0.0813185  0.02814472 0.01641496 0.003418  ]
+  ROC-AUC        : 0.884923
+  Net Profit     : 4000
+  Total Score    : 0.392389
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884740
+  Net Profit     : 4000
+  Total Score    : 0.392296
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884954
+  Net Profit     : 4000
+  Total Score    : 0.392405
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884969
+  Net Profit     : 4000
+  Total Score    : 0.392413
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884908
+  Net Profit     : 4000
+  Total Score    : 0.392381
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884725
+  Net Profit     : 4000
+  Total Score    : 0.392288
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884725
+  Net Profit     : 4000
+  Total Score    : 0.392288
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885045
+  Net Profit     : 4000
+  Total Score    : 0.392451
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885350
+  Net Profit     : 4000
+  Total Score    : 0.392607
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884313
+  Net Profit     : 4000
+  Total Score    : 0.392078
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884725
+  Net Profit     : 4000
+  Total Score    : 0.392288
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884938
+  Net Profit     : 4000
+  Total Score    : 0.392397
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884710
+  Net Profit     : 4000
+  Total Score    : 0.392280
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885320
+  Net Profit     : 4000
+  Total Score    : 0.392591
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884481
+  Net Profit     : 4000
+  Total Score    : 0.392164
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883826
+  Net Profit     : 4000
+  Total Score    : 0.391829
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884237
+  Net Profit     : 4000
+  Total Score    : 0.392039
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 11: score = 0.392607, w = [0.13020968 0.13020968 0.13020968 0.13020968 0.2759377  0.08008436
+ 0.07744619 0.0268045  0.0156333  0.00325524]
+  ROC-AUC        : 0.885350
+  Net Profit     : 4000
+  Total Score    : 0.392607
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884923
+  Net Profit     : 4000
+  Total Score    : 0.392389
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885213
+  Net Profit     : 4000
+  Total Score    : 0.392537
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885228
+  Net Profit     : 4000
+  Total Score    : 0.392545
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885411
+  Net Profit     : 4000
+  Total Score    : 0.392638
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884893
+  Net Profit     : 4000
+  Total Score    : 0.392374
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885091
+  Net Profit     : 4000
+  Total Score    : 0.392475
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885228
+  Net Profit     : 4000
+  Total Score    : 0.392545
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885213
+  Net Profit     : 4000
+  Total Score    : 0.392537
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884923
+  Net Profit     : 4000
+  Total Score    : 0.392389
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884969
+  Net Profit     : 4000
+  Total Score    : 0.392413
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885335
+  Net Profit     : 4000
+  Total Score    : 0.392599
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884756
+  Net Profit     : 4000
+  Total Score    : 0.392304
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885625
+  Net Profit     : 4000
+  Total Score    : 0.392747
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884405
+  Net Profit     : 4000
+  Total Score    : 0.392125
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.883841
+  Net Profit     : 4000
+  Total Score    : 0.391837
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884313
+  Net Profit     : 4000
+  Total Score    : 0.392078
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 12: score = 0.392747, w = [0.13706282 0.13706282 0.13706282 0.13706282 0.29046074 0.08429933
+ 0.02889073 0.02821526 0.0164561  0.00342657]
+  ROC-AUC        : 0.885747
+  Net Profit     : 4000
+  Total Score    : 0.392809
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885076
+  Net Profit     : 4000
+  Total Score    : 0.392467
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885625
+  Net Profit     : 4000
+  Total Score    : 0.392747
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885442
+  Net Profit     : 4000
+  Total Score    : 0.392653
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885823
+  Net Profit     : 4000
+  Total Score    : 0.392847
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885152
+  Net Profit     : 4000
+  Total Score    : 0.392506
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885381
+  Net Profit     : 4000
+  Total Score    : 0.392622
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885564
+  Net Profit     : 4000
+  Total Score    : 0.392715
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885457
+  Net Profit     : 4000
+  Total Score    : 0.392661
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885335
+  Net Profit     : 4000
+  Total Score    : 0.392599
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885213
+  Net Profit     : 4000
+  Total Score    : 0.392537
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885747
+  Net Profit     : 4000
+  Total Score    : 0.392809
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885442
+  Net Profit     : 4000
+  Total Score    : 0.392653
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884847
+  Net Profit     : 4000
+  Total Score    : 0.392350
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884390
+  Net Profit     : 4000
+  Total Score    : 0.392117
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884786
+  Net Profit     : 4000
+  Total Score    : 0.392319
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 13: score = 0.392847, w = [0.13053602 0.13053602 0.17815506 0.13053602 0.27662928 0.08028508
+ 0.02751498 0.02687168 0.01567248 0.0032634 ]
+  ROC-AUC        : 0.885914
+  Net Profit     : 4000
+  Total Score    : 0.392894
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885442
+  Net Profit     : 4000
+  Total Score    : 0.392653
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885868
+  Net Profit     : 4000
+  Total Score    : 0.392871
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885808
+  Net Profit     : 4000
+  Total Score    : 0.392840
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885777
+  Net Profit     : 4000
+  Total Score    : 0.392824
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885594
+  Net Profit     : 4000
+  Total Score    : 0.392731
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885670
+  Net Profit     : 4000
+  Total Score    : 0.392770
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885853
+  Net Profit     : 4000
+  Total Score    : 0.392863
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885716
+  Net Profit     : 4000
+  Total Score    : 0.392793
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885365
+  Net Profit     : 4000
+  Total Score    : 0.392615
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885487
+  Net Profit     : 4000
+  Total Score    : 0.392677
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885990
+  Net Profit     : 4000
+  Total Score    : 0.392933
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885411
+  Net Profit     : 4000
+  Total Score    : 0.392638
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884817
+  Net Profit     : 4000
+  Total Score    : 0.392335
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884420
+  Net Profit     : 4000
+  Total Score    : 0.392133
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884710
+  Net Profit     : 4000
+  Total Score    : 0.392280
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 14: score = 0.392933, w = [0.13740633 0.13740633 0.18753165 0.13740633 0.29118871 0.03187903
+ 0.02896313 0.02828597 0.01649735 0.00343516]
+  ROC-AUC        : 0.886143
+  Net Profit     : 4000
+  Total Score    : 0.393010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885838
+  Net Profit     : 4000
+  Total Score    : 0.392855
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886112
+  Net Profit     : 4000
+  Total Score    : 0.392995
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886082
+  Net Profit     : 4000
+  Total Score    : 0.392979
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886189
+  Net Profit     : 4000
+  Total Score    : 0.393034
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885762
+  Net Profit     : 4000
+  Total Score    : 0.392816
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885899
+  Net Profit     : 4000
+  Total Score    : 0.392886
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886204
+  Net Profit     : 4000
+  Total Score    : 0.393041
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886021
+  Net Profit     : 4000
+  Total Score    : 0.392948
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885701
+  Net Profit     : 4000
+  Total Score    : 0.392785
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885747
+  Net Profit     : 4000
+  Total Score    : 0.392809
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885564
+  Net Profit     : 4000
+  Total Score    : 0.392715
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885198
+  Net Profit     : 4000
+  Total Score    : 0.392529
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884740
+  Net Profit     : 4000
+  Total Score    : 0.392296
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884893
+  Net Profit     : 4000
+  Total Score    : 0.392374
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 15: score = 0.393041, w = [0.14463825 0.14463825 0.19740173 0.09200667 0.30651443 0.03355687
+ 0.03048751 0.02977471 0.01736563 0.00361596]
+  ROC-AUC        : 0.886326
+  Net Profit     : 4000
+  Total Score    : 0.393103
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885655
+  Net Profit     : 4000
+  Total Score    : 0.392762
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885777
+  Net Profit     : 4000
+  Total Score    : 0.392824
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886112
+  Net Profit     : 4000
+  Total Score    : 0.392995
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886173
+  Net Profit     : 4000
+  Total Score    : 0.393026
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885868
+  Net Profit     : 4000
+  Total Score    : 0.392871
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886036
+  Net Profit     : 4000
+  Total Score    : 0.392956
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886311
+  Net Profit     : 4000
+  Total Score    : 0.393096
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886112
+  Net Profit     : 4000
+  Total Score    : 0.392995
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886021
+  Net Profit     : 4000
+  Total Score    : 0.392948
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885838
+  Net Profit     : 4000
+  Total Score    : 0.392855
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885884
+  Net Profit     : 4000
+  Total Score    : 0.392878
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885426
+  Net Profit     : 4000
+  Total Score    : 0.392646
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884862
+  Net Profit     : 4000
+  Total Score    : 0.392358
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885182
+  Net Profit     : 4000
+  Total Score    : 0.392521
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 16: score = 0.393103, w = [0.18536976 0.13775071 0.18800165 0.0876254  0.29191851 0.03195892
+ 0.02903572 0.02835687 0.01653869 0.00344377]
+  ROC-AUC        : 0.886341
+  Net Profit     : 4000
+  Total Score    : 0.393111
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886219
+  Net Profit     : 4000
+  Total Score    : 0.393049
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886128
+  Net Profit     : 4000
+  Total Score    : 0.393003
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886555
+  Net Profit     : 4000
+  Total Score    : 0.393220
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886463
+  Net Profit     : 4000
+  Total Score    : 0.393173
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886051
+  Net Profit     : 4000
+  Total Score    : 0.392964
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886112
+  Net Profit     : 4000
+  Total Score    : 0.392995
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886433
+  Net Profit     : 4000
+  Total Score    : 0.393158
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886280
+  Net Profit     : 4000
+  Total Score    : 0.393080
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886128
+  Net Profit     : 4000
+  Total Score    : 0.393003
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885838
+  Net Profit     : 4000
+  Total Score    : 0.392855
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885777
+  Net Profit     : 4000
+  Total Score    : 0.392824
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885259
+  Net Profit     : 4000
+  Total Score    : 0.392560
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.884984
+  Net Profit     : 4000
+  Total Score    : 0.392420
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885274
+  Net Profit     : 4000
+  Total Score    : 0.392568
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 17: score = 0.393220, w = [0.19512606 0.09236917 0.19789647 0.09223726 0.30728264 0.03364097
+ 0.03056392 0.02984933 0.01740915 0.00362502]
+  ROC-AUC        : 0.886478
+  Net Profit     : 4000
+  Total Score    : 0.393181
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886143
+  Net Profit     : 4000
+  Total Score    : 0.393010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886341
+  Net Profit     : 4000
+  Total Score    : 0.393111
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886265
+  Net Profit     : 4000
+  Total Score    : 0.393072
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886402
+  Net Profit     : 4000
+  Total Score    : 0.393142
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886021
+  Net Profit     : 4000
+  Total Score    : 0.392948
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886143
+  Net Profit     : 4000
+  Total Score    : 0.393010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886585
+  Net Profit     : 4000
+  Total Score    : 0.393235
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886006
+  Net Profit     : 4000
+  Total Score    : 0.392941
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886128
+  Net Profit     : 4000
+  Total Score    : 0.393003
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885960
+  Net Profit     : 4000
+  Total Score    : 0.392917
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885914
+  Net Profit     : 4000
+  Total Score    : 0.392894
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885548
+  Net Profit     : 4000
+  Total Score    : 0.392708
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885121
+  Net Profit     : 4000
+  Total Score    : 0.392490
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885518
+  Net Profit     : 4000
+  Total Score    : 0.392692
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 18: score = 0.393235, w = [0.20539585 0.0972307  0.20831208 0.04446027 0.32345541 0.03541155
+ 0.03217255 0.03142035 0.01832542 0.00381581]
+  ROC-AUC        : 0.886661
+  Net Profit     : 4000
+  Total Score    : 0.393274
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886143
+  Net Profit     : 4000
+  Total Score    : 0.393010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886478
+  Net Profit     : 4000
+  Total Score    : 0.393181
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886112
+  Net Profit     : 4000
+  Total Score    : 0.392995
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886646
+  Net Profit     : 4000
+  Total Score    : 0.393266
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885853
+  Net Profit     : 4000
+  Total Score    : 0.392863
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886555
+  Net Profit     : 4000
+  Total Score    : 0.393220
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885899
+  Net Profit     : 4000
+  Total Score    : 0.392886
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886341
+  Net Profit     : 4000
+  Total Score    : 0.393111
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886051
+  Net Profit     : 4000
+  Total Score    : 0.392964
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886006
+  Net Profit     : 4000
+  Total Score    : 0.392941
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885487
+  Net Profit     : 4000
+  Total Score    : 0.392677
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885198
+  Net Profit     : 4000
+  Total Score    : 0.392529
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885426
+  Net Profit     : 4000
+  Total Score    : 0.392646
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 19: score = 0.393274, w = [0.24323415 0.09260067 0.19839246 0.04234312 0.30805277 0.03372529
+ 0.03064052 0.02992414 0.01745278 0.0036341 ]
+  ROC-AUC        : 0.886555
+  Net Profit     : 4000
+  Total Score    : 0.393220
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886539
+  Net Profit     : 4000
+  Total Score    : 0.393212
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886417
+  Net Profit     : 4000
+  Total Score    : 0.393150
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886463
+  Net Profit     : 4000
+  Total Score    : 0.393173
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886875
+  Net Profit     : 4000
+  Total Score    : 0.393383
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886219
+  Net Profit     : 4000
+  Total Score    : 0.393049
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886478
+  Net Profit     : 4000
+  Total Score    : 0.393181
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886387
+  Net Profit     : 4000
+  Total Score    : 0.393135
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886372
+  Net Profit     : 4000
+  Total Score    : 0.393127
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885945
+  Net Profit     : 4000
+  Total Score    : 0.392910
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886204
+  Net Profit     : 4000
+  Total Score    : 0.393041
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885625
+  Net Profit     : 4000
+  Total Score    : 0.392747
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885304
+  Net Profit     : 4000
+  Total Score    : 0.392583
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885609
+  Net Profit     : 4000
+  Total Score    : 0.392739
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 20: score = 0.393383, w = [0.23165157 0.08819111 0.23656424 0.04032678 0.29338359 0.03211932
+ 0.02918145 0.02849918 0.0166217  0.00346105]
+  ROC-AUC        : 0.886753
+  Net Profit     : 4000
+  Total Score    : 0.393321
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886661
+  Net Profit     : 4000
+  Total Score    : 0.393274
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886616
+  Net Profit     : 4000
+  Total Score    : 0.393251
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886692
+  Net Profit     : 4000
+  Total Score    : 0.393290
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886905
+  Net Profit     : 4000
+  Total Score    : 0.393398
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886631
+  Net Profit     : 4000
+  Total Score    : 0.393259
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886555
+  Net Profit     : 4000
+  Total Score    : 0.393220
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886844
+  Net Profit     : 4000
+  Total Score    : 0.393367
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886219
+  Net Profit     : 4000
+  Total Score    : 0.393049
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886158
+  Net Profit     : 4000
+  Total Score    : 0.393018
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886173
+  Net Profit     : 4000
+  Total Score    : 0.393026
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885686
+  Net Profit     : 4000
+  Total Score    : 0.392778
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885503
+  Net Profit     : 4000
+  Total Score    : 0.392684
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885716
+  Net Profit     : 4000
+  Total Score    : 0.392793
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] iter 21: score = 0.393398, w = [0.22062054 0.08399154 0.27291833 0.03840646 0.27941295 0.03058983
+ 0.02779185 0.02714208 0.01583019 0.00329624]
+  ROC-AUC        : 0.886524
+  Net Profit     : 4000
+  Total Score    : 0.393204
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886722
+  Net Profit     : 4000
+  Total Score    : 0.393305
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886539
+  Net Profit     : 4000
+  Total Score    : 0.393212
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886768
+  Net Profit     : 4000
+  Total Score    : 0.393328
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886646
+  Net Profit     : 4000
+  Total Score    : 0.393266
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886905
+  Net Profit     : 4000
+  Total Score    : 0.393398
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886341
+  Net Profit     : 4000
+  Total Score    : 0.393111
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886798
+  Net Profit     : 4000
+  Total Score    : 0.393344
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886143
+  Net Profit     : 4000
+  Total Score    : 0.393010
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886295
+  Net Profit     : 4000
+  Total Score    : 0.393088
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.886234
+  Net Profit     : 4000
+  Total Score    : 0.393057
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885899
+  Net Profit     : 4000
+  Total Score    : 0.392886
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885503
+  Net Profit     : 4000
+  Total Score    : 0.392684
+  Selected k     : 40 (Good=40, NG=0)
+  ROC-AUC        : 0.885808
+  Net Profit     : 4000
+  Total Score    : 0.392840
+  Selected k     : 40 (Good=40, NG=0)
+[HillClimb] no improvement at iter 21, stop.
+[HillClimb] final score = 0.393398, final w = [0.22062054 0.08399154 0.27291833 0.03840646 0.27941295 0.03058983
+ 0.02779185 0.02714208 0.01583019 0.00329624]
+  ROC-AUC        : 0.886905
+  Net Profit     : 4000
+  Total Score    : 0.393398
+  Selected k     : 40 (Good=40, NG=0)
+
+===== OOF Hill-Climb Ensemble Performance (Top-N models) =====
+ROC-AUC = 0.886905, Profit = 4000.00, Score = 0.393398
+Best weights (Top-10 models):
+  SVM_poly_C1_deg3         : 0.2206
+  Bagging_SVC_rbf_C1       : 0.0840
+  SVM_rbf_C1_gammaScale    : 0.2729
+  SVM_rbf_C3_gammaScale    : 0.0384
+  LogReg_l2_C1             : 0.2794
+  MLP_2layer_64_32         : 0.0306
+  CatBoost_lr005_depth6_ne400: 0.0278
+  RF_depth10_ne400         : 0.0271
+  ET_depth8_ne600          : 0.0158
+  RF_depth6_ne600          : 0.0033
+  ROC-AUC        : 0.872242
+  Net Profit     : 1900
+  Total Score    : 0.265943
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 1] Blended ROC=0.872242 Profit=1900.00 Score=0.265943
+  ROC-AUC        : 0.845141
+  Net Profit     : 1900
+  Total Score    : 0.256080
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] Blended ROC=0.845141 Profit=1900.00 Score=0.256080
+  ROC-AUC        : 0.918699
+  Net Profit     : 4000
+  Total Score    : 0.409243
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 3] Blended ROC=0.918699 Profit=4000.00 Score=0.409243
+  ROC-AUC        : 0.898286
+  Net Profit     : 4000
+  Total Score    : 0.399142
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] Blended ROC=0.898286 Profit=4000.00 Score=0.399142
+  ROC-AUC        : 0.907973
+  Net Profit     : 4000
+  Total Score    : 0.403967
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] Blended ROC=0.907973 Profit=4000.00 Score=0.403967
+
+===== CV Summary (Hill-Climb Ensemble, Top-N models) =====
+ROC-AUC  mean/std : 0.888468 / 0.026575
+Profit   mean/std : 3160.00 / 1028.79
+Score    mean/std : 0.346875 / 0.070249
+
+[Main] Test prob range: 0.0123 ~ 0.9653
+[Main] Saved submission to ../data/submission/ensemble_hillclimb_topN_20251128_143655.csv
+[Main] Total selected products: 340

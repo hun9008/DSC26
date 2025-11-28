@@ -1,0 +1,35 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 137)
+[Main] Hybrid features (Test) : (466, 137)
+[MainModel] Total base models: 13
+[Main] Base models (13): ['RF_depth8_ne500', 'ET_depthNone_ne500', 'GB_lr005_depth3_ne200', 'HGB_lr005_depth10_iter300', 'SVM_rbf_C1_gammaScale', 'SVM_poly_C1_deg3', 'XGB_hist_lr005_depth6_ne400', 'CatBoost_lr005_depth6_ne400', 'AdaBoost_stump_ne300', 'Bagging_DT_depth5_ne200', 'Bagging_SVC_rbf_C1', 'LogReg_l2_C1', 'MLP_2layer_64_32']
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[MainModel] Total base models: 13
+[MainModel] Fitting RF_depth8_ne500 ...
+[MainModel] Fitting ET_depthNone_ne500 ...
+[MainModel] Fitting GB_lr005_depth3_ne200 ...
+[MainModel] Fitting HGB_lr005_depth10_iter300 ...
+[MainModel] Fitting SVM_rbf_C1_gammaScale ...
+[MainModel] Fitting SVM_poly_C1_deg3 ...
+[MainModel] Fitting XGB_hist_lr005_depth6_ne400 ...
+[MainModel] Fitting CatBoost_lr005_depth6_ne400 ...
+[MainModel] Fitting AdaBoost_stump_ne300 ...
