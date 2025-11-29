@@ -1,4 +1,5 @@
-# main_pipeline.py
+# main_pipeline_ae.py (예: 기존 파일 덮어쓰거나 새 이름으로 저장)
+
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
 
@@ -6,9 +7,10 @@ import sys
 import pandas as pd
 import numpy as np
 import torch
-from torch.utils.data import DataLoader
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
@@ -29,12 +31,35 @@ from util.logger import TeeLogger
 
 
 # ----------------------------------------------------
-# 5. Main Model (RandomForest 기반 이진 분류기)
+# 0. AutoEncoder 정의 (96 → 48 → 24 → 48 → 96)
+# ----------------------------------------------------
+class FeatureAutoEncoder(nn.Module):
+    def __init__(self, input_dim=96, hidden_dim=64, latent_dim=24):
+        super().__init__()
+        self.encoder = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, latent_dim),
+        )
+        self.decoder = nn.Sequential(
+            nn.Linear(latent_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, input_dim),
+        )
+
+    def forward(self, x):
+        z = self.encoder(x)
+        x_hat = self.decoder(z)
+        return x_hat, z
+
+
+# ----------------------------------------------------
+# 1. Main Model (RandomForest 기반 이진 분류기)
 # ----------------------------------------------------
 class MainModel:
     """
     Main Model:
-      - 입력: FeatureEncoder에서 추출한 feature + 기본 피처
+      - 입력: AE까지 거친 최종 feature (hybrid + latent + recon_error)
       - 모델: RandomForestClassifier
       - 출력: NG 확률
     """
@@ -54,10 +79,10 @@ class MainModel:
 
 
 # ----------------------------------------------------
-# 6. 전체 파이프라인
+# 2. 전체 파이프라인
 # ----------------------------------------------------
 class ProductionPipeline:
-    """(사전 학습된) FeatureEncoder + MainModel 하이브리드 파이프라인"""
+    """(사전 학습된) FeatureEncoder + AutoEncoder + RF 파이프라인"""
 
     def __init__(self, n_epochs=13, batch_size=32, n_cv_splits=5,
                  encoder_weight_path="feature_encoder.pth"):
@@ -72,6 +97,7 @@ class ProductionPipeline:
         self.n_cv_splits = n_cv_splits
         self.encoder_weight_path = encoder_weight_path
 
+    # ---------------- Encoder 로드 ----------------
     def load_pretrained_encoder(self, basic_feature_dim):
         if not os.path.exists(self.encoder_weight_path):
             raise FileNotFoundError(
@@ -88,6 +114,7 @@ class ProductionPipeline:
         self.feature_encoder.eval()
         print(f"[Main] Loaded encoder weights from {self.encoder_weight_path}")
 
+    # ---------------- Encoder feature 추출 ----------------
     def extract_features(self, loader, is_test=False):
         assert self.feature_encoder is not None, "feature_encoder가 로드되지 않았습니다."
         self.feature_encoder.eval()
@@ -108,6 +135,75 @@ class ProductionPipeline:
                     all_features.append(feats.cpu().numpy())
 
         return np.concatenate(all_features, axis=0)
+
+    # ---------------- AutoEncoder 학습 ----------------
+    def train_autoencoder(self,
+                          X_train_feat_np,
+                          n_epochs=200,
+                          batch_size=64,
+                          lr=1e-3,
+                          weight_decay=1e-5):
+        """
+        X_train_feat_np : (N, D) = (720, 96) 정도
+        return: 학습된 AE 모델
+        """
+        input_dim = X_train_feat_np.shape[1]
+        ae = FeatureAutoEncoder(input_dim=input_dim,
+                                hidden_dim=64,
+                                latent_dim=24).to(self.device)
+
+        dataset = TensorDataset(torch.from_numpy(X_train_feat_np.astype(np.float32)))
+        loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+
+        optimizer = optim.Adam(ae.parameters(), lr=lr, weight_decay=weight_decay)
+        criterion = nn.MSELoss()
+
+        print(f"[AE] Train AutoEncoder: input_dim={input_dim}, hidden_dim=64, latent_dim=24")
+        for ep in range(1, n_epochs + 1):
+            ae.train()
+            total_loss = 0.0
+            for (x_batch,) in loader:
+                x_batch = x_batch.to(self.device)
+                optimizer.zero_grad()
+                x_hat, z = ae(x_batch)
+                loss = criterion(x_hat, x_batch)
+                loss.backward()
+                optimizer.step()
+                total_loss += loss.item() * x_batch.size(0)
+
+            avg_loss = total_loss / len(dataset)
+            if ep % 20 == 0 or ep == 1:
+                print(f"[AE] Epoch {ep}/{n_epochs} | Recon MSE={avg_loss:.6f}")
+
+        return ae
+
+    # ---------------- AE로 latent/recon 추출 ----------------
+    def get_ae_features(self, ae_model, X_np):
+        """
+        ae_model : 학습된 AutoEncoder
+        X_np     : (N, D) numpy (train or test)
+        return   : latent (N, latent_dim), recon_error (N, 1)
+        """
+        ae_model.eval()
+        all_latent = []
+        all_recon_err = []
+
+        dataset = TensorDataset(torch.from_numpy(X_np.astype(np.float32)))
+        loader = DataLoader(dataset, batch_size=128, shuffle=False)
+
+        with torch.no_grad():
+            for (x_batch,) in loader:
+                x_batch = x_batch.to(self.device)
+                x_hat, z = ae_model(x_batch)
+                # 재구성 오차: sample-wise MSE, shape (batch, 1)
+                recon_err = ((x_hat - x_batch) ** 2).mean(dim=1, keepdim=True)
+
+                all_latent.append(z.cpu().numpy())
+                all_recon_err.append(recon_err.cpu().numpy())
+
+        latent_np = np.concatenate(all_latent, axis=0)
+        recon_np = np.concatenate(all_recon_err, axis=0)
+        return latent_np, recon_np
 
     # ---------------- Stratified K-Fold CV splits 생성 ----------------
     @staticmethod
@@ -133,7 +229,7 @@ class ProductionPipeline:
         logger = TeeLogger()
         sys.stdout = logger
 
-        print("[Main] Start Production Pipeline")
+        print("[Main] Start Production Pipeline (Encoder + AE + RF)")
 
         # 1. 데이터 로딩
         train_df, test_df, train_X_basic_df, train_Y_series, test_X_basic_df = \
@@ -167,23 +263,39 @@ class ProductionPipeline:
         # 6. 사전 학습된 FeatureEncoder 로드
         self.load_pretrained_encoder(self.data_processor.basic_feature_dim)
 
-        # 7. FeatureEncoder를 이용해 feature 추출
+        # 7. FeatureEncoder를 이용해 feature 추출 (Z: 96차원)
         X_train_feat = self.extract_features(train_loader_seq, is_test=False)
         X_test_feat = self.extract_features(test_loader, is_test=True)
 
-        print(f"[Main] Encoded features (Train): {X_train_feat.shape}")
-        print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
+        print(f"[Main] Encoded features (Train): {X_train_feat.shape}")  # (720, 96)
+        print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")   # (466, 96)
 
-        # 8. 하이브리드 피처 생성
-        # X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
-        # X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
-        X_train_hybrid = X_train_feat
-        X_test_hybrid = X_test_feat
+        # 8. AutoEncoder 학습 (Z 위에서 비지도)
+        ae = self.train_autoencoder(
+            X_train_feat_np=X_train_feat,
+            n_epochs=200,
+            batch_size=64,
+            lr=1e-3,
+            weight_decay=1e-5,
+        )
 
-        print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
-        print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")
+        # 9. AE latent / recon_error 추출
+        z_train_latent, z_train_recon = self.get_ae_features(ae, X_train_feat)
+        z_test_latent, z_test_recon = self.get_ae_features(ae, X_test_feat)
 
-        # 9. Cross Validation (Stratified K-Fold)
+        print(f"[AE] Train latent shape      : {z_train_latent.shape}")   # (720, 24)
+        print(f"[AE] Train recon_error shape : {z_train_recon.shape}")    # (720, 1)
+        print(f"[AE] Test latent shape       : {z_test_latent.shape}")    # (466, 24)
+        print(f"[AE] Test recon_error shape  : {z_test_recon.shape}")     # (466, 1)
+
+        # 10. 최종 feature 구성: [Z, z_latent, recon_error]
+        X_train_final = np.concatenate([X_train_feat, z_train_latent, z_train_recon], axis=1)
+        X_test_final = np.concatenate([X_test_feat, z_test_latent, z_test_recon], axis=1)
+
+        print(f"[Main] Final features (Train): {X_train_final.shape}")
+        print(f"[Main] Final features (Test) : {X_test_final.shape}")
+
+        # 11. Cross Validation (Stratified K-Fold)
         cv_splits = self.make_cv_splits(
             train_Y_series,
             n_splits=self.n_cv_splits,
@@ -199,14 +311,16 @@ class ProductionPipeline:
               f"(approx each val size: {approx_val_size})")
         print(f"(calculate_competition_score 사용, 기본 k=15)")
 
+        y_all = train_Y_series.values
+
         for fold_idx, (train_idx, val_idx) in enumerate(cv_splits):
             print(f"\n===== Fold {fold_idx + 1} =====")
 
-            X_train_fold = X_train_hybrid[train_idx]
-            y_train_fold = train_Y_series.values[train_idx]
+            X_train_fold = X_train_final[train_idx]
+            y_train_fold = y_all[train_idx]
 
-            X_val = X_train_hybrid[val_idx]
-            y_val = train_Y_series.values[val_idx]
+            X_val = X_train_final[val_idx]
+            y_val = y_all[val_idx]
 
             print(f"[Main] Train size: {X_train_fold.shape[0]}")
             print(f"[Main] Val size  : {X_val.shape[0]} "
@@ -217,30 +331,30 @@ class ProductionPipeline:
 
             val_prob_ng = model.predict_proba(X_val)[:, 1]
 
-            # 공통 평가 함수 사용 (k는 기본값 15 사용)
             roc, profit, score = calculate_competition_score(
                 y_true=y_val,
                 y_prob=val_prob_ng,
             )
 
+            print(f"[Fold {fold_idx+1}] ROC={roc:.6f} Profit={profit:.2f} Score={score:.6f}")
             cv_roc_list.append(roc)
             cv_profit_list.append(profit)
             cv_score_list.append(score)
 
-        print("\n===== CV Summary (StratifiedKFold, approx val~146) =====")
+        print("\n===== CV Summary (StratifiedKFold, Encoder+AE+RF) =====")
         print(f"ROC-AUC  mean/std : {np.mean(cv_roc_list):.6f} / {np.std(cv_roc_list):.6f}")
         print(f"Profit   mean/std : {np.mean(cv_profit_list):.2f} / {np.std(cv_profit_list):.2f}")
         print(f"Score    mean/std : {np.mean(cv_score_list):.6f} / {np.std(cv_score_list):.6f}")
 
-        # 10. 제출용 모델 재학습 (Train 전체 사용)
+        # 12. 제출용 모델 재학습 (Train 전체 사용)
         self.main_model = MainModel(n_estimators=200, random_state=42, n_jobs=-1)
-        self.main_model.fit(X_train_hybrid, train_Y_series.values)
+        self.main_model.fit(X_train_final, y_all)
 
-        # 11. Test 예측
-        test_prob = self.main_model.predict_proba(X_test_hybrid)[:, 1]
+        # 13. Test 예측
+        test_prob = self.main_model.predict_proba(X_test_final)[:, 1]
         print(f"\n[Main] Test prob range: {test_prob.min():.4f} ~ {test_prob.max():.4f}")
 
-        # 12. 제출 파일 생성
+        # 14. 제출 파일 생성
         submission = pd.read_csv("../data/submission/sample_submission.csv")
         submission['probability'] = np.concatenate([test_prob, test_prob])
         submission['decision'] = False
@@ -251,7 +365,6 @@ class ProductionPipeline:
         idx_L_sub = submission.index[:half_sub]
         idx_P_sub = submission.index[half_sub:]
 
-        # 여기서는 기존 로직 유지 (L/P 각각 170개 선택)
         decision_id_L_list = submission.loc[idx_L_sub].sort_values(
             'probability', ascending=True
         ).iloc[:170]['ID']
@@ -263,7 +376,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_RF_submission_{timestamp}.csv"
+        save_path = f"../data/submission/CNN_AE_RF_submission_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
@@ -287,7 +400,7 @@ def main():
     )
     submission_result = pipeline.run_production_pipeline()
 
-        # 간단 확인용 출력
+    # 간단 확인용 출력
     print("\nSubmission head:")
     print(submission_result.head())
     print("\nSubmission tail:")

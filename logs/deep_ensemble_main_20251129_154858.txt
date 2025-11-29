@@ -1,0 +1,3444 @@
+[Main] Start Production Pipeline (Deep Ensemble)
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 96)
+[Main] Hybrid features (Test) : (466, 96)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(Deep Ensemble with 5 members per fold)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[Fold 1] Train ensemble member 1/5
+  ROC-AUC        : 0.812234
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0559 | ROC=0.812234 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.850174
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0460 | ROC=0.850174 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.876887
+  Net Profit     : 4000
+  Total Score    : 0.388272
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0438 | ROC=0.876887 Profit=4000.00 Score=0.388272
+  ROC-AUC        : 0.879210
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0411 | ROC=0.879210 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.859079
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 005 | TrainLoss=0.0358 | ROC=0.859079 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.850174
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 006 | TrainLoss=0.0383 | ROC=0.850174 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.841270
+  Net Profit     : 1900
+  Total Score    : 0.254639
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0386 | ROC=0.841270 Profit=1900.00 Score=0.254639
+  ROC-AUC        : 0.900116
+  Net Profit     : 4000
+  Total Score    : 0.400058
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0357 | ROC=0.900116 Profit=4000.00 Score=0.400058
+  ROC-AUC        : 0.866434
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 009 | TrainLoss=0.0379 | ROC=0.866434 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.880372
+  Net Profit     : 4000
+  Total Score    : 0.390062
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0359 | ROC=0.880372 Profit=4000.00 Score=0.390062
+  ROC-AUC        : 0.891986
+  Net Profit     : 4000
+  Total Score    : 0.395973
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0350 | ROC=0.891986 Profit=4000.00 Score=0.395973
+  ROC-AUC        : 0.903213
+  Net Profit     : 4000
+  Total Score    : 0.401603
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 012 | TrainLoss=0.0345 | ROC=0.903213 Profit=4000.00 Score=0.401603
+  ROC-AUC        : 0.905923
+  Net Profit     : 4000
+  Total Score    : 0.402951
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0343 | ROC=0.905923 Profit=4000.00 Score=0.402951
+  ROC-AUC        : 0.893535
+  Net Profit     : 1900
+  Total Score    : 0.273444
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 014 | TrainLoss=0.0324 | ROC=0.893535 Profit=1900.00 Score=0.273444
+  ROC-AUC        : 0.903988
+  Net Profit     : 4000
+  Total Score    : 0.401989
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0322 | ROC=0.903988 Profit=4000.00 Score=0.401989
+  ROC-AUC        : 0.855594
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 016 | TrainLoss=0.0318 | ROC=0.855594 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.855207
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 017 | TrainLoss=0.0341 | ROC=0.855207 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.835075
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 018 | TrainLoss=0.0323 | ROC=0.835075 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.862176
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 019 | TrainLoss=0.0334 | ROC=0.862176 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.898955
+  Net Profit     : 4000
+  Total Score    : 0.399477
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 020 | TrainLoss=0.0324 | ROC=0.898955 Profit=4000.00 Score=0.399477
+  ROC-AUC        : 0.903213
+  Net Profit     : 4000
+  Total Score    : 0.401603
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0329 | ROC=0.903213 Profit=4000.00 Score=0.401603
+  ROC-AUC        : 0.868370
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 022 | TrainLoss=0.0309 | ROC=0.868370 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.863724
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 023 | TrainLoss=0.0337 | ROC=0.863724 Profit=-200.00 Score=0.000000
+[TrainOne] Early stopping at epoch 23 (no improve 10)
+[Fold 1] Train ensemble member 2/5
+  ROC-AUC        : 0.826945
+  Net Profit     : 1900
+  Total Score    : 0.249238
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0521 | ROC=0.826945 Profit=1900.00 Score=0.249238
+  ROC-AUC        : 0.906698
+  Net Profit     : 4000
+  Total Score    : 0.403335
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 002 | TrainLoss=0.0441 | ROC=0.906698 Profit=4000.00 Score=0.403335
+  ROC-AUC        : 0.893535
+  Net Profit     : 1900
+  Total Score    : 0.273444
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0441 | ROC=0.893535 Profit=1900.00 Score=0.273444
+  ROC-AUC        : 0.865273
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0414 | ROC=0.865273 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.878436
+  Net Profit     : 1900
+  Total Score    : 0.268147
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0366 | ROC=0.878436 Profit=1900.00 Score=0.268147
+  ROC-AUC        : 0.875726
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 006 | TrainLoss=0.0419 | ROC=0.875726 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.833527
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 007 | TrainLoss=0.0371 | ROC=0.833527 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.837398
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 008 | TrainLoss=0.0384 | ROC=0.837398 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.847077
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 009 | TrainLoss=0.0357 | ROC=0.847077 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.857917
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 010 | TrainLoss=0.0362 | ROC=0.857917 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.862176
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 011 | TrainLoss=0.0339 | ROC=0.862176 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.869144
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 012 | TrainLoss=0.0347 | ROC=0.869144 Profit=-200.00 Score=0.000000
+[TrainOne] Early stopping at epoch 12 (no improve 10)
+[Fold 1] Train ensemble member 3/5
+  ROC-AUC        : 0.833914
+  Net Profit     : 1900
+  Total Score    : 0.251880
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0692 | ROC=0.833914 Profit=1900.00 Score=0.251880
+  ROC-AUC        : 0.893535
+  Net Profit     : 1900
+  Total Score    : 0.273444
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0509 | ROC=0.893535 Profit=1900.00 Score=0.273444
+  ROC-AUC        : 0.895858
+  Net Profit     : 1900
+  Total Score    : 0.274250
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0538 | ROC=0.895858 Profit=1900.00 Score=0.274250
+  ROC-AUC        : 0.850949
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0448 | ROC=0.850949 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.824235
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 005 | TrainLoss=0.0372 | ROC=0.824235 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.837786
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 006 | TrainLoss=0.0413 | ROC=0.837786 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.826558
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 007 | TrainLoss=0.0374 | ROC=0.826558 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.879597
+  Net Profit     : 1900
+  Total Score    : 0.268558
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0374 | ROC=0.879597 Profit=1900.00 Score=0.268558
+  ROC-AUC        : 0.864111
+  Net Profit     : 1900
+  Total Score    : 0.263023
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0365 | ROC=0.864111 Profit=1900.00 Score=0.263023
+  ROC-AUC        : 0.874564
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 010 | TrainLoss=0.0376 | ROC=0.874564 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.872242
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 011 | TrainLoss=0.0340 | ROC=0.872242 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.870693
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 012 | TrainLoss=0.0362 | ROC=0.870693 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.869144
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 013 | TrainLoss=0.0360 | ROC=0.869144 Profit=-200.00 Score=0.000000
+[TrainOne] Early stopping at epoch 13 (no improve 10)
+[Fold 1] Train ensemble member 4/5
+  ROC-AUC        : 0.830817
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0568 | ROC=0.830817 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.879210
+  Net Profit     : 4000
+  Total Score    : 0.389466
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 002 | TrainLoss=0.0475 | ROC=0.879210 Profit=4000.00 Score=0.389466
+  ROC-AUC        : 0.851723
+  Net Profit     : 1900
+  Total Score    : 0.258510
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0422 | ROC=0.851723 Profit=1900.00 Score=0.258510
+  ROC-AUC        : 0.823461
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0416 | ROC=0.823461 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.792102
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 005 | TrainLoss=0.0433 | ROC=0.792102 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.842431
+  Net Profit     : 1900
+  Total Score    : 0.255072
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0407 | ROC=0.842431 Profit=1900.00 Score=0.255072
+  ROC-AUC        : 0.874177
+  Net Profit     : 1900
+  Total Score    : 0.266634
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0394 | ROC=0.874177 Profit=1900.00 Score=0.266634
+  ROC-AUC        : 0.899729
+  Net Profit     : 4000
+  Total Score    : 0.399864
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0410 | ROC=0.899729 Profit=4000.00 Score=0.399864
+  ROC-AUC        : 0.898568
+  Net Profit     : 1900
+  Total Score    : 0.275187
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0391 | ROC=0.898568 Profit=1900.00 Score=0.275187
+  ROC-AUC        : 0.885405
+  Net Profit     : 1900
+  Total Score    : 0.270605
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0366 | ROC=0.885405 Profit=1900.00 Score=0.270605
+  ROC-AUC        : 0.868370
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 011 | TrainLoss=0.0367 | ROC=0.868370 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.209059
+  Net Profit     : -29600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=24, NG=16)
+[TrainOne] Epoch 012 | TrainLoss=0.0386 | ROC=0.209059 Profit=-29600.00 Score=0.000000
+  ROC-AUC        : 0.903988
+  Net Profit     : 1900
+  Total Score    : 0.277052
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0359 | ROC=0.903988 Profit=1900.00 Score=0.277052
+  ROC-AUC        : 0.841270
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 014 | TrainLoss=0.0363 | ROC=0.841270 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.896632
+  Net Profit     : 1900
+  Total Score    : 0.274518
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 015 | TrainLoss=0.0365 | ROC=0.896632 Profit=1900.00 Score=0.274518
+  ROC-AUC        : 0.902052
+  Net Profit     : 4000
+  Total Score    : 0.401025
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0351 | ROC=0.902052 Profit=4000.00 Score=0.401025
+  ROC-AUC        : 0.854433
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 017 | TrainLoss=0.0347 | ROC=0.854433 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.873790
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 018 | TrainLoss=0.0346 | ROC=0.873790 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.862563
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 019 | TrainLoss=0.0333 | ROC=0.862563 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.890437
+  Net Profit     : 1900
+  Total Score    : 0.272366
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0324 | ROC=0.890437 Profit=1900.00 Score=0.272366
+  ROC-AUC        : 0.885017
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 021 | TrainLoss=0.0336 | ROC=0.885017 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.884243
+  Net Profit     : 1900
+  Total Score    : 0.270197
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 022 | TrainLoss=0.0315 | ROC=0.884243 Profit=1900.00 Score=0.270197
+  ROC-AUC        : 0.866822
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 023 | TrainLoss=0.0325 | ROC=0.866822 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.873403
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 024 | TrainLoss=0.0353 | ROC=0.873403 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.901278
+  Net Profit     : 1900
+  Total Score    : 0.276121
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 025 | TrainLoss=0.0322 | ROC=0.901278 Profit=1900.00 Score=0.276121
+  ROC-AUC        : 0.866822
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 026 | TrainLoss=0.0321 | ROC=0.866822 Profit=-200.00 Score=0.000000
+[TrainOne] Early stopping at epoch 26 (no improve 10)
+[Fold 1] Train ensemble member 5/5
+  ROC-AUC        : 0.813008
+  Net Profit     : 1900
+  Total Score    : 0.243868
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0739 | ROC=0.813008 Profit=1900.00 Score=0.243868
+  ROC-AUC        : 0.867209
+  Net Profit     : 1900
+  Total Score    : 0.264139
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0565 | ROC=0.867209 Profit=1900.00 Score=0.264139
+  ROC-AUC        : 0.893148
+  Net Profit     : 4000
+  Total Score    : 0.396559
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0478 | ROC=0.893148 Profit=4000.00 Score=0.396559
+  ROC-AUC        : 0.861401
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0455 | ROC=0.861401 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.876500
+  Net Profit     : 4000
+  Total Score    : 0.388072
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0440 | ROC=0.876500 Profit=4000.00 Score=0.388072
+  ROC-AUC        : 0.903988
+  Net Profit     : 4000
+  Total Score    : 0.401989
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0386 | ROC=0.903988 Profit=4000.00 Score=0.401989
+  ROC-AUC        : 0.897793
+  Net Profit     : 4000
+  Total Score    : 0.398895
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0394 | ROC=0.897793 Profit=4000.00 Score=0.398895
+  ROC-AUC        : 0.879210
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 008 | TrainLoss=0.0396 | ROC=0.879210 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.873403
+  Net Profit     : 1900
+  Total Score    : 0.266358
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0376 | ROC=0.873403 Profit=1900.00 Score=0.266358
+  ROC-AUC        : 0.895083
+  Net Profit     : 1900
+  Total Score    : 0.273981
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0365 | ROC=0.895083 Profit=1900.00 Score=0.273981
+  ROC-AUC        : 0.893922
+  Net Profit     : 1900
+  Total Score    : 0.273578
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0356 | ROC=0.893922 Profit=1900.00 Score=0.273578
+  ROC-AUC        : 0.879597
+  Net Profit     : 1900
+  Total Score    : 0.268558
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0356 | ROC=0.879597 Profit=1900.00 Score=0.268558
+  ROC-AUC        : 0.872629
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 013 | TrainLoss=0.0332 | ROC=0.872629 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.887727
+  Net Profit     : 1900
+  Total Score    : 0.271419
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 014 | TrainLoss=0.0363 | ROC=0.887727 Profit=1900.00 Score=0.271419
+  ROC-AUC        : 0.906698
+  Net Profit     : 4000
+  Total Score    : 0.403335
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0354 | ROC=0.906698 Profit=4000.00 Score=0.403335
+  ROC-AUC        : 0.834301
+  Net Profit     : 1900
+  Total Score    : 0.252026
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0329 | ROC=0.834301 Profit=1900.00 Score=0.252026
+  ROC-AUC        : 0.853659
+  Net Profit     : 1900
+  Total Score    : 0.259220
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 017 | TrainLoss=0.0366 | ROC=0.853659 Profit=1900.00 Score=0.259220
+  ROC-AUC        : 0.865660
+  Net Profit     : 1900
+  Total Score    : 0.263582
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 018 | TrainLoss=0.0344 | ROC=0.865660 Profit=1900.00 Score=0.263582
+  ROC-AUC        : 0.859079
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 019 | TrainLoss=0.0326 | ROC=0.859079 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.870306
+  Net Profit     : 4000
+  Total Score    : 0.384867
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 020 | TrainLoss=0.0329 | ROC=0.870306 Profit=4000.00 Score=0.384867
+  ROC-AUC        : 0.877662
+  Net Profit     : 1900
+  Total Score    : 0.267873
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 021 | TrainLoss=0.0353 | ROC=0.877662 Profit=1900.00 Score=0.267873
+  ROC-AUC        : 0.890050
+  Net Profit     : 4000
+  Total Score    : 0.394994
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0332 | ROC=0.890050 Profit=4000.00 Score=0.394994
+  ROC-AUC        : 0.887340
+  Net Profit     : 1900
+  Total Score    : 0.271283
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 023 | TrainLoss=0.0296 | ROC=0.887340 Profit=1900.00 Score=0.271283
+  ROC-AUC        : 0.898568
+  Net Profit     : 1900
+  Total Score    : 0.275187
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 024 | TrainLoss=0.0329 | ROC=0.898568 Profit=1900.00 Score=0.275187
+  ROC-AUC        : 0.872629
+  Net Profit     : 1900
+  Total Score    : 0.266082
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 025 | TrainLoss=0.0307 | ROC=0.872629 Profit=1900.00 Score=0.266082
+[TrainOne] Early stopping at epoch 25 (no improve 10)
+  ROC-AUC        : 0.869919
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 1] DeepEns ROC=0.869919 Profit=-200.00 Score=0.000000
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[Fold 2] Train ensemble member 1/5
+  ROC-AUC        : 0.843980
+  Net Profit     : 1900
+  Total Score    : 0.255649
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0569 | ROC=0.843980 Profit=1900.00 Score=0.255649
+  ROC-AUC        : 0.829655
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0494 | ROC=0.829655 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.819202
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 003 | TrainLoss=0.0452 | ROC=0.819202 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.836237
+  Net Profit     : 1900
+  Total Score    : 0.252755
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0394 | ROC=0.836237 Profit=1900.00 Score=0.252755
+  ROC-AUC        : 0.849400
+  Net Profit     : 1900
+  Total Score    : 0.257655
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0392 | ROC=0.849400 Profit=1900.00 Score=0.257655
+  ROC-AUC        : 0.845916
+  Net Profit     : 1900
+  Total Score    : 0.256367
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0365 | ROC=0.845916 Profit=1900.00 Score=0.256367
+  ROC-AUC        : 0.843980
+  Net Profit     : 1900
+  Total Score    : 0.255649
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0407 | ROC=0.843980 Profit=1900.00 Score=0.255649
+  ROC-AUC        : 0.827720
+  Net Profit     : 1900
+  Total Score    : 0.249533
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0379 | ROC=0.827720 Profit=1900.00 Score=0.249533
+  ROC-AUC        : 0.842818
+  Net Profit     : 1900
+  Total Score    : 0.255217
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0351 | ROC=0.842818 Profit=1900.00 Score=0.255217
+  ROC-AUC        : 0.513744
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[TrainOne] Epoch 010 | TrainLoss=0.0322 | ROC=0.513744 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.805652
+  Net Profit     : 1900
+  Total Score    : 0.240985
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0358 | ROC=0.805652 Profit=1900.00 Score=0.240985
+  ROC-AUC        : 0.840883
+  Net Profit     : 1900
+  Total Score    : 0.254495
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0360 | ROC=0.840883 Profit=1900.00 Score=0.254495
+  ROC-AUC        : 0.853271
+  Net Profit     : 1900
+  Total Score    : 0.259078
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0332 | ROC=0.853271 Profit=1900.00 Score=0.259078
+  ROC-AUC        : 0.824623
+  Net Profit     : 1900
+  Total Score    : 0.248351
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 014 | TrainLoss=0.0316 | ROC=0.824623 Profit=1900.00 Score=0.248351
+  ROC-AUC        : 0.852110
+  Net Profit     : 1900
+  Total Score    : 0.258652
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 015 | TrainLoss=0.0324 | ROC=0.852110 Profit=1900.00 Score=0.258652
+  ROC-AUC        : 0.816105
+  Net Profit     : 1900
+  Total Score    : 0.245071
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0313 | ROC=0.816105 Profit=1900.00 Score=0.245071
+  ROC-AUC        : 0.825397
+  Net Profit     : 1900
+  Total Score    : 0.248647
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 017 | TrainLoss=0.0331 | ROC=0.825397 Profit=1900.00 Score=0.248647
+  ROC-AUC        : 0.849400
+  Net Profit     : 1900
+  Total Score    : 0.257655
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 018 | TrainLoss=0.0313 | ROC=0.849400 Profit=1900.00 Score=0.257655
+  ROC-AUC        : 0.804104
+  Net Profit     : 1900
+  Total Score    : 0.240374
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 019 | TrainLoss=0.0299 | ROC=0.804104 Profit=1900.00 Score=0.240374
+  ROC-AUC        : 0.823461
+  Net Profit     : 1900
+  Total Score    : 0.247906
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0288 | ROC=0.823461 Profit=1900.00 Score=0.247906
+  ROC-AUC        : 0.823848
+  Net Profit     : 1900
+  Total Score    : 0.248055
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 021 | TrainLoss=0.0296 | ROC=0.823848 Profit=1900.00 Score=0.248055
+  ROC-AUC        : 0.849400
+  Net Profit     : 1900
+  Total Score    : 0.257655
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 022 | TrainLoss=0.0321 | ROC=0.849400 Profit=1900.00 Score=0.257655
+  ROC-AUC        : 0.820751
+  Net Profit     : 1900
+  Total Score    : 0.246866
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 023 | TrainLoss=0.0277 | ROC=0.820751 Profit=1900.00 Score=0.246866
+[TrainOne] Early stopping at epoch 23 (no improve 10)
+[Fold 2] Train ensemble member 2/5
+  ROC-AUC        : 0.785908
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0592 | ROC=0.785908 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.843980
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0474 | ROC=0.843980 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.834301
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 003 | TrainLoss=0.0447 | ROC=0.834301 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.854820
+  Net Profit     : 1900
+  Total Score    : 0.259646
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0390 | ROC=0.854820 Profit=1900.00 Score=0.259646
+  ROC-AUC        : 0.831978
+  Net Profit     : 1900
+  Total Score    : 0.251149
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0413 | ROC=0.831978 Profit=1900.00 Score=0.251149
+  ROC-AUC        : 0.836237
+  Net Profit     : 1900
+  Total Score    : 0.252755
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0392 | ROC=0.836237 Profit=1900.00 Score=0.252755
+  ROC-AUC        : 0.845528
+  Net Profit     : 1900
+  Total Score    : 0.256223
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0413 | ROC=0.845528 Profit=1900.00 Score=0.256223
+  ROC-AUC        : 0.787069
+  Net Profit     : 1900
+  Total Score    : 0.233545
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0384 | ROC=0.787069 Profit=1900.00 Score=0.233545
+  ROC-AUC        : 0.699574
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 009 | TrainLoss=0.0346 | ROC=0.699574 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.795587
+  Net Profit     : 1900
+  Total Score    : 0.236984
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0341 | ROC=0.795587 Profit=1900.00 Score=0.236984
+  ROC-AUC        : 0.827333
+  Net Profit     : 1900
+  Total Score    : 0.249386
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0335 | ROC=0.827333 Profit=1900.00 Score=0.249386
+  ROC-AUC        : 0.845916
+  Net Profit     : 1900
+  Total Score    : 0.256367
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0305 | ROC=0.845916 Profit=1900.00 Score=0.256367
+  ROC-AUC        : 0.833527
+  Net Profit     : 1900
+  Total Score    : 0.251734
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0298 | ROC=0.833527 Profit=1900.00 Score=0.251734
+  ROC-AUC        : 0.852110
+  Net Profit     : 4000
+  Total Score    : 0.375292
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0331 | ROC=0.852110 Profit=4000.00 Score=0.375292
+  ROC-AUC        : 0.819202
+  Net Profit     : 1900
+  Total Score    : 0.246269
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 015 | TrainLoss=0.0307 | ROC=0.819202 Profit=1900.00 Score=0.246269
+  ROC-AUC        : 0.849400
+  Net Profit     : 1900
+  Total Score    : 0.257655
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0334 | ROC=0.849400 Profit=1900.00 Score=0.257655
+  ROC-AUC        : 0.822300
+  Net Profit     : 1900
+  Total Score    : 0.247461
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 017 | TrainLoss=0.0330 | ROC=0.822300 Profit=1900.00 Score=0.247461
+  ROC-AUC        : 0.851336
+  Net Profit     : 1900
+  Total Score    : 0.258368
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 018 | TrainLoss=0.0341 | ROC=0.851336 Profit=1900.00 Score=0.258368
+  ROC-AUC        : 0.843980
+  Net Profit     : 1900
+  Total Score    : 0.255649
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 019 | TrainLoss=0.0298 | ROC=0.843980 Profit=1900.00 Score=0.255649
+  ROC-AUC        : 0.851723
+  Net Profit     : 1900
+  Total Score    : 0.258510
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0308 | ROC=0.851723 Profit=1900.00 Score=0.258510
+  ROC-AUC        : 0.833527
+  Net Profit     : 1900
+  Total Score    : 0.251734
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 021 | TrainLoss=0.0309 | ROC=0.833527 Profit=1900.00 Score=0.251734
+  ROC-AUC        : 0.807588
+  Net Profit     : 1900
+  Total Score    : 0.241747
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 022 | TrainLoss=0.0341 | ROC=0.807588 Profit=1900.00 Score=0.241747
+  ROC-AUC        : 0.835463
+  Net Profit     : 1900
+  Total Score    : 0.252464
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 023 | TrainLoss=0.0296 | ROC=0.835463 Profit=1900.00 Score=0.252464
+  ROC-AUC        : 0.844754
+  Net Profit     : 1900
+  Total Score    : 0.255936
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 024 | TrainLoss=0.0319 | ROC=0.844754 Profit=1900.00 Score=0.255936
+[TrainOne] Early stopping at epoch 24 (no improve 10)
+[Fold 2] Train ensemble member 3/5
+  ROC-AUC        : 0.838173
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0563 | ROC=0.838173 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.840496
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0450 | ROC=0.840496 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.833527
+  Net Profit     : 1900
+  Total Score    : 0.251734
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0437 | ROC=0.833527 Profit=1900.00 Score=0.251734
+  ROC-AUC        : 0.825010
+  Net Profit     : 1900
+  Total Score    : 0.248499
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0444 | ROC=0.825010 Profit=1900.00 Score=0.248499
+  ROC-AUC        : 0.842431
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 005 | TrainLoss=0.0394 | ROC=0.842431 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.844367
+  Net Profit     : 1900
+  Total Score    : 0.255792
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0392 | ROC=0.844367 Profit=1900.00 Score=0.255792
+  ROC-AUC        : 0.827333
+  Net Profit     : 1900
+  Total Score    : 0.249386
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0375 | ROC=0.827333 Profit=1900.00 Score=0.249386
+  ROC-AUC        : 0.843980
+  Net Profit     : 1900
+  Total Score    : 0.255649
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0375 | ROC=0.843980 Profit=1900.00 Score=0.255649
+  ROC-AUC        : 0.834301
+  Net Profit     : 1900
+  Total Score    : 0.252026
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0354 | ROC=0.834301 Profit=1900.00 Score=0.252026
+  ROC-AUC        : 0.719706
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 010 | TrainLoss=0.0354 | ROC=0.719706 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.822300
+  Net Profit     : 1900
+  Total Score    : 0.247461
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0365 | ROC=0.822300 Profit=1900.00 Score=0.247461
+  ROC-AUC        : 0.839334
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 012 | TrainLoss=0.0358 | ROC=0.839334 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.756098
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 013 | TrainLoss=0.0337 | ROC=0.756098 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.799458
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 014 | TrainLoss=0.0297 | ROC=0.799458 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.830043
+  Net Profit     : 1900
+  Total Score    : 0.250416
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 015 | TrainLoss=0.0308 | ROC=0.830043 Profit=1900.00 Score=0.250416
+  ROC-AUC        : 0.836624
+  Net Profit     : 1900
+  Total Score    : 0.252900
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0327 | ROC=0.836624 Profit=1900.00 Score=0.252900
+[TrainOne] Early stopping at epoch 16 (no improve 10)
+[Fold 2] Train ensemble member 4/5
+  ROC-AUC        : 0.795974
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0555 | ROC=0.795974 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.826171
+  Net Profit     : 1900
+  Total Score    : 0.248943
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0475 | ROC=0.826171 Profit=1900.00 Score=0.248943
+  ROC-AUC        : 0.819977
+  Net Profit     : 4000
+  Total Score    : 0.357758
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0414 | ROC=0.819977 Profit=4000.00 Score=0.357758
+  ROC-AUC        : 0.821525
+  Net Profit     : 1900
+  Total Score    : 0.247164
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0392 | ROC=0.821525 Profit=1900.00 Score=0.247164
+  ROC-AUC        : 0.831978
+  Net Profit     : 1900
+  Total Score    : 0.251149
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0377 | ROC=0.831978 Profit=1900.00 Score=0.251149
+  ROC-AUC        : 0.846690
+  Net Profit     : 1900
+  Total Score    : 0.256654
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0351 | ROC=0.846690 Profit=1900.00 Score=0.256654
+  ROC-AUC        : 0.823848
+  Net Profit     : 1900
+  Total Score    : 0.248055
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0359 | ROC=0.823848 Profit=1900.00 Score=0.248055
+  ROC-AUC        : 0.613240
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[TrainOne] Epoch 008 | TrainLoss=0.0326 | ROC=0.613240 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.830430
+  Net Profit     : 4000
+  Total Score    : 0.363555
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 009 | TrainLoss=0.0336 | ROC=0.830430 Profit=4000.00 Score=0.363555
+  ROC-AUC        : 0.833140
+  Net Profit     : 1900
+  Total Score    : 0.251588
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0350 | ROC=0.833140 Profit=1900.00 Score=0.251588
+  ROC-AUC        : 0.704607
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 011 | TrainLoss=0.0328 | ROC=0.704607 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.838560
+  Net Profit     : 1900
+  Total Score    : 0.253626
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0333 | ROC=0.838560 Profit=1900.00 Score=0.253626
+  ROC-AUC        : 0.835075
+  Net Profit     : 1900
+  Total Score    : 0.252318
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0335 | ROC=0.835075 Profit=1900.00 Score=0.252318
+  ROC-AUC        : 0.755710
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 014 | TrainLoss=0.0324 | ROC=0.755710 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.800619
+  Net Profit     : 1900
+  Total Score    : 0.238993
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 015 | TrainLoss=0.0318 | ROC=0.800619 Profit=1900.00 Score=0.238993
+  ROC-AUC        : 0.838947
+  Net Profit     : 1900
+  Total Score    : 0.253771
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0324 | ROC=0.838947 Profit=1900.00 Score=0.253771
+  ROC-AUC        : 0.831204
+  Net Profit     : 4000
+  Total Score    : 0.363980
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0320 | ROC=0.831204 Profit=4000.00 Score=0.363980
+  ROC-AUC        : 0.831204
+  Net Profit     : 1900
+  Total Score    : 0.250856
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 018 | TrainLoss=0.0313 | ROC=0.831204 Profit=1900.00 Score=0.250856
+  ROC-AUC        : 0.843206
+  Net Profit     : 1900
+  Total Score    : 0.255361
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 019 | TrainLoss=0.0300 | ROC=0.843206 Profit=1900.00 Score=0.255361
+  ROC-AUC        : 0.822300
+  Net Profit     : 1900
+  Total Score    : 0.247461
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0288 | ROC=0.822300 Profit=1900.00 Score=0.247461
+  ROC-AUC        : 0.847077
+  Net Profit     : 1900
+  Total Score    : 0.256797
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 021 | TrainLoss=0.0283 | ROC=0.847077 Profit=1900.00 Score=0.256797
+  ROC-AUC        : 0.831591
+  Net Profit     : 1900
+  Total Score    : 0.251003
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 022 | TrainLoss=0.0295 | ROC=0.831591 Profit=1900.00 Score=0.251003
+  ROC-AUC        : 0.813008
+  Net Profit     : 1900
+  Total Score    : 0.243868
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 023 | TrainLoss=0.0287 | ROC=0.813008 Profit=1900.00 Score=0.243868
+  ROC-AUC        : 0.801394
+  Net Profit     : 1900
+  Total Score    : 0.239301
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 024 | TrainLoss=0.0307 | ROC=0.801394 Profit=1900.00 Score=0.239301
+  ROC-AUC        : 0.828881
+  Net Profit     : 1900
+  Total Score    : 0.249975
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 025 | TrainLoss=0.0307 | ROC=0.828881 Profit=1900.00 Score=0.249975
+  ROC-AUC        : 0.823074
+  Net Profit     : 1900
+  Total Score    : 0.247758
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 026 | TrainLoss=0.0332 | ROC=0.823074 Profit=1900.00 Score=0.247758
+  ROC-AUC        : 0.811460
+  Net Profit     : 1900
+  Total Score    : 0.243264
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 027 | TrainLoss=0.0304 | ROC=0.811460 Profit=1900.00 Score=0.243264
+[TrainOne] Early stopping at epoch 27 (no improve 10)
+[Fold 2] Train ensemble member 5/5
+  ROC-AUC        : 0.770809
+  Net Profit     : 1900
+  Total Score    : 0.226834
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0617 | ROC=0.770809 Profit=1900.00 Score=0.226834
+  ROC-AUC        : 0.803329
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0560 | ROC=0.803329 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.813008
+  Net Profit     : 1900
+  Total Score    : 0.243868
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0473 | ROC=0.813008 Profit=1900.00 Score=0.243868
+  ROC-AUC        : 0.801394
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0447 | ROC=0.801394 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.792877
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 005 | TrainLoss=0.0383 | ROC=0.792877 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.820751
+  Net Profit     : 1900
+  Total Score    : 0.246866
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0386 | ROC=0.820751 Profit=1900.00 Score=0.246866
+  ROC-AUC        : 0.823461
+  Net Profit     : 1900
+  Total Score    : 0.247906
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0400 | ROC=0.823461 Profit=1900.00 Score=0.247906
+  ROC-AUC        : 0.704220
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 008 | TrainLoss=0.0378 | ROC=0.704220 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.802942
+  Net Profit     : 1900
+  Total Score    : 0.239915
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0379 | ROC=0.802942 Profit=1900.00 Score=0.239915
+  ROC-AUC        : 0.840108
+  Net Profit     : 1900
+  Total Score    : 0.254206
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0357 | ROC=0.840108 Profit=1900.00 Score=0.254206
+  ROC-AUC        : 0.737127
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 011 | TrainLoss=0.0378 | ROC=0.737127 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.831978
+  Net Profit     : 1900
+  Total Score    : 0.251149
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0374 | ROC=0.831978 Profit=1900.00 Score=0.251149
+  ROC-AUC        : 0.800619
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 013 | TrainLoss=0.0335 | ROC=0.800619 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.739450
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 014 | TrainLoss=0.0332 | ROC=0.739450 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.778552
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 015 | TrainLoss=0.0329 | ROC=0.778552 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.836237
+  Net Profit     : 1900
+  Total Score    : 0.252755
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0326 | ROC=0.836237 Profit=1900.00 Score=0.252755
+  ROC-AUC        : 0.833914
+  Net Profit     : 1900
+  Total Score    : 0.251880
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 017 | TrainLoss=0.0349 | ROC=0.833914 Profit=1900.00 Score=0.251880
+  ROC-AUC        : 0.792489
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 018 | TrainLoss=0.0330 | ROC=0.792489 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.771583
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 019 | TrainLoss=0.0325 | ROC=0.771583 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.833914
+  Net Profit     : 1900
+  Total Score    : 0.251880
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0330 | ROC=0.833914 Profit=1900.00 Score=0.251880
+[TrainOne] Early stopping at epoch 20 (no improve 10)
+  ROC-AUC        : 0.839721
+  Net Profit     : 1900
+  Total Score    : 0.254061
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 2] DeepEns ROC=0.839721 Profit=1900.00 Score=0.254061
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+[Fold 3] Train ensemble member 1/5
+  ROC-AUC        : 0.857917
+  Net Profit     : 1900
+  Total Score    : 0.260776
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0640 | ROC=0.857917 Profit=1900.00 Score=0.260776
+  ROC-AUC        : 0.863724
+  Net Profit     : 1900
+  Total Score    : 0.262883
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0487 | ROC=0.863724 Profit=1900.00 Score=0.262883
+  ROC-AUC        : 0.892373
+  Net Profit     : 1900
+  Total Score    : 0.273040
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0446 | ROC=0.892373 Profit=1900.00 Score=0.273040
+  ROC-AUC        : 0.893535
+  Net Profit     : 1900
+  Total Score    : 0.273444
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0447 | ROC=0.893535 Profit=1900.00 Score=0.273444
+  ROC-AUC        : 0.904375
+  Net Profit     : 4000
+  Total Score    : 0.402181
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0411 | ROC=0.904375 Profit=4000.00 Score=0.402181
+  ROC-AUC        : 0.902052
+  Net Profit     : 4000
+  Total Score    : 0.401025
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0370 | ROC=0.902052 Profit=4000.00 Score=0.401025
+  ROC-AUC        : 0.907859
+  Net Profit     : 4000
+  Total Score    : 0.403910
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0392 | ROC=0.907859 Profit=4000.00 Score=0.403910
+  ROC-AUC        : 0.900503
+  Net Profit     : 1900
+  Total Score    : 0.275854
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0372 | ROC=0.900503 Profit=1900.00 Score=0.275854
+  ROC-AUC        : 0.901278
+  Net Profit     : 1900
+  Total Score    : 0.276121
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0375 | ROC=0.901278 Profit=1900.00 Score=0.276121
+  ROC-AUC        : 0.870693
+  Net Profit     : 1900
+  Total Score    : 0.265390
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0375 | ROC=0.870693 Profit=1900.00 Score=0.265390
+  ROC-AUC        : 0.826171
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 011 | TrainLoss=0.0382 | ROC=0.826171 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.871467
+  Net Profit     : 1900
+  Total Score    : 0.265667
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0371 | ROC=0.871467 Profit=1900.00 Score=0.265667
+  ROC-AUC        : 0.887727
+  Net Profit     : 1900
+  Total Score    : 0.271419
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0404 | ROC=0.887727 Profit=1900.00 Score=0.271419
+  ROC-AUC        : 0.886953
+  Net Profit     : 1900
+  Total Score    : 0.271148
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 014 | TrainLoss=0.0331 | ROC=0.886953 Profit=1900.00 Score=0.271148
+  ROC-AUC        : 0.873790
+  Net Profit     : 1900
+  Total Score    : 0.266496
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 015 | TrainLoss=0.0368 | ROC=0.873790 Profit=1900.00 Score=0.266496
+  ROC-AUC        : 0.902826
+  Net Profit     : 1900
+  Total Score    : 0.276653
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0338 | ROC=0.902826 Profit=1900.00 Score=0.276653
+  ROC-AUC        : 0.900890
+  Net Profit     : 1900
+  Total Score    : 0.275988
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 017 | TrainLoss=0.0361 | ROC=0.900890 Profit=1900.00 Score=0.275988
+[TrainOne] Early stopping at epoch 17 (no improve 10)
+[Fold 3] Train ensemble member 2/5
+  ROC-AUC        : 0.795974
+  Net Profit     : 1900
+  Total Score    : 0.237139
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0651 | ROC=0.795974 Profit=1900.00 Score=0.237139
+  ROC-AUC        : 0.845916
+  Net Profit     : 1900
+  Total Score    : 0.256367
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0479 | ROC=0.845916 Profit=1900.00 Score=0.256367
+  ROC-AUC        : 0.879597
+  Net Profit     : 1900
+  Total Score    : 0.268558
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0455 | ROC=0.879597 Profit=1900.00 Score=0.268558
+  ROC-AUC        : 0.882307
+  Net Profit     : 1900
+  Total Score    : 0.269515
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0416 | ROC=0.882307 Profit=1900.00 Score=0.269515
+  ROC-AUC        : 0.885017
+  Net Profit     : 1900
+  Total Score    : 0.270469
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0406 | ROC=0.885017 Profit=1900.00 Score=0.270469
+  ROC-AUC        : 0.880372
+  Net Profit     : 1900
+  Total Score    : 0.268832
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0407 | ROC=0.880372 Profit=1900.00 Score=0.268832
+  ROC-AUC        : 0.886179
+  Net Profit     : 1900
+  Total Score    : 0.270876
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0399 | ROC=0.886179 Profit=1900.00 Score=0.270876
+  ROC-AUC        : 0.883469
+  Net Profit     : 1900
+  Total Score    : 0.269924
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0353 | ROC=0.883469 Profit=1900.00 Score=0.269924
+  ROC-AUC        : 0.878049
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 009 | TrainLoss=0.0363 | ROC=0.878049 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.824623
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 010 | TrainLoss=0.0348 | ROC=0.824623 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.897019
+  Net Profit     : 1900
+  Total Score    : 0.274652
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0361 | ROC=0.897019 Profit=1900.00 Score=0.274652
+  ROC-AUC        : 0.890437
+  Net Profit     : 1900
+  Total Score    : 0.272366
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0359 | ROC=0.890437 Profit=1900.00 Score=0.272366
+  ROC-AUC        : 0.900503
+  Net Profit     : 1900
+  Total Score    : 0.275854
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0337 | ROC=0.900503 Profit=1900.00 Score=0.275854
+  ROC-AUC        : 0.890437
+  Net Profit     : 1900
+  Total Score    : 0.272366
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 014 | TrainLoss=0.0362 | ROC=0.890437 Profit=1900.00 Score=0.272366
+  ROC-AUC        : 0.896245
+  Net Profit     : 4000
+  Total Score    : 0.398118
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0359 | ROC=0.896245 Profit=4000.00 Score=0.398118
+  ROC-AUC        : 0.888889
+  Net Profit     : 1900
+  Total Score    : 0.271825
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 016 | TrainLoss=0.0346 | ROC=0.888889 Profit=1900.00 Score=0.271825
+  ROC-AUC        : 0.870306
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 017 | TrainLoss=0.0360 | ROC=0.870306 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.887340
+  Net Profit     : 1900
+  Total Score    : 0.271283
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 018 | TrainLoss=0.0351 | ROC=0.887340 Profit=1900.00 Score=0.271283
+  ROC-AUC        : 0.877274
+  Net Profit     : 1900
+  Total Score    : 0.267735
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 019 | TrainLoss=0.0359 | ROC=0.877274 Profit=1900.00 Score=0.267735
+  ROC-AUC        : 0.892373
+  Net Profit     : 1900
+  Total Score    : 0.273040
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0371 | ROC=0.892373 Profit=1900.00 Score=0.273040
+  ROC-AUC        : 0.895083
+  Net Profit     : 1900
+  Total Score    : 0.273981
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 021 | TrainLoss=0.0312 | ROC=0.895083 Profit=1900.00 Score=0.273981
+  ROC-AUC        : 0.895083
+  Net Profit     : 1900
+  Total Score    : 0.273981
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 022 | TrainLoss=0.0331 | ROC=0.895083 Profit=1900.00 Score=0.273981
+  ROC-AUC        : 0.892373
+  Net Profit     : 1900
+  Total Score    : 0.273040
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 023 | TrainLoss=0.0333 | ROC=0.892373 Profit=1900.00 Score=0.273040
+  ROC-AUC        : 0.888502
+  Net Profit     : 1900
+  Total Score    : 0.271690
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 024 | TrainLoss=0.0335 | ROC=0.888502 Profit=1900.00 Score=0.271690
+  ROC-AUC        : 0.885017
+  Net Profit     : 1900
+  Total Score    : 0.270469
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 025 | TrainLoss=0.0318 | ROC=0.885017 Profit=1900.00 Score=0.270469
+[TrainOne] Early stopping at epoch 25 (no improve 10)
+[Fold 3] Train ensemble member 3/5
+  ROC-AUC        : 0.845141
+  Net Profit     : 1900
+  Total Score    : 0.256080
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0598 | ROC=0.845141 Profit=1900.00 Score=0.256080
+  ROC-AUC        : 0.879210
+  Net Profit     : 1900
+  Total Score    : 0.268421
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0473 | ROC=0.879210 Profit=1900.00 Score=0.268421
+  ROC-AUC        : 0.907472
+  Net Profit     : 4000
+  Total Score    : 0.403719
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0408 | ROC=0.907472 Profit=4000.00 Score=0.403719
+  ROC-AUC        : 0.888115
+  Net Profit     : 1900
+  Total Score    : 0.271554
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0406 | ROC=0.888115 Profit=1900.00 Score=0.271554
+  ROC-AUC        : 0.886566
+  Net Profit     : 1900
+  Total Score    : 0.271012
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0393 | ROC=0.886566 Profit=1900.00 Score=0.271012
+  ROC-AUC        : 0.900116
+  Net Profit     : 1900
+  Total Score    : 0.275721
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0400 | ROC=0.900116 Profit=1900.00 Score=0.275721
+  ROC-AUC        : 0.899729
+  Net Profit     : 1900
+  Total Score    : 0.275588
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0353 | ROC=0.899729 Profit=1900.00 Score=0.275588
+  ROC-AUC        : 0.893148
+  Net Profit     : 4000
+  Total Score    : 0.396559
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0351 | ROC=0.893148 Profit=4000.00 Score=0.396559
+  ROC-AUC        : 0.888115
+  Net Profit     : 4000
+  Total Score    : 0.394012
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 009 | TrainLoss=0.0369 | ROC=0.888115 Profit=4000.00 Score=0.394012
+  ROC-AUC        : 0.897793
+  Net Profit     : 4000
+  Total Score    : 0.398895
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0354 | ROC=0.897793 Profit=4000.00 Score=0.398895
+  ROC-AUC        : 0.882307
+  Net Profit     : 4000
+  Total Score    : 0.391054
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0372 | ROC=0.882307 Profit=4000.00 Score=0.391054
+  ROC-AUC        : 0.897406
+  Net Profit     : 1900
+  Total Score    : 0.274786
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0329 | ROC=0.897406 Profit=1900.00 Score=0.274786
+  ROC-AUC        : 0.895470
+  Net Profit     : 1900
+  Total Score    : 0.274116
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 013 | TrainLoss=0.0354 | ROC=0.895470 Profit=1900.00 Score=0.274116
+[TrainOne] Early stopping at epoch 13 (no improve 10)
+[Fold 3] Train ensemble member 4/5
+  ROC-AUC        : 0.882307
+  Net Profit     : 1900
+  Total Score    : 0.269515
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0808 | ROC=0.882307 Profit=1900.00 Score=0.269515
+  ROC-AUC        : 0.906310
+  Net Profit     : 4000
+  Total Score    : 0.403143
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 002 | TrainLoss=0.0569 | ROC=0.906310 Profit=4000.00 Score=0.403143
+  ROC-AUC        : 0.803329
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 003 | TrainLoss=0.0479 | ROC=0.803329 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.891212
+  Net Profit     : 4000
+  Total Score    : 0.395581
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 004 | TrainLoss=0.0447 | ROC=0.891212 Profit=4000.00 Score=0.395581
+  ROC-AUC        : 0.902439
+  Net Profit     : 4000
+  Total Score    : 0.401218
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0431 | ROC=0.902439 Profit=4000.00 Score=0.401218
+  ROC-AUC        : 0.907859
+  Net Profit     : 4000
+  Total Score    : 0.403910
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0392 | ROC=0.907859 Profit=4000.00 Score=0.403910
+  ROC-AUC        : 0.895858
+  Net Profit     : 1900
+  Total Score    : 0.274250
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0420 | ROC=0.895858 Profit=1900.00 Score=0.274250
+  ROC-AUC        : 0.905149
+  Net Profit     : 1900
+  Total Score    : 0.277450
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0377 | ROC=0.905149 Profit=1900.00 Score=0.277450
+  ROC-AUC        : 0.865273
+  Net Profit     : 1900
+  Total Score    : 0.263442
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0412 | ROC=0.865273 Profit=1900.00 Score=0.263442
+  ROC-AUC        : 0.890437
+  Net Profit     : 1900
+  Total Score    : 0.272366
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0393 | ROC=0.890437 Profit=1900.00 Score=0.272366
+  ROC-AUC        : 0.889276
+  Net Profit     : 1900
+  Total Score    : 0.271960
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0394 | ROC=0.889276 Profit=1900.00 Score=0.271960
+  ROC-AUC        : 0.885017
+  Net Profit     : 1900
+  Total Score    : 0.270469
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0371 | ROC=0.885017 Profit=1900.00 Score=0.270469
+  ROC-AUC        : 0.888889
+  Net Profit     : 4000
+  Total Score    : 0.394405
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0375 | ROC=0.888889 Profit=4000.00 Score=0.394405
+  ROC-AUC        : 0.887727
+  Net Profit     : 1900
+  Total Score    : 0.271419
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 014 | TrainLoss=0.0367 | ROC=0.887727 Profit=1900.00 Score=0.271419
+  ROC-AUC        : 0.904762
+  Net Profit     : 4000
+  Total Score    : 0.402374
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0363 | ROC=0.904762 Profit=4000.00 Score=0.402374
+  ROC-AUC        : 0.888115
+  Net Profit     : 4000
+  Total Score    : 0.394012
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0364 | ROC=0.888115 Profit=4000.00 Score=0.394012
+[TrainOne] Early stopping at epoch 16 (no improve 10)
+[Fold 3] Train ensemble member 5/5
+  ROC-AUC        : 0.917538
+  Net Profit     : 4000
+  Total Score    : 0.408675
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 001 | TrainLoss=0.0635 | ROC=0.917538 Profit=4000.00 Score=0.408675
+  ROC-AUC        : 0.907472
+  Net Profit     : 4000
+  Total Score    : 0.403719
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 002 | TrainLoss=0.0447 | ROC=0.907472 Profit=4000.00 Score=0.403719
+  ROC-AUC        : 0.886566
+  Net Profit     : 1900
+  Total Score    : 0.271012
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0411 | ROC=0.886566 Profit=1900.00 Score=0.271012
+  ROC-AUC        : 0.879210
+  Net Profit     : 1900
+  Total Score    : 0.268421
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0398 | ROC=0.879210 Profit=1900.00 Score=0.268421
+  ROC-AUC        : 0.898955
+  Net Profit     : 1900
+  Total Score    : 0.275321
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0355 | ROC=0.898955 Profit=1900.00 Score=0.275321
+  ROC-AUC        : 0.892373
+  Net Profit     : 1900
+  Total Score    : 0.273040
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0354 | ROC=0.892373 Profit=1900.00 Score=0.273040
+  ROC-AUC        : 0.867596
+  Net Profit     : 1900
+  Total Score    : 0.264279
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0353 | ROC=0.867596 Profit=1900.00 Score=0.264279
+  ROC-AUC        : 0.890437
+  Net Profit     : 1900
+  Total Score    : 0.272366
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0396 | ROC=0.890437 Profit=1900.00 Score=0.272366
+  ROC-AUC        : 0.886953
+  Net Profit     : 1900
+  Total Score    : 0.271148
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0381 | ROC=0.886953 Profit=1900.00 Score=0.271148
+  ROC-AUC        : 0.888115
+  Net Profit     : 1900
+  Total Score    : 0.271554
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0365 | ROC=0.888115 Profit=1900.00 Score=0.271554
+  ROC-AUC        : 0.896245
+  Net Profit     : 4000
+  Total Score    : 0.398118
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0376 | ROC=0.896245 Profit=4000.00 Score=0.398118
+[TrainOne] Early stopping at epoch 11 (no improve 10)
+  ROC-AUC        : 0.895858
+  Net Profit     : 1900
+  Total Score    : 0.274250
+  Selected k     : 40 (Good=39, NG=1)
+[Fold 3] DeepEns ROC=0.895858 Profit=1900.00 Score=0.274250
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+[Fold 4] Train ensemble member 1/5
+  ROC-AUC        : 0.881520
+  Net Profit     : 4000
+  Total Score    : 0.390651
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 001 | TrainLoss=0.0544 | ROC=0.881520 Profit=4000.00 Score=0.390651
+  ROC-AUC        : 0.877049
+  Net Profit     : 1900
+  Total Score    : 0.267655
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0519 | ROC=0.877049 Profit=1900.00 Score=0.267655
+  ROC-AUC        : 0.876304
+  Net Profit     : 1900
+  Total Score    : 0.267391
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0485 | ROC=0.876304 Profit=1900.00 Score=0.267391
+  ROC-AUC        : 0.850969
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0449 | ROC=0.850969 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.812966
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 005 | TrainLoss=0.0368 | ROC=0.812966 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.857675
+  Net Profit     : 1900
+  Total Score    : 0.260688
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0359 | ROC=0.857675 Profit=1900.00 Score=0.260688
+  ROC-AUC        : 0.878167
+  Net Profit     : 4000
+  Total Score    : 0.388930
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0395 | ROC=0.878167 Profit=4000.00 Score=0.388930
+  ROC-AUC        : 0.888972
+  Net Profit     : 4000
+  Total Score    : 0.394447
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0378 | ROC=0.888972 Profit=4000.00 Score=0.394447
+  ROC-AUC        : 0.908346
+  Net Profit     : 4000
+  Total Score    : 0.404151
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 009 | TrainLoss=0.0345 | ROC=0.908346 Profit=4000.00 Score=0.404151
+  ROC-AUC        : 0.915052
+  Net Profit     : 4000
+  Total Score    : 0.407457
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0342 | ROC=0.915052 Profit=4000.00 Score=0.407457
+  ROC-AUC        : 0.911326
+  Net Profit     : 4000
+  Total Score    : 0.405624
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0355 | ROC=0.911326 Profit=4000.00 Score=0.405624
+  ROC-AUC        : 0.900522
+  Net Profit     : 1900
+  Total Score    : 0.275861
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0322 | ROC=0.900522 Profit=1900.00 Score=0.275861
+  ROC-AUC        : 0.916542
+  Net Profit     : 4000
+  Total Score    : 0.408187
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0366 | ROC=0.916542 Profit=4000.00 Score=0.408187
+  ROC-AUC        : 0.927347
+  Net Profit     : 4000
+  Total Score    : 0.413448
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0356 | ROC=0.927347 Profit=4000.00 Score=0.413448
+  ROC-AUC        : 0.915797
+  Net Profit     : 4000
+  Total Score    : 0.407822
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0358 | ROC=0.915797 Profit=4000.00 Score=0.407822
+  ROC-AUC        : 0.922131
+  Net Profit     : 4000
+  Total Score    : 0.410917
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0356 | ROC=0.922131 Profit=4000.00 Score=0.410917
+  ROC-AUC        : 0.915052
+  Net Profit     : 4000
+  Total Score    : 0.407457
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0321 | ROC=0.915052 Profit=4000.00 Score=0.407457
+  ROC-AUC        : 0.907973
+  Net Profit     : 4000
+  Total Score    : 0.403967
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0336 | ROC=0.907973 Profit=4000.00 Score=0.403967
+  ROC-AUC        : 0.914680
+  Net Profit     : 4000
+  Total Score    : 0.407274
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 019 | TrainLoss=0.0343 | ROC=0.914680 Profit=4000.00 Score=0.407274
+  ROC-AUC        : 0.915052
+  Net Profit     : 4000
+  Total Score    : 0.407457
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 020 | TrainLoss=0.0348 | ROC=0.915052 Profit=4000.00 Score=0.407457
+  ROC-AUC        : 0.905738
+  Net Profit     : 4000
+  Total Score    : 0.402859
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0316 | ROC=0.905738 Profit=4000.00 Score=0.402859
+  ROC-AUC        : 0.891207
+  Net Profit     : 4000
+  Total Score    : 0.395579
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0347 | ROC=0.891207 Profit=4000.00 Score=0.395579
+  ROC-AUC        : 0.893443
+  Net Profit     : 4000
+  Total Score    : 0.396708
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0333 | ROC=0.893443 Profit=4000.00 Score=0.396708
+  ROC-AUC        : 0.912817
+  Net Profit     : 4000
+  Total Score    : 0.406358
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0328 | ROC=0.912817 Profit=4000.00 Score=0.406358
+[TrainOne] Early stopping at epoch 24 (no improve 10)
+[Fold 4] Train ensemble member 2/5
+  ROC-AUC        : 0.864754
+  Net Profit     : 4000
+  Total Score    : 0.381971
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 001 | TrainLoss=0.0587 | ROC=0.864754 Profit=4000.00 Score=0.381971
+  ROC-AUC        : 0.906110
+  Net Profit     : 4000
+  Total Score    : 0.403044
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 002 | TrainLoss=0.0525 | ROC=0.906110 Profit=4000.00 Score=0.403044
+  ROC-AUC        : 0.908346
+  Net Profit     : 4000
+  Total Score    : 0.404151
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0448 | ROC=0.908346 Profit=4000.00 Score=0.404151
+  ROC-AUC        : 0.909836
+  Net Profit     : 4000
+  Total Score    : 0.404888
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 004 | TrainLoss=0.0391 | ROC=0.909836 Profit=4000.00 Score=0.404888
+  ROC-AUC        : 0.887109
+  Net Profit     : 4000
+  Total Score    : 0.393502
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0377 | ROC=0.887109 Profit=4000.00 Score=0.393502
+  ROC-AUC        : 0.882265
+  Net Profit     : 4000
+  Total Score    : 0.391032
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0391 | ROC=0.882265 Profit=4000.00 Score=0.391032
+  ROC-AUC        : 0.909836
+  Net Profit     : 4000
+  Total Score    : 0.404888
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0368 | ROC=0.909836 Profit=4000.00 Score=0.404888
+  ROC-AUC        : 0.902012
+  Net Profit     : 4000
+  Total Score    : 0.401005
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0358 | ROC=0.902012 Profit=4000.00 Score=0.401005
+  ROC-AUC        : 0.896051
+  Net Profit     : 4000
+  Total Score    : 0.398020
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 009 | TrainLoss=0.0348 | ROC=0.896051 Profit=4000.00 Score=0.398020
+  ROC-AUC        : 0.902012
+  Net Profit     : 1900
+  Total Score    : 0.276373
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0389 | ROC=0.902012 Profit=1900.00 Score=0.276373
+  ROC-AUC        : 0.890835
+  Net Profit     : 4000
+  Total Score    : 0.395391
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0376 | ROC=0.890835 Profit=4000.00 Score=0.395391
+  ROC-AUC        : 0.870343
+  Net Profit     : 1900
+  Total Score    : 0.265264
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 012 | TrainLoss=0.0351 | ROC=0.870343 Profit=1900.00 Score=0.265264
+  ROC-AUC        : 0.890835
+  Net Profit     : 4000
+  Total Score    : 0.395391
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0346 | ROC=0.890835 Profit=4000.00 Score=0.395391
+  ROC-AUC        : 0.899776
+  Net Profit     : 4000
+  Total Score    : 0.399888
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0319 | ROC=0.899776 Profit=4000.00 Score=0.399888
+[TrainOne] Early stopping at epoch 14 (no improve 10)
+[Fold 4] Train ensemble member 3/5
+  ROC-AUC        : 0.825633
+  Net Profit     : 4000
+  Total Score    : 0.360906
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 001 | TrainLoss=0.0717 | ROC=0.825633 Profit=4000.00 Score=0.360906
+  ROC-AUC        : 0.868852
+  Net Profit     : 4000
+  Total Score    : 0.384111
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 002 | TrainLoss=0.0524 | ROC=0.868852 Profit=4000.00 Score=0.384111
+  ROC-AUC        : 0.774218
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 003 | TrainLoss=0.0467 | ROC=0.774218 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.887481
+  Net Profit     : 4000
+  Total Score    : 0.393691
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 004 | TrainLoss=0.0454 | ROC=0.887481 Profit=4000.00 Score=0.393691
+  ROC-AUC        : 0.891580
+  Net Profit     : 4000
+  Total Score    : 0.395767
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0412 | ROC=0.891580 Profit=4000.00 Score=0.395767
+  ROC-AUC        : 0.883010
+  Net Profit     : 4000
+  Total Score    : 0.391413
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0421 | ROC=0.883010 Profit=4000.00 Score=0.391413
+  ROC-AUC        : 0.902757
+  Net Profit     : 4000
+  Total Score    : 0.401376
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0404 | ROC=0.902757 Profit=4000.00 Score=0.401376
+  ROC-AUC        : 0.893443
+  Net Profit     : 4000
+  Total Score    : 0.396708
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0403 | ROC=0.893443 Profit=4000.00 Score=0.396708
+  ROC-AUC        : 0.859538
+  Net Profit     : 1900
+  Total Score    : 0.261366
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0379 | ROC=0.859538 Profit=1900.00 Score=0.261366
+  ROC-AUC        : 0.901267
+  Net Profit     : 4000
+  Total Score    : 0.400633
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0396 | ROC=0.901267 Profit=4000.00 Score=0.400633
+  ROC-AUC        : 0.919896
+  Net Profit     : 4000
+  Total Score    : 0.409827
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0369 | ROC=0.919896 Profit=4000.00 Score=0.409827
+  ROC-AUC        : 0.858420
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 012 | TrainLoss=0.0373 | ROC=0.858420 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.874069
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 013 | TrainLoss=0.0344 | ROC=0.874069 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.912072
+  Net Profit     : 4000
+  Total Score    : 0.405991
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0371 | ROC=0.912072 Profit=4000.00 Score=0.405991
+  ROC-AUC        : 0.904620
+  Net Profit     : 4000
+  Total Score    : 0.402303
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0358 | ROC=0.904620 Profit=4000.00 Score=0.402303
+  ROC-AUC        : 0.929955
+  Net Profit     : 4000
+  Total Score    : 0.414707
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0391 | ROC=0.929955 Profit=4000.00 Score=0.414707
+  ROC-AUC        : 0.920641
+  Net Profit     : 4000
+  Total Score    : 0.410191
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0353 | ROC=0.920641 Profit=4000.00 Score=0.410191
+  ROC-AUC        : 0.914680
+  Net Profit     : 4000
+  Total Score    : 0.407274
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0343 | ROC=0.914680 Profit=4000.00 Score=0.407274
+  ROC-AUC        : 0.904620
+  Net Profit     : 1900
+  Total Score    : 0.277268
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 019 | TrainLoss=0.0338 | ROC=0.904620 Profit=1900.00 Score=0.277268
+  ROC-AUC        : 0.915797
+  Net Profit     : 4000
+  Total Score    : 0.407822
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 020 | TrainLoss=0.0352 | ROC=0.915797 Profit=4000.00 Score=0.407822
+  ROC-AUC        : 0.925112
+  Net Profit     : 4000
+  Total Score    : 0.412365
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0328 | ROC=0.925112 Profit=4000.00 Score=0.412365
+  ROC-AUC        : 0.921759
+  Net Profit     : 4000
+  Total Score    : 0.410735
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0361 | ROC=0.921759 Profit=4000.00 Score=0.410735
+  ROC-AUC        : 0.930700
+  Net Profit     : 4000
+  Total Score    : 0.415066
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0310 | ROC=0.930700 Profit=4000.00 Score=0.415066
+  ROC-AUC        : 0.912072
+  Net Profit     : 4000
+  Total Score    : 0.405991
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0325 | ROC=0.912072 Profit=4000.00 Score=0.405991
+  ROC-AUC        : 0.910209
+  Net Profit     : 4000
+  Total Score    : 0.405072
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 025 | TrainLoss=0.0347 | ROC=0.910209 Profit=4000.00 Score=0.405072
+  ROC-AUC        : 0.588301
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[TrainOne] Epoch 026 | TrainLoss=0.0333 | ROC=0.588301 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.878912
+  Net Profit     : 1900
+  Total Score    : 0.268316
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 027 | TrainLoss=0.0321 | ROC=0.878912 Profit=1900.00 Score=0.268316
+  ROC-AUC        : 0.901267
+  Net Profit     : 1900
+  Total Score    : 0.276117
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 028 | TrainLoss=0.0358 | ROC=0.901267 Profit=1900.00 Score=0.276117
+  ROC-AUC        : 0.880775
+  Net Profit     : 1900
+  Total Score    : 0.268974
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 029 | TrainLoss=0.0307 | ROC=0.880775 Profit=1900.00 Score=0.268974
+  ROC-AUC        : 0.895678
+  Net Profit     : 1900
+  Total Score    : 0.274188
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 030 | TrainLoss=0.0321 | ROC=0.895678 Profit=1900.00 Score=0.274188
+  ROC-AUC        : 0.913934
+  Net Profit     : 4000
+  Total Score    : 0.406908
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 031 | TrainLoss=0.0328 | ROC=0.913934 Profit=4000.00 Score=0.406908
+  ROC-AUC        : 0.910954
+  Net Profit     : 4000
+  Total Score    : 0.405440
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 032 | TrainLoss=0.0340 | ROC=0.910954 Profit=4000.00 Score=0.405440
+  ROC-AUC        : 0.911326
+  Net Profit     : 4000
+  Total Score    : 0.405624
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 033 | TrainLoss=0.0348 | ROC=0.911326 Profit=4000.00 Score=0.405624
+[TrainOne] Early stopping at epoch 33 (no improve 10)
+[Fold 4] Train ensemble member 4/5
+  ROC-AUC        : 0.814456
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0590 | ROC=0.814456 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.854322
+  Net Profit     : 1900
+  Total Score    : 0.259463
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0450 | ROC=0.854322 Profit=1900.00 Score=0.259463
+  ROC-AUC        : 0.848361
+  Net Profit     : 1900
+  Total Score    : 0.257271
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0423 | ROC=0.848361 Profit=1900.00 Score=0.257271
+  ROC-AUC        : 0.866990
+  Net Profit     : 1900
+  Total Score    : 0.264061
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0427 | ROC=0.866990 Profit=1900.00 Score=0.264061
+  ROC-AUC        : 0.836811
+  Net Profit     : 1900
+  Total Score    : 0.252970
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0408 | ROC=0.836811 Profit=1900.00 Score=0.252970
+  ROC-AUC        : 0.868852
+  Net Profit     : 1900
+  Total Score    : 0.264730
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0410 | ROC=0.868852 Profit=1900.00 Score=0.264730
+  ROC-AUC        : 0.887481
+  Net Profit     : 1900
+  Total Score    : 0.271333
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0368 | ROC=0.887481 Profit=1900.00 Score=0.271333
+  ROC-AUC        : 0.885618
+  Net Profit     : 1900
+  Total Score    : 0.270680
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0384 | ROC=0.885618 Profit=1900.00 Score=0.270680
+  ROC-AUC        : 0.890462
+  Net Profit     : 1900
+  Total Score    : 0.272374
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0365 | ROC=0.890462 Profit=1900.00 Score=0.272374
+  ROC-AUC        : 0.883756
+  Net Profit     : 4000
+  Total Score    : 0.391794
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0350 | ROC=0.883756 Profit=4000.00 Score=0.391794
+  ROC-AUC        : 0.879285
+  Net Profit     : 4000
+  Total Score    : 0.389505
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0343 | ROC=0.879285 Profit=4000.00 Score=0.389505
+  ROC-AUC        : 0.898659
+  Net Profit     : 4000
+  Total Score    : 0.399329
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 012 | TrainLoss=0.0334 | ROC=0.898659 Profit=4000.00 Score=0.399329
+  ROC-AUC        : 0.888972
+  Net Profit     : 4000
+  Total Score    : 0.394447
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0321 | ROC=0.888972 Profit=4000.00 Score=0.394447
+  ROC-AUC        : 0.900522
+  Net Profit     : 4000
+  Total Score    : 0.400261
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0356 | ROC=0.900522 Profit=4000.00 Score=0.400261
+  ROC-AUC        : 0.897914
+  Net Profit     : 4000
+  Total Score    : 0.398955
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0356 | ROC=0.897914 Profit=4000.00 Score=0.398955
+  ROC-AUC        : 0.500000
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[TrainOne] Epoch 016 | TrainLoss=0.0340 | ROC=0.500000 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.875186
+  Net Profit     : 4000
+  Total Score    : 0.387395
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0364 | ROC=0.875186 Profit=4000.00 Score=0.387395
+  ROC-AUC        : 0.870715
+  Net Profit     : 4000
+  Total Score    : 0.385079
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0329 | ROC=0.870715 Profit=4000.00 Score=0.385079
+  ROC-AUC        : 0.873696
+  Net Profit     : 4000
+  Total Score    : 0.386624
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 019 | TrainLoss=0.0347 | ROC=0.873696 Profit=4000.00 Score=0.386624
+  ROC-AUC        : 0.625186
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 020 | TrainLoss=0.0326 | ROC=0.625186 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.904247
+  Net Profit     : 1900
+  Total Score    : 0.277141
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 021 | TrainLoss=0.0343 | ROC=0.904247 Profit=1900.00 Score=0.277141
+  ROC-AUC        : 0.880030
+  Net Profit     : 4000
+  Total Score    : 0.389887
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0356 | ROC=0.880030 Profit=4000.00 Score=0.389887
+  ROC-AUC        : 0.894188
+  Net Profit     : 4000
+  Total Score    : 0.397083
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0327 | ROC=0.894188 Profit=4000.00 Score=0.397083
+  ROC-AUC        : 0.896051
+  Net Profit     : 4000
+  Total Score    : 0.398020
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0335 | ROC=0.896051 Profit=4000.00 Score=0.398020
+[TrainOne] Early stopping at epoch 24 (no improve 10)
+[Fold 4] Train ensemble member 5/5
+  ROC-AUC        : 0.842027
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 001 | TrainLoss=0.0578 | ROC=0.842027 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.869225
+  Net Profit     : 1900
+  Total Score    : 0.264864
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0489 | ROC=0.869225 Profit=1900.00 Score=0.264864
+  ROC-AUC        : 0.900894
+  Net Profit     : 4000
+  Total Score    : 0.400447
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0483 | ROC=0.900894 Profit=4000.00 Score=0.400447
+  ROC-AUC        : 0.864382
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0440 | ROC=0.864382 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.889344
+  Net Profit     : 4000
+  Total Score    : 0.394636
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0418 | ROC=0.889344 Profit=4000.00 Score=0.394636
+  ROC-AUC        : 0.878912
+  Net Profit     : 4000
+  Total Score    : 0.389313
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0399 | ROC=0.878912 Profit=4000.00 Score=0.389313
+  ROC-AUC        : 0.844635
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 007 | TrainLoss=0.0395 | ROC=0.844635 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.871088
+  Net Profit     : 4000
+  Total Score    : 0.385273
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0395 | ROC=0.871088 Profit=4000.00 Score=0.385273
+  ROC-AUC        : 0.876304
+  Net Profit     : 1900
+  Total Score    : 0.267391
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0363 | ROC=0.876304 Profit=1900.00 Score=0.267391
+  ROC-AUC        : 0.896051
+  Net Profit     : 4000
+  Total Score    : 0.398020
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0365 | ROC=0.896051 Profit=4000.00 Score=0.398020
+  ROC-AUC        : 0.889344
+  Net Profit     : 4000
+  Total Score    : 0.394636
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0365 | ROC=0.889344 Profit=4000.00 Score=0.394636
+  ROC-AUC        : 0.858793
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 012 | TrainLoss=0.0336 | ROC=0.858793 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.858048
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 013 | TrainLoss=0.0357 | ROC=0.858048 Profit=-2300.00 Score=0.000000
+[TrainOne] Early stopping at epoch 13 (no improve 10)
+  ROC-AUC        : 0.898659
+  Net Profit     : 4000
+  Total Score    : 0.399329
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] DeepEns ROC=0.898659 Profit=4000.00 Score=0.399329
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+[Fold 5] Train ensemble member 1/5
+  ROC-AUC        : 0.872206
+  Net Profit     : 4000
+  Total Score    : 0.385853
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 001 | TrainLoss=0.0633 | ROC=0.872206 Profit=4000.00 Score=0.385853
+  ROC-AUC        : 0.870715
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0454 | ROC=0.870715 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.882265
+  Net Profit     : 1900
+  Total Score    : 0.269500
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0443 | ROC=0.882265 Profit=1900.00 Score=0.269500
+  ROC-AUC        : 0.888599
+  Net Profit     : 1900
+  Total Score    : 0.271724
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 004 | TrainLoss=0.0387 | ROC=0.888599 Profit=1900.00 Score=0.271724
+  ROC-AUC        : 0.831595
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 005 | TrainLoss=0.0394 | ROC=0.831595 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.842399
+  Net Profit     : 1900
+  Total Score    : 0.255061
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 006 | TrainLoss=0.0378 | ROC=0.842399 Profit=1900.00 Score=0.255061
+  ROC-AUC        : 0.831595
+  Net Profit     : 4000
+  Total Score    : 0.364195
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0388 | ROC=0.831595 Profit=4000.00 Score=0.364195
+  ROC-AUC        : 0.830477
+  Net Profit     : 1900
+  Total Score    : 0.250581
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0360 | ROC=0.830477 Profit=1900.00 Score=0.250581
+  ROC-AUC        : 0.859165
+  Net Profit     : 4000
+  Total Score    : 0.379033
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 009 | TrainLoss=0.0393 | ROC=0.859165 Profit=4000.00 Score=0.379033
+  ROC-AUC        : 0.876304
+  Net Profit     : 4000
+  Total Score    : 0.387971
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0354 | ROC=0.876304 Profit=4000.00 Score=0.387971
+  ROC-AUC        : 0.836811
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 011 | TrainLoss=0.0373 | ROC=0.836811 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.893070
+  Net Profit     : 4000
+  Total Score    : 0.396520
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 012 | TrainLoss=0.0354 | ROC=0.893070 Profit=4000.00 Score=0.396520
+  ROC-AUC        : 0.891580
+  Net Profit     : 4000
+  Total Score    : 0.395767
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0324 | ROC=0.891580 Profit=4000.00 Score=0.395767
+  ROC-AUC        : 0.877794
+  Net Profit     : 4000
+  Total Score    : 0.388739
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0330 | ROC=0.877794 Profit=4000.00 Score=0.388739
+  ROC-AUC        : 0.844635
+  Net Profit     : 4000
+  Total Score    : 0.371287
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0342 | ROC=0.844635 Profit=4000.00 Score=0.371287
+  ROC-AUC        : 0.827124
+  Net Profit     : 4000
+  Total Score    : 0.361731
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0332 | ROC=0.827124 Profit=4000.00 Score=0.361731
+  ROC-AUC        : 0.855812
+  Net Profit     : 4000
+  Total Score    : 0.377260
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0332 | ROC=0.855812 Profit=4000.00 Score=0.377260
+  ROC-AUC        : 0.900149
+  Net Profit     : 4000
+  Total Score    : 0.400075
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0347 | ROC=0.900149 Profit=4000.00 Score=0.400075
+  ROC-AUC        : 0.903502
+  Net Profit     : 4000
+  Total Score    : 0.401747
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 019 | TrainLoss=0.0313 | ROC=0.903502 Profit=4000.00 Score=0.401747
+  ROC-AUC        : 0.887481
+  Net Profit     : 1900
+  Total Score    : 0.271333
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0313 | ROC=0.887481 Profit=1900.00 Score=0.271333
+  ROC-AUC        : 0.881520
+  Net Profit     : 4000
+  Total Score    : 0.390651
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0323 | ROC=0.881520 Profit=4000.00 Score=0.390651
+  ROC-AUC        : 0.887481
+  Net Profit     : 4000
+  Total Score    : 0.393691
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0317 | ROC=0.887481 Profit=4000.00 Score=0.393691
+  ROC-AUC        : 0.887109
+  Net Profit     : 4000
+  Total Score    : 0.393502
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0319 | ROC=0.887109 Profit=4000.00 Score=0.393502
+  ROC-AUC        : 0.900894
+  Net Profit     : 4000
+  Total Score    : 0.400447
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0325 | ROC=0.900894 Profit=4000.00 Score=0.400447
+  ROC-AUC        : 0.883010
+  Net Profit     : 4000
+  Total Score    : 0.391413
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 025 | TrainLoss=0.0326 | ROC=0.883010 Profit=4000.00 Score=0.391413
+  ROC-AUC        : 0.891952
+  Net Profit     : 4000
+  Total Score    : 0.395956
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 026 | TrainLoss=0.0303 | ROC=0.891952 Profit=4000.00 Score=0.395956
+  ROC-AUC        : 0.904247
+  Net Profit     : 4000
+  Total Score    : 0.402118
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 027 | TrainLoss=0.0356 | ROC=0.904247 Profit=4000.00 Score=0.402118
+  ROC-AUC        : 0.897541
+  Net Profit     : 4000
+  Total Score    : 0.398769
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 028 | TrainLoss=0.0312 | ROC=0.897541 Profit=4000.00 Score=0.398769
+  ROC-AUC        : 0.877049
+  Net Profit     : 4000
+  Total Score    : 0.388355
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 029 | TrainLoss=0.0300 | ROC=0.877049 Profit=4000.00 Score=0.388355
+  ROC-AUC        : 0.885991
+  Net Profit     : 4000
+  Total Score    : 0.392933
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 030 | TrainLoss=0.0308 | ROC=0.885991 Profit=4000.00 Score=0.392933
+  ROC-AUC        : 0.878167
+  Net Profit     : 4000
+  Total Score    : 0.388930
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 031 | TrainLoss=0.0319 | ROC=0.878167 Profit=4000.00 Score=0.388930
+  ROC-AUC        : 0.893443
+  Net Profit     : 4000
+  Total Score    : 0.396708
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 032 | TrainLoss=0.0320 | ROC=0.893443 Profit=4000.00 Score=0.396708
+  ROC-AUC        : 0.885618
+  Net Profit     : 4000
+  Total Score    : 0.392743
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 033 | TrainLoss=0.0302 | ROC=0.885618 Profit=4000.00 Score=0.392743
+  ROC-AUC        : 0.888599
+  Net Profit     : 4000
+  Total Score    : 0.394258
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 034 | TrainLoss=0.0314 | ROC=0.888599 Profit=4000.00 Score=0.394258
+  ROC-AUC        : 0.900894
+  Net Profit     : 4000
+  Total Score    : 0.400447
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 035 | TrainLoss=0.0293 | ROC=0.900894 Profit=4000.00 Score=0.400447
+  ROC-AUC        : 0.896423
+  Net Profit     : 4000
+  Total Score    : 0.398208
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 036 | TrainLoss=0.0293 | ROC=0.896423 Profit=4000.00 Score=0.398208
+  ROC-AUC        : 0.883756
+  Net Profit     : 4000
+  Total Score    : 0.391794
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 037 | TrainLoss=0.0295 | ROC=0.883756 Profit=4000.00 Score=0.391794
+[TrainOne] Early stopping at epoch 37 (no improve 10)
+[Fold 5] Train ensemble member 2/5
+  ROC-AUC        : 0.891580
+  Net Profit     : 1900
+  Total Score    : 0.272764
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0641 | ROC=0.891580 Profit=1900.00 Score=0.272764
+  ROC-AUC        : 0.909836
+  Net Profit     : 1900
+  Total Score    : 0.279050
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0503 | ROC=0.909836 Profit=1900.00 Score=0.279050
+  ROC-AUC        : 0.882265
+  Net Profit     : 4000
+  Total Score    : 0.391032
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 003 | TrainLoss=0.0481 | ROC=0.882265 Profit=4000.00 Score=0.391032
+  ROC-AUC        : 0.874069
+  Net Profit     : 4000
+  Total Score    : 0.386817
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 004 | TrainLoss=0.0450 | ROC=0.874069 Profit=4000.00 Score=0.386817
+  ROC-AUC        : 0.872206
+  Net Profit     : 4000
+  Total Score    : 0.385853
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0445 | ROC=0.872206 Profit=4000.00 Score=0.385853
+  ROC-AUC        : 0.792101
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 006 | TrainLoss=0.0390 | ROC=0.792101 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.689642
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[TrainOne] Epoch 007 | TrainLoss=0.0410 | ROC=0.689642 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.815201
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 008 | TrainLoss=0.0396 | ROC=0.815201 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.819300
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 009 | TrainLoss=0.0381 | ROC=0.819300 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.892697
+  Net Profit     : 4000
+  Total Score    : 0.396332
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0360 | ROC=0.892697 Profit=4000.00 Score=0.396332
+  ROC-AUC        : 0.861401
+  Net Profit     : 4000
+  Total Score    : 0.380211
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0384 | ROC=0.861401 Profit=4000.00 Score=0.380211
+  ROC-AUC        : 0.899776
+  Net Profit     : 4000
+  Total Score    : 0.399888
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 012 | TrainLoss=0.0350 | ROC=0.899776 Profit=4000.00 Score=0.399888
+  ROC-AUC        : 0.896796
+  Net Profit     : 4000
+  Total Score    : 0.398395
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0355 | ROC=0.896796 Profit=4000.00 Score=0.398395
+  ROC-AUC        : 0.892697
+  Net Profit     : 4000
+  Total Score    : 0.396332
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0328 | ROC=0.892697 Profit=4000.00 Score=0.396332
+  ROC-AUC        : 0.904620
+  Net Profit     : 4000
+  Total Score    : 0.402303
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0343 | ROC=0.904620 Profit=4000.00 Score=0.402303
+  ROC-AUC        : 0.898286
+  Net Profit     : 4000
+  Total Score    : 0.399142
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0340 | ROC=0.898286 Profit=4000.00 Score=0.399142
+  ROC-AUC        : 0.892325
+  Net Profit     : 4000
+  Total Score    : 0.396144
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0335 | ROC=0.892325 Profit=4000.00 Score=0.396144
+  ROC-AUC        : 0.895306
+  Net Profit     : 4000
+  Total Score    : 0.397646
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0327 | ROC=0.895306 Profit=4000.00 Score=0.397646
+  ROC-AUC        : 0.890089
+  Net Profit     : 4000
+  Total Score    : 0.395014
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 019 | TrainLoss=0.0323 | ROC=0.890089 Profit=4000.00 Score=0.395014
+  ROC-AUC        : 0.830849
+  Net Profit     : 1900
+  Total Score    : 0.250722
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 020 | TrainLoss=0.0320 | ROC=0.830849 Profit=1900.00 Score=0.250722
+  ROC-AUC        : 0.879285
+  Net Profit     : 4000
+  Total Score    : 0.389505
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0324 | ROC=0.879285 Profit=4000.00 Score=0.389505
+  ROC-AUC        : 0.891207
+  Net Profit     : 4000
+  Total Score    : 0.395579
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0342 | ROC=0.891207 Profit=4000.00 Score=0.395579
+  ROC-AUC        : 0.893443
+  Net Profit     : 4000
+  Total Score    : 0.396708
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0324 | ROC=0.893443 Profit=4000.00 Score=0.396708
+  ROC-AUC        : 0.894560
+  Net Profit     : 4000
+  Total Score    : 0.397271
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0333 | ROC=0.894560 Profit=4000.00 Score=0.397271
+  ROC-AUC        : 0.897541
+  Net Profit     : 4000
+  Total Score    : 0.398769
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 025 | TrainLoss=0.0328 | ROC=0.897541 Profit=4000.00 Score=0.398769
+[TrainOne] Early stopping at epoch 25 (no improve 10)
+[Fold 5] Train ensemble member 3/5
+  ROC-AUC        : 0.885991
+  Net Profit     : 1900
+  Total Score    : 0.270810
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 001 | TrainLoss=0.0552 | ROC=0.885991 Profit=1900.00 Score=0.270810
+  ROC-AUC        : 0.851714
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0512 | ROC=0.851714 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.886364
+  Net Profit     : 1900
+  Total Score    : 0.270941
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0486 | ROC=0.886364 Profit=1900.00 Score=0.270941
+  ROC-AUC        : 0.861401
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 004 | TrainLoss=0.0408 | ROC=0.861401 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.768629
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[TrainOne] Epoch 005 | TrainLoss=0.0442 | ROC=0.768629 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.825633
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 006 | TrainLoss=0.0389 | ROC=0.825633 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.882638
+  Net Profit     : 4000
+  Total Score    : 0.391223
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 007 | TrainLoss=0.0386 | ROC=0.882638 Profit=4000.00 Score=0.391223
+  ROC-AUC        : 0.880402
+  Net Profit     : 1900
+  Total Score    : 0.268843
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 008 | TrainLoss=0.0380 | ROC=0.880402 Profit=1900.00 Score=0.268843
+  ROC-AUC        : 0.895678
+  Net Profit     : 4000
+  Total Score    : 0.397833
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 009 | TrainLoss=0.0345 | ROC=0.895678 Profit=4000.00 Score=0.397833
+  ROC-AUC        : 0.893815
+  Net Profit     : 4000
+  Total Score    : 0.396896
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0358 | ROC=0.893815 Profit=4000.00 Score=0.396896
+  ROC-AUC        : 0.847243
+  Net Profit     : 1900
+  Total Score    : 0.256858
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 011 | TrainLoss=0.0379 | ROC=0.847243 Profit=1900.00 Score=0.256858
+  ROC-AUC        : 0.862519
+  Net Profit     : 4000
+  Total Score    : 0.380798
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 012 | TrainLoss=0.0351 | ROC=0.862519 Profit=4000.00 Score=0.380798
+  ROC-AUC        : 0.859165
+  Net Profit     : 4000
+  Total Score    : 0.379033
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0356 | ROC=0.859165 Profit=4000.00 Score=0.379033
+  ROC-AUC        : 0.854694
+  Net Profit     : 4000
+  Total Score    : 0.376667
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0361 | ROC=0.854694 Profit=4000.00 Score=0.376667
+  ROC-AUC        : 0.890089
+  Net Profit     : 4000
+  Total Score    : 0.395014
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0367 | ROC=0.890089 Profit=4000.00 Score=0.395014
+  ROC-AUC        : 0.894933
+  Net Profit     : 4000
+  Total Score    : 0.397458
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0338 | ROC=0.894933 Profit=4000.00 Score=0.397458
+  ROC-AUC        : 0.900522
+  Net Profit     : 4000
+  Total Score    : 0.400261
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0364 | ROC=0.900522 Profit=4000.00 Score=0.400261
+  ROC-AUC        : 0.904247
+  Net Profit     : 4000
+  Total Score    : 0.402118
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0350 | ROC=0.904247 Profit=4000.00 Score=0.402118
+  ROC-AUC        : 0.900522
+  Net Profit     : 4000
+  Total Score    : 0.400261
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 019 | TrainLoss=0.0353 | ROC=0.900522 Profit=4000.00 Score=0.400261
+  ROC-AUC        : 0.915797
+  Net Profit     : 4000
+  Total Score    : 0.407822
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 020 | TrainLoss=0.0357 | ROC=0.915797 Profit=4000.00 Score=0.407822
+  ROC-AUC        : 0.899031
+  Net Profit     : 4000
+  Total Score    : 0.399515
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0342 | ROC=0.899031 Profit=4000.00 Score=0.399515
+  ROC-AUC        : 0.893815
+  Net Profit     : 4000
+  Total Score    : 0.396896
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0330 | ROC=0.893815 Profit=4000.00 Score=0.396896
+  ROC-AUC        : 0.886364
+  Net Profit     : 4000
+  Total Score    : 0.393123
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0362 | ROC=0.886364 Profit=4000.00 Score=0.393123
+  ROC-AUC        : 0.886364
+  Net Profit     : 4000
+  Total Score    : 0.393123
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0310 | ROC=0.886364 Profit=4000.00 Score=0.393123
+  ROC-AUC        : 0.879285
+  Net Profit     : 4000
+  Total Score    : 0.389505
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 025 | TrainLoss=0.0329 | ROC=0.879285 Profit=4000.00 Score=0.389505
+  ROC-AUC        : 0.881893
+  Net Profit     : 4000
+  Total Score    : 0.390842
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 026 | TrainLoss=0.0345 | ROC=0.881893 Profit=4000.00 Score=0.390842
+  ROC-AUC        : 0.875931
+  Net Profit     : 4000
+  Total Score    : 0.387779
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 027 | TrainLoss=0.0340 | ROC=0.875931 Profit=4000.00 Score=0.387779
+  ROC-AUC        : 0.897541
+  Net Profit     : 4000
+  Total Score    : 0.398769
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 028 | TrainLoss=0.0316 | ROC=0.897541 Profit=4000.00 Score=0.398769
+  ROC-AUC        : 0.891207
+  Net Profit     : 4000
+  Total Score    : 0.395579
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 029 | TrainLoss=0.0330 | ROC=0.891207 Profit=4000.00 Score=0.395579
+  ROC-AUC        : 0.907973
+  Net Profit     : 4000
+  Total Score    : 0.403967
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 030 | TrainLoss=0.0342 | ROC=0.907973 Profit=4000.00 Score=0.403967
+[TrainOne] Early stopping at epoch 30 (no improve 10)
+[Fold 5] Train ensemble member 4/5
+  ROC-AUC        : 0.836438
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 001 | TrainLoss=0.0552 | ROC=0.836438 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.880402
+  Net Profit     : 1900
+  Total Score    : 0.268843
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 002 | TrainLoss=0.0447 | ROC=0.880402 Profit=1900.00 Score=0.268843
+  ROC-AUC        : 0.890835
+  Net Profit     : 1900
+  Total Score    : 0.272504
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0413 | ROC=0.890835 Profit=1900.00 Score=0.272504
+  ROC-AUC        : 0.887854
+  Net Profit     : 4000
+  Total Score    : 0.393880
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 004 | TrainLoss=0.0386 | ROC=0.887854 Profit=4000.00 Score=0.393880
+  ROC-AUC        : 0.877794
+  Net Profit     : 4000
+  Total Score    : 0.388739
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 005 | TrainLoss=0.0394 | ROC=0.877794 Profit=4000.00 Score=0.388739
+  ROC-AUC        : 0.884873
+  Net Profit     : 4000
+  Total Score    : 0.392364
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0394 | ROC=0.884873 Profit=4000.00 Score=0.392364
+  ROC-AUC        : 0.840909
+  Net Profit     : 1900
+  Total Score    : 0.254505
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0364 | ROC=0.840909 Profit=1900.00 Score=0.254505
+  ROC-AUC        : 0.855812
+  Net Profit     : 4000
+  Total Score    : 0.377260
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 008 | TrainLoss=0.0352 | ROC=0.855812 Profit=4000.00 Score=0.377260
+  ROC-AUC        : 0.836066
+  Net Profit     : 1900
+  Total Score    : 0.252690
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 009 | TrainLoss=0.0348 | ROC=0.836066 Profit=1900.00 Score=0.252690
+  ROC-AUC        : 0.812593
+  Net Profit     : 1900
+  Total Score    : 0.243706
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 010 | TrainLoss=0.0338 | ROC=0.812593 Profit=1900.00 Score=0.243706
+  ROC-AUC        : 0.897914
+  Net Profit     : 4000
+  Total Score    : 0.398955
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0361 | ROC=0.897914 Profit=4000.00 Score=0.398955
+  ROC-AUC        : 0.881148
+  Net Profit     : 4000
+  Total Score    : 0.390460
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 012 | TrainLoss=0.0333 | ROC=0.881148 Profit=4000.00 Score=0.390460
+  ROC-AUC        : 0.909836
+  Net Profit     : 4000
+  Total Score    : 0.404888
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 013 | TrainLoss=0.0360 | ROC=0.909836 Profit=4000.00 Score=0.404888
+  ROC-AUC        : 0.907973
+  Net Profit     : 4000
+  Total Score    : 0.403967
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 014 | TrainLoss=0.0326 | ROC=0.907973 Profit=4000.00 Score=0.403967
+  ROC-AUC        : 0.898286
+  Net Profit     : 4000
+  Total Score    : 0.399142
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 015 | TrainLoss=0.0325 | ROC=0.898286 Profit=4000.00 Score=0.399142
+  ROC-AUC        : 0.899404
+  Net Profit     : 4000
+  Total Score    : 0.399702
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 016 | TrainLoss=0.0329 | ROC=0.899404 Profit=4000.00 Score=0.399702
+  ROC-AUC        : 0.899031
+  Net Profit     : 4000
+  Total Score    : 0.399515
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 017 | TrainLoss=0.0343 | ROC=0.899031 Profit=4000.00 Score=0.399515
+  ROC-AUC        : 0.907228
+  Net Profit     : 4000
+  Total Score    : 0.403598
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 018 | TrainLoss=0.0346 | ROC=0.907228 Profit=4000.00 Score=0.403598
+  ROC-AUC        : 0.874069
+  Net Profit     : 1900
+  Total Score    : 0.266595
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 019 | TrainLoss=0.0329 | ROC=0.874069 Profit=1900.00 Score=0.266595
+  ROC-AUC        : 0.896051
+  Net Profit     : 4000
+  Total Score    : 0.398020
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 020 | TrainLoss=0.0347 | ROC=0.896051 Profit=4000.00 Score=0.398020
+  ROC-AUC        : 0.910209
+  Net Profit     : 4000
+  Total Score    : 0.405072
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 021 | TrainLoss=0.0330 | ROC=0.910209 Profit=4000.00 Score=0.405072
+  ROC-AUC        : 0.901639
+  Net Profit     : 4000
+  Total Score    : 0.400819
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 022 | TrainLoss=0.0330 | ROC=0.901639 Profit=4000.00 Score=0.400819
+  ROC-AUC        : 0.894933
+  Net Profit     : 4000
+  Total Score    : 0.397458
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 023 | TrainLoss=0.0328 | ROC=0.894933 Profit=4000.00 Score=0.397458
+  ROC-AUC        : 0.885246
+  Net Profit     : 4000
+  Total Score    : 0.392554
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 024 | TrainLoss=0.0336 | ROC=0.885246 Profit=4000.00 Score=0.392554
+  ROC-AUC        : 0.909836
+  Net Profit     : 4000
+  Total Score    : 0.404888
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 025 | TrainLoss=0.0324 | ROC=0.909836 Profit=4000.00 Score=0.404888
+  ROC-AUC        : 0.908718
+  Net Profit     : 4000
+  Total Score    : 0.404336
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 026 | TrainLoss=0.0314 | ROC=0.908718 Profit=4000.00 Score=0.404336
+  ROC-AUC        : 0.902757
+  Net Profit     : 4000
+  Total Score    : 0.401376
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 027 | TrainLoss=0.0324 | ROC=0.902757 Profit=4000.00 Score=0.401376
+  ROC-AUC        : 0.919523
+  Net Profit     : 4000
+  Total Score    : 0.409645
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 028 | TrainLoss=0.0307 | ROC=0.919523 Profit=4000.00 Score=0.409645
+  ROC-AUC        : 0.891580
+  Net Profit     : 4000
+  Total Score    : 0.395767
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 029 | TrainLoss=0.0299 | ROC=0.891580 Profit=4000.00 Score=0.395767
+  ROC-AUC        : 0.868480
+  Net Profit     : 4000
+  Total Score    : 0.383917
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 030 | TrainLoss=0.0297 | ROC=0.868480 Profit=4000.00 Score=0.383917
+  ROC-AUC        : 0.878912
+  Net Profit     : 4000
+  Total Score    : 0.389313
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 031 | TrainLoss=0.0309 | ROC=0.878912 Profit=4000.00 Score=0.389313
+  ROC-AUC        : 0.865872
+  Net Profit     : 4000
+  Total Score    : 0.382556
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 032 | TrainLoss=0.0322 | ROC=0.865872 Profit=4000.00 Score=0.382556
+  ROC-AUC        : 0.891952
+  Net Profit     : 4000
+  Total Score    : 0.395956
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 033 | TrainLoss=0.0316 | ROC=0.891952 Profit=4000.00 Score=0.395956
+  ROC-AUC        : 0.888227
+  Net Profit     : 4000
+  Total Score    : 0.394069
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 034 | TrainLoss=0.0310 | ROC=0.888227 Profit=4000.00 Score=0.394069
+  ROC-AUC        : 0.893070
+  Net Profit     : 4000
+  Total Score    : 0.396520
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 035 | TrainLoss=0.0304 | ROC=0.893070 Profit=4000.00 Score=0.396520
+  ROC-AUC        : 0.848733
+  Net Profit     : 4000
+  Total Score    : 0.373488
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 036 | TrainLoss=0.0290 | ROC=0.848733 Profit=4000.00 Score=0.373488
+  ROC-AUC        : 0.901639
+  Net Profit     : 4000
+  Total Score    : 0.400819
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 037 | TrainLoss=0.0314 | ROC=0.901639 Profit=4000.00 Score=0.400819
+  ROC-AUC        : 0.892325
+  Net Profit     : 4000
+  Total Score    : 0.396144
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 038 | TrainLoss=0.0321 | ROC=0.892325 Profit=4000.00 Score=0.396144
+[TrainOne] Early stopping at epoch 38 (no improve 10)
+[Fold 5] Train ensemble member 5/5
+  ROC-AUC        : 0.912817
+  Net Profit     : 4000
+  Total Score    : 0.406358
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 001 | TrainLoss=0.0468 | ROC=0.912817 Profit=4000.00 Score=0.406358
+  ROC-AUC        : 0.883756
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 002 | TrainLoss=0.0464 | ROC=0.883756 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.882265
+  Net Profit     : 1900
+  Total Score    : 0.269500
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 003 | TrainLoss=0.0414 | ROC=0.882265 Profit=1900.00 Score=0.269500
+  ROC-AUC        : 0.883010
+  Net Profit     : 4000
+  Total Score    : 0.391413
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 004 | TrainLoss=0.0440 | ROC=0.883010 Profit=4000.00 Score=0.391413
+  ROC-AUC        : 0.876677
+  Net Profit     : 1900
+  Total Score    : 0.267523
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 005 | TrainLoss=0.0380 | ROC=0.876677 Profit=1900.00 Score=0.267523
+  ROC-AUC        : 0.880030
+  Net Profit     : 4000
+  Total Score    : 0.389887
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 006 | TrainLoss=0.0364 | ROC=0.880030 Profit=4000.00 Score=0.389887
+  ROC-AUC        : 0.865499
+  Net Profit     : 1900
+  Total Score    : 0.263524
+  Selected k     : 40 (Good=39, NG=1)
+[TrainOne] Epoch 007 | TrainLoss=0.0359 | ROC=0.865499 Profit=1900.00 Score=0.263524
+  ROC-AUC        : 0.721311
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[TrainOne] Epoch 008 | TrainLoss=0.0371 | ROC=0.721311 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.788376
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[TrainOne] Epoch 009 | TrainLoss=0.0362 | ROC=0.788376 Profit=-200.00 Score=0.000000
+  ROC-AUC        : 0.888227
+  Net Profit     : 4000
+  Total Score    : 0.394069
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 010 | TrainLoss=0.0381 | ROC=0.888227 Profit=4000.00 Score=0.394069
+  ROC-AUC        : 0.900149
+  Net Profit     : 4000
+  Total Score    : 0.400075
+  Selected k     : 40 (Good=40, NG=0)
+[TrainOne] Epoch 011 | TrainLoss=0.0370 | ROC=0.900149 Profit=4000.00 Score=0.400075
+[TrainOne] Early stopping at epoch 11 (no improve 10)
+  ROC-AUC        : 0.903875
+  Net Profit     : 4000
+  Total Score    : 0.401933
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] DeepEns ROC=0.903875 Profit=4000.00 Score=0.401933
+
+===== OOF Performance (Deep Ensemble, default k behavior) =====
+  ROC-AUC        : 0.849370
+  Net Profit     : 1900
+  Total Score    : 0.257644
+  Selected k     : 40 (Good=39, NG=1)
+ROC-AUC = 0.849370, Profit = 1900.00, Score = 0.257644
+
+[BestK] Start sweeping k on OOF...
+  ROC-AUC        : 0.849370
+  Net Profit     : 500
+  Total Score    : 0.132168
+  Selected k     : 5 (Good=5, NG=0)
+[BestK] k=  5 | ROC=0.849370 Profit=500.00 Score=0.132168
+  ROC-AUC        : 0.849370
+  Net Profit     : 600
+  Total Score    : 0.144783
+  Selected k     : 6 (Good=6, NG=0)
+[BestK] k=  6 | ROC=0.849370 Profit=600.00 Score=0.144783
+  ROC-AUC        : 0.849370
+  Net Profit     : 700
+  Total Score    : 0.156384
+  Selected k     : 7 (Good=7, NG=0)
+[BestK] k=  7 | ROC=0.849370 Profit=700.00 Score=0.156384
+  ROC-AUC        : 0.849370
+  Net Profit     : 800
+  Total Score    : 0.167181
+  Selected k     : 8 (Good=8, NG=0)
+[BestK] k=  8 | ROC=0.849370 Profit=800.00 Score=0.167181
+  ROC-AUC        : 0.849370
+  Net Profit     : 900
+  Total Score    : 0.177322
+  Selected k     : 9 (Good=9, NG=0)
+[BestK] k=  9 | ROC=0.849370 Profit=900.00 Score=0.177322
+  ROC-AUC        : 0.849370
+  Net Profit     : 1000
+  Total Score    : 0.186914
+  Selected k     : 10 (Good=10, NG=0)
+[BestK] k= 10 | ROC=0.849370 Profit=1000.00 Score=0.186914
+  ROC-AUC        : 0.849370
+  Net Profit     : 1100
+  Total Score    : 0.196037
+  Selected k     : 11 (Good=11, NG=0)
+[BestK] k= 11 | ROC=0.849370 Profit=1100.00 Score=0.196037
+  ROC-AUC        : 0.849370
+  Net Profit     : 1200
+  Total Score    : 0.204754
+  Selected k     : 12 (Good=12, NG=0)
+[BestK] k= 12 | ROC=0.849370 Profit=1200.00 Score=0.204754
+  ROC-AUC        : 0.849370
+  Net Profit     : 1300
+  Total Score    : 0.213115
+  Selected k     : 13 (Good=13, NG=0)
+[BestK] k= 13 | ROC=0.849370 Profit=1300.00 Score=0.213115
+  ROC-AUC        : 0.849370
+  Net Profit     : 1400
+  Total Score    : 0.221160
+  Selected k     : 14 (Good=14, NG=0)
+[BestK] k= 14 | ROC=0.849370 Profit=1400.00 Score=0.221160
+  ROC-AUC        : 0.849370
+  Net Profit     : 1500
+  Total Score    : 0.228922
+  Selected k     : 15 (Good=15, NG=0)
+[BestK] k= 15 | ROC=0.849370 Profit=1500.00 Score=0.228922
+  ROC-AUC        : 0.849370
+  Net Profit     : 1600
+  Total Score    : 0.236430
+  Selected k     : 16 (Good=16, NG=0)
+[BestK] k= 16 | ROC=0.849370 Profit=1600.00 Score=0.236430
+  ROC-AUC        : 0.849370
+  Net Profit     : 1700
+  Total Score    : 0.243706
+  Selected k     : 17 (Good=17, NG=0)
+[BestK] k= 17 | ROC=0.849370 Profit=1700.00 Score=0.243706
+  ROC-AUC        : 0.849370
+  Net Profit     : 1800
+  Total Score    : 0.250772
+  Selected k     : 18 (Good=18, NG=0)
+[BestK] k= 18 | ROC=0.849370 Profit=1800.00 Score=0.250772
+  ROC-AUC        : 0.849370
+  Net Profit     : 1900
+  Total Score    : 0.257644
+  Selected k     : 19 (Good=19, NG=0)
+[BestK] k= 19 | ROC=0.849370 Profit=1900.00 Score=0.257644
+  ROC-AUC        : 0.849370
+  Net Profit     : 2000
+  Total Score    : 0.264337
+  Selected k     : 20 (Good=20, NG=0)
+[BestK] k= 20 | ROC=0.849370 Profit=2000.00 Score=0.264337
+  ROC-AUC        : 0.849370
+  Net Profit     : 2100
+  Total Score    : 0.270865
+  Selected k     : 21 (Good=21, NG=0)
+[BestK] k= 21 | ROC=0.849370 Profit=2100.00 Score=0.270865
+  ROC-AUC        : 0.849370
+  Net Profit     : 2200
+  Total Score    : 0.277239
+  Selected k     : 22 (Good=22, NG=0)
+[BestK] k= 22 | ROC=0.849370 Profit=2200.00 Score=0.277239
+  ROC-AUC        : 0.849370
+  Net Profit     : 200
+  Total Score    : 0.083591
+  Selected k     : 23 (Good=22, NG=1)
+[BestK] k= 23 | ROC=0.849370 Profit=200.00 Score=0.083591
+  ROC-AUC        : 0.849370
+  Net Profit     : 300
+  Total Score    : 0.102377
+  Selected k     : 24 (Good=23, NG=1)
+[BestK] k= 24 | ROC=0.849370 Profit=300.00 Score=0.102377
+  ROC-AUC        : 0.849370
+  Net Profit     : 400
+  Total Score    : 0.118215
+  Selected k     : 25 (Good=24, NG=1)
+[BestK] k= 25 | ROC=0.849370 Profit=400.00 Score=0.118215
+  ROC-AUC        : 0.849370
+  Net Profit     : 500
+  Total Score    : 0.132168
+  Selected k     : 26 (Good=25, NG=1)
+[BestK] k= 26 | ROC=0.849370 Profit=500.00 Score=0.132168
+  ROC-AUC        : 0.849370
+  Net Profit     : 600
+  Total Score    : 0.144783
+  Selected k     : 27 (Good=26, NG=1)
+[BestK] k= 27 | ROC=0.849370 Profit=600.00 Score=0.144783
+  ROC-AUC        : 0.849370
+  Net Profit     : 700
+  Total Score    : 0.156384
+  Selected k     : 28 (Good=27, NG=1)
+[BestK] k= 28 | ROC=0.849370 Profit=700.00 Score=0.156384
+  ROC-AUC        : 0.849370
+  Net Profit     : 800
+  Total Score    : 0.167181
+  Selected k     : 29 (Good=28, NG=1)
+[BestK] k= 29 | ROC=0.849370 Profit=800.00 Score=0.167181
+  ROC-AUC        : 0.849370
+  Net Profit     : 900
+  Total Score    : 0.177322
+  Selected k     : 30 (Good=29, NG=1)
+[BestK] k= 30 | ROC=0.849370 Profit=900.00 Score=0.177322
+  ROC-AUC        : 0.849370
+  Net Profit     : 1000
+  Total Score    : 0.186914
+  Selected k     : 31 (Good=30, NG=1)
+[BestK] k= 31 | ROC=0.849370 Profit=1000.00 Score=0.186914
+  ROC-AUC        : 0.849370
+  Net Profit     : 1100
+  Total Score    : 0.196037
+  Selected k     : 32 (Good=31, NG=1)
+[BestK] k= 32 | ROC=0.849370 Profit=1100.00 Score=0.196037
+  ROC-AUC        : 0.849370
+  Net Profit     : 1200
+  Total Score    : 0.204754
+  Selected k     : 33 (Good=32, NG=1)
+[BestK] k= 33 | ROC=0.849370 Profit=1200.00 Score=0.204754
+  ROC-AUC        : 0.849370
+  Net Profit     : 1300
+  Total Score    : 0.213115
+  Selected k     : 34 (Good=33, NG=1)
+[BestK] k= 34 | ROC=0.849370 Profit=1300.00 Score=0.213115
+  ROC-AUC        : 0.849370
+  Net Profit     : 1400
+  Total Score    : 0.221160
+  Selected k     : 35 (Good=34, NG=1)
+[BestK] k= 35 | ROC=0.849370 Profit=1400.00 Score=0.221160
+  ROC-AUC        : 0.849370
+  Net Profit     : 1500
+  Total Score    : 0.228922
+  Selected k     : 36 (Good=35, NG=1)
+[BestK] k= 36 | ROC=0.849370 Profit=1500.00 Score=0.228922
+  ROC-AUC        : 0.849370
+  Net Profit     : 1600
+  Total Score    : 0.236430
+  Selected k     : 37 (Good=36, NG=1)
+[BestK] k= 37 | ROC=0.849370 Profit=1600.00 Score=0.236430
+  ROC-AUC        : 0.849370
+  Net Profit     : 1700
+  Total Score    : 0.243706
+  Selected k     : 38 (Good=37, NG=1)
+[BestK] k= 38 | ROC=0.849370 Profit=1700.00 Score=0.243706
+  ROC-AUC        : 0.849370
+  Net Profit     : 1800
+  Total Score    : 0.250772
+  Selected k     : 39 (Good=38, NG=1)
+[BestK] k= 39 | ROC=0.849370 Profit=1800.00 Score=0.250772
+  ROC-AUC        : 0.849370
+  Net Profit     : 1900
+  Total Score    : 0.257644
+  Selected k     : 40 (Good=39, NG=1)
+[BestK] k= 40 | ROC=0.849370 Profit=1900.00 Score=0.257644
+  ROC-AUC        : 0.849370
+  Net Profit     : 2000
+  Total Score    : 0.264337
+  Selected k     : 41 (Good=40, NG=1)
+[BestK] k= 41 | ROC=0.849370 Profit=2000.00 Score=0.264337
+  ROC-AUC        : 0.849370
+  Net Profit     : 2100
+  Total Score    : 0.270865
+  Selected k     : 42 (Good=41, NG=1)
+[BestK] k= 42 | ROC=0.849370 Profit=2100.00 Score=0.270865
+  ROC-AUC        : 0.849370
+  Net Profit     : 2200
+  Total Score    : 0.277239
+  Selected k     : 43 (Good=42, NG=1)
+[BestK] k= 43 | ROC=0.849370 Profit=2200.00 Score=0.277239
+  ROC-AUC        : 0.849370
+  Net Profit     : 2300
+  Total Score    : 0.283470
+  Selected k     : 44 (Good=43, NG=1)
+[BestK] k= 44 | ROC=0.849370 Profit=2300.00 Score=0.283470
+  ROC-AUC        : 0.849370
+  Net Profit     : 2400
+  Total Score    : 0.289566
+  Selected k     : 45 (Good=44, NG=1)
+[BestK] k= 45 | ROC=0.849370 Profit=2400.00 Score=0.289566
+  ROC-AUC        : 0.849370
+  Net Profit     : 2500
+  Total Score    : 0.295537
+  Selected k     : 46 (Good=45, NG=1)
+[BestK] k= 46 | ROC=0.849370 Profit=2500.00 Score=0.295537
+  ROC-AUC        : 0.849370
+  Net Profit     : 2600
+  Total Score    : 0.301390
+  Selected k     : 47 (Good=46, NG=1)
+[BestK] k= 47 | ROC=0.849370 Profit=2600.00 Score=0.301390
+  ROC-AUC        : 0.849370
+  Net Profit     : 2700
+  Total Score    : 0.307132
+  Selected k     : 48 (Good=47, NG=1)
+[BestK] k= 48 | ROC=0.849370 Profit=2700.00 Score=0.307132
+  ROC-AUC        : 0.849370
+  Net Profit     : 2800
+  Total Score    : 0.312767
+  Selected k     : 49 (Good=48, NG=1)
+[BestK] k= 49 | ROC=0.849370 Profit=2800.00 Score=0.312767
+  ROC-AUC        : 0.849370
+  Net Profit     : 2900
+  Total Score    : 0.318304
+  Selected k     : 50 (Good=49, NG=1)
+[BestK] k= 50 | ROC=0.849370 Profit=2900.00 Score=0.318304
+  ROC-AUC        : 0.849370
+  Net Profit     : 3000
+  Total Score    : 0.323745
+  Selected k     : 51 (Good=50, NG=1)
+[BestK] k= 51 | ROC=0.849370 Profit=3000.00 Score=0.323745
+  ROC-AUC        : 0.849370
+  Net Profit     : 3100
+  Total Score    : 0.329097
+  Selected k     : 52 (Good=51, NG=1)
+[BestK] k= 52 | ROC=0.849370 Profit=3100.00 Score=0.329097
+  ROC-AUC        : 0.849370
+  Net Profit     : 3200
+  Total Score    : 0.334362
+  Selected k     : 53 (Good=52, NG=1)
+[BestK] k= 53 | ROC=0.849370 Profit=3200.00 Score=0.334362
+  ROC-AUC        : 0.849370
+  Net Profit     : 3300
+  Total Score    : 0.339547
+  Selected k     : 54 (Good=53, NG=1)
+[BestK] k= 54 | ROC=0.849370 Profit=3300.00 Score=0.339547
+  ROC-AUC        : 0.849370
+  Net Profit     : 3400
+  Total Score    : 0.344653
+  Selected k     : 55 (Good=54, NG=1)
+[BestK] k= 55 | ROC=0.849370 Profit=3400.00 Score=0.344653
+  ROC-AUC        : 0.849370
+  Net Profit     : 3500
+  Total Score    : 0.349685
+  Selected k     : 56 (Good=55, NG=1)
+[BestK] k= 56 | ROC=0.849370 Profit=3500.00 Score=0.349685
+  ROC-AUC        : 0.849370
+  Net Profit     : 3600
+  Total Score    : 0.354645
+  Selected k     : 57 (Good=56, NG=1)
+[BestK] k= 57 | ROC=0.849370 Profit=3600.00 Score=0.354645
+  ROC-AUC        : 0.849370
+  Net Profit     : 3700
+  Total Score    : 0.359537
+  Selected k     : 58 (Good=57, NG=1)
+[BestK] k= 58 | ROC=0.849370 Profit=3700.00 Score=0.359537
+  ROC-AUC        : 0.849370
+  Net Profit     : 3800
+  Total Score    : 0.364363
+  Selected k     : 59 (Good=58, NG=1)
+[BestK] k= 59 | ROC=0.849370 Profit=3800.00 Score=0.364363
+  ROC-AUC        : 0.849370
+  Net Profit     : 3900
+  Total Score    : 0.369126
+  Selected k     : 60 (Good=59, NG=1)
+[BestK] k= 60 | ROC=0.849370 Profit=3900.00 Score=0.369126
+  ROC-AUC        : 0.849370
+  Net Profit     : 4000
+  Total Score    : 0.373829
+  Selected k     : 61 (Good=60, NG=1)
+[BestK] k= 61 | ROC=0.849370 Profit=4000.00 Score=0.373829
+  ROC-AUC        : 0.849370
+  Net Profit     : 4100
+  Total Score    : 0.378473
+  Selected k     : 62 (Good=61, NG=1)
+[BestK] k= 62 | ROC=0.849370 Profit=4100.00 Score=0.378473
+  ROC-AUC        : 0.849370
+  Net Profit     : 4200
+  Total Score    : 0.383060
+  Selected k     : 63 (Good=62, NG=1)
+[BestK] k= 63 | ROC=0.849370 Profit=4200.00 Score=0.383060
+  ROC-AUC        : 0.849370
+  Net Profit     : 4300
+  Total Score    : 0.387594
+  Selected k     : 64 (Good=63, NG=1)
+[BestK] k= 64 | ROC=0.849370 Profit=4300.00 Score=0.387594
+  ROC-AUC        : 0.849370
+  Net Profit     : 4400
+  Total Score    : 0.392075
+  Selected k     : 65 (Good=64, NG=1)
+[BestK] k= 65 | ROC=0.849370 Profit=4400.00 Score=0.392075
+  ROC-AUC        : 0.849370
+  Net Profit     : 4500
+  Total Score    : 0.396505
+  Selected k     : 66 (Good=65, NG=1)
+[BestK] k= 66 | ROC=0.849370 Profit=4500.00 Score=0.396505
+  ROC-AUC        : 0.849370
+  Net Profit     : 4600
+  Total Score    : 0.400887
+  Selected k     : 67 (Good=66, NG=1)
+[BestK] k= 67 | ROC=0.849370 Profit=4600.00 Score=0.400887
+  ROC-AUC        : 0.849370
+  Net Profit     : 4700
+  Total Score    : 0.405221
+  Selected k     : 68 (Good=67, NG=1)
+[BestK] k= 68 | ROC=0.849370 Profit=4700.00 Score=0.405221
+  ROC-AUC        : 0.849370
+  Net Profit     : 4800
+  Total Score    : 0.409509
+  Selected k     : 69 (Good=68, NG=1)
+[BestK] k= 69 | ROC=0.849370 Profit=4800.00 Score=0.409509
+  ROC-AUC        : 0.849370
+  Net Profit     : 4900
+  Total Score    : 0.413752
+  Selected k     : 70 (Good=69, NG=1)
+[BestK] k= 70 | ROC=0.849370 Profit=4900.00 Score=0.413752
+  ROC-AUC        : 0.849370
+  Net Profit     : 5000
+  Total Score    : 0.417953
+  Selected k     : 71 (Good=70, NG=1)
+[BestK] k= 71 | ROC=0.849370 Profit=5000.00 Score=0.417953
+  ROC-AUC        : 0.849370
+  Net Profit     : 5100
+  Total Score    : 0.422112
+  Selected k     : 72 (Good=71, NG=1)
+[BestK] k= 72 | ROC=0.849370 Profit=5100.00 Score=0.422112
+  ROC-AUC        : 0.849370
+  Net Profit     : 5200
+  Total Score    : 0.426230
+  Selected k     : 73 (Good=72, NG=1)
+[BestK] k= 73 | ROC=0.849370 Profit=5200.00 Score=0.426230
+  ROC-AUC        : 0.849370
+  Net Profit     : 5300
+  Total Score    : 0.430309
+  Selected k     : 74 (Good=73, NG=1)
+[BestK] k= 74 | ROC=0.849370 Profit=5300.00 Score=0.430309
+  ROC-AUC        : 0.849370
+  Net Profit     : 5400
+  Total Score    : 0.434350
+  Selected k     : 75 (Good=74, NG=1)
+[BestK] k= 75 | ROC=0.849370 Profit=5400.00 Score=0.434350
+  ROC-AUC        : 0.849370
+  Net Profit     : 5500
+  Total Score    : 0.438353
+  Selected k     : 76 (Good=75, NG=1)
+[BestK] k= 76 | ROC=0.849370 Profit=5500.00 Score=0.438353
+  ROC-AUC        : 0.849370
+  Net Profit     : 5600
+  Total Score    : 0.442320
+  Selected k     : 77 (Good=76, NG=1)
+[BestK] k= 77 | ROC=0.849370 Profit=5600.00 Score=0.442320
+  ROC-AUC        : 0.849370
+  Net Profit     : 5700
+  Total Score    : 0.446252
+  Selected k     : 78 (Good=77, NG=1)
+[BestK] k= 78 | ROC=0.849370 Profit=5700.00 Score=0.446252
+  ROC-AUC        : 0.849370
+  Net Profit     : 5800
+  Total Score    : 0.450149
+  Selected k     : 79 (Good=78, NG=1)
+[BestK] k= 79 | ROC=0.849370 Profit=5800.00 Score=0.450149
+  ROC-AUC        : 0.849370
+  Net Profit     : 5900
+  Total Score    : 0.454013
+  Selected k     : 80 (Good=79, NG=1)
+[BestK] k= 80 | ROC=0.849370 Profit=5900.00 Score=0.454013
+  ROC-AUC        : 0.849370
+  Net Profit     : 6000
+  Total Score    : 0.457845
+  Selected k     : 81 (Good=80, NG=1)
+[BestK] k= 81 | ROC=0.849370 Profit=6000.00 Score=0.457845
+  ROC-AUC        : 0.849370
+  Net Profit     : 6100
+  Total Score    : 0.461644
+  Selected k     : 82 (Good=81, NG=1)
+[BestK] k= 82 | ROC=0.849370 Profit=6100.00 Score=0.461644
+  ROC-AUC        : 0.849370
+  Net Profit     : 6200
+  Total Score    : 0.465413
+  Selected k     : 83 (Good=82, NG=1)
+[BestK] k= 83 | ROC=0.849370 Profit=6200.00 Score=0.465413
+  ROC-AUC        : 0.849370
+  Net Profit     : 6300
+  Total Score    : 0.469151
+  Selected k     : 84 (Good=83, NG=1)
+[BestK] k= 84 | ROC=0.849370 Profit=6300.00 Score=0.469151
+  ROC-AUC        : 0.849370
+  Net Profit     : 6400
+  Total Score    : 0.472860
+  Selected k     : 85 (Good=84, NG=1)
+[BestK] k= 85 | ROC=0.849370 Profit=6400.00 Score=0.472860
+  ROC-AUC        : 0.849370
+  Net Profit     : 6500
+  Total Score    : 0.476540
+  Selected k     : 86 (Good=85, NG=1)
+[BestK] k= 86 | ROC=0.849370 Profit=6500.00 Score=0.476540
+  ROC-AUC        : 0.849370
+  Net Profit     : 6600
+  Total Score    : 0.480192
+  Selected k     : 87 (Good=86, NG=1)
+[BestK] k= 87 | ROC=0.849370 Profit=6600.00 Score=0.480192
+  ROC-AUC        : 0.849370
+  Net Profit     : 6700
+  Total Score    : 0.483816
+  Selected k     : 88 (Good=87, NG=1)
+[BestK] k= 88 | ROC=0.849370 Profit=6700.00 Score=0.483816
+  ROC-AUC        : 0.849370
+  Net Profit     : 6800
+  Total Score    : 0.487413
+  Selected k     : 89 (Good=88, NG=1)
+[BestK] k= 89 | ROC=0.849370 Profit=6800.00 Score=0.487413
+  ROC-AUC        : 0.849370
+  Net Profit     : 6900
+  Total Score    : 0.490984
+  Selected k     : 90 (Good=89, NG=1)
+[BestK] k= 90 | ROC=0.849370 Profit=6900.00 Score=0.490984
+  ROC-AUC        : 0.849370
+  Net Profit     : 7000
+  Total Score    : 0.494529
+  Selected k     : 91 (Good=90, NG=1)
+[BestK] k= 91 | ROC=0.849370 Profit=7000.00 Score=0.494529
+  ROC-AUC        : 0.849370
+  Net Profit     : 7100
+  Total Score    : 0.498049
+  Selected k     : 92 (Good=91, NG=1)
+[BestK] k= 92 | ROC=0.849370 Profit=7100.00 Score=0.498049
+  ROC-AUC        : 0.849370
+  Net Profit     : 7200
+  Total Score    : 0.501544
+  Selected k     : 93 (Good=92, NG=1)
+[BestK] k= 93 | ROC=0.849370 Profit=7200.00 Score=0.501544
+  ROC-AUC        : 0.849370
+  Net Profit     : 7300
+  Total Score    : 0.505015
+  Selected k     : 94 (Good=93, NG=1)
+[BestK] k= 94 | ROC=0.849370 Profit=7300.00 Score=0.505015
+  ROC-AUC        : 0.849370
+  Net Profit     : 7400
+  Total Score    : 0.508462
+  Selected k     : 95 (Good=94, NG=1)
+[BestK] k= 95 | ROC=0.849370 Profit=7400.00 Score=0.508462
+  ROC-AUC        : 0.849370
+  Net Profit     : 7500
+  Total Score    : 0.511886
+  Selected k     : 96 (Good=95, NG=1)
+[BestK] k= 96 | ROC=0.849370 Profit=7500.00 Score=0.511886
+  ROC-AUC        : 0.849370
+  Net Profit     : 7600
+  Total Score    : 0.515287
+  Selected k     : 97 (Good=96, NG=1)
+[BestK] k= 97 | ROC=0.849370 Profit=7600.00 Score=0.515287
+  ROC-AUC        : 0.849370
+  Net Profit     : 7700
+  Total Score    : 0.518666
+  Selected k     : 98 (Good=97, NG=1)
+[BestK] k= 98 | ROC=0.849370 Profit=7700.00 Score=0.518666
+  ROC-AUC        : 0.849370
+  Net Profit     : 7800
+  Total Score    : 0.522023
+  Selected k     : 99 (Good=98, NG=1)
+[BestK] k= 99 | ROC=0.849370 Profit=7800.00 Score=0.522023
+  ROC-AUC        : 0.849370
+  Net Profit     : 7900
+  Total Score    : 0.525359
+  Selected k     : 100 (Good=99, NG=1)
+[BestK] k=100 | ROC=0.849370 Profit=7900.00 Score=0.525359
+  ROC-AUC        : 0.849370
+  Net Profit     : 8000
+  Total Score    : 0.528673
+  Selected k     : 101 (Good=100, NG=1)
+[BestK] k=101 | ROC=0.849370 Profit=8000.00 Score=0.528673
+  ROC-AUC        : 0.849370
+  Net Profit     : 8100
+  Total Score    : 0.531967
+  Selected k     : 102 (Good=101, NG=1)
+[BestK] k=102 | ROC=0.849370 Profit=8100.00 Score=0.531967
+  ROC-AUC        : 0.849370
+  Net Profit     : 8200
+  Total Score    : 0.535241
+  Selected k     : 103 (Good=102, NG=1)
+[BestK] k=103 | ROC=0.849370 Profit=8200.00 Score=0.535241
+  ROC-AUC        : 0.849370
+  Net Profit     : 8300
+  Total Score    : 0.538495
+  Selected k     : 104 (Good=103, NG=1)
+[BestK] k=104 | ROC=0.849370 Profit=8300.00 Score=0.538495
+  ROC-AUC        : 0.849370
+  Net Profit     : 8400
+  Total Score    : 0.541729
+  Selected k     : 105 (Good=104, NG=1)
+[BestK] k=105 | ROC=0.849370 Profit=8400.00 Score=0.541729
+  ROC-AUC        : 0.849370
+  Net Profit     : 8500
+  Total Score    : 0.544944
+  Selected k     : 106 (Good=105, NG=1)
+[BestK] k=106 | ROC=0.849370 Profit=8500.00 Score=0.544944
+  ROC-AUC        : 0.849370
+  Net Profit     : 8600
+  Total Score    : 0.548140
+  Selected k     : 107 (Good=106, NG=1)
+[BestK] k=107 | ROC=0.849370 Profit=8600.00 Score=0.548140
+  ROC-AUC        : 0.849370
+  Net Profit     : 8700
+  Total Score    : 0.551318
+  Selected k     : 108 (Good=107, NG=1)
+[BestK] k=108 | ROC=0.849370 Profit=8700.00 Score=0.551318
+  ROC-AUC        : 0.849370
+  Net Profit     : 8800
+  Total Score    : 0.554477
+  Selected k     : 109 (Good=108, NG=1)
+[BestK] k=109 | ROC=0.849370 Profit=8800.00 Score=0.554477
+  ROC-AUC        : 0.849370
+  Net Profit     : 8900
+  Total Score    : 0.557619
+  Selected k     : 110 (Good=109, NG=1)
+[BestK] k=110 | ROC=0.849370 Profit=8900.00 Score=0.557619
+  ROC-AUC        : 0.849370
+  Net Profit     : 9000
+  Total Score    : 0.560743
+  Selected k     : 111 (Good=110, NG=1)
+[BestK] k=111 | ROC=0.849370 Profit=9000.00 Score=0.560743
+  ROC-AUC        : 0.849370
+  Net Profit     : 9100
+  Total Score    : 0.563850
+  Selected k     : 112 (Good=111, NG=1)
+[BestK] k=112 | ROC=0.849370 Profit=9100.00 Score=0.563850
+  ROC-AUC        : 0.849370
+  Net Profit     : 9200
+  Total Score    : 0.566939
+  Selected k     : 113 (Good=112, NG=1)
+[BestK] k=113 | ROC=0.849370 Profit=9200.00 Score=0.566939
+  ROC-AUC        : 0.849370
+  Net Profit     : 9300
+  Total Score    : 0.570012
+  Selected k     : 114 (Good=113, NG=1)
+[BestK] k=114 | ROC=0.849370 Profit=9300.00 Score=0.570012
+  ROC-AUC        : 0.849370
+  Net Profit     : 9400
+  Total Score    : 0.573068
+  Selected k     : 115 (Good=114, NG=1)
+[BestK] k=115 | ROC=0.849370 Profit=9400.00 Score=0.573068
+  ROC-AUC        : 0.849370
+  Net Profit     : 9500
+  Total Score    : 0.576109
+  Selected k     : 116 (Good=115, NG=1)
+[BestK] k=116 | ROC=0.849370 Profit=9500.00 Score=0.576109
+  ROC-AUC        : 0.849370
+  Net Profit     : 9600
+  Total Score    : 0.579133
+  Selected k     : 117 (Good=116, NG=1)
+[BestK] k=117 | ROC=0.849370 Profit=9600.00 Score=0.579133
+  ROC-AUC        : 0.849370
+  Net Profit     : 9700
+  Total Score    : 0.582141
+  Selected k     : 118 (Good=117, NG=1)
+[BestK] k=118 | ROC=0.849370 Profit=9700.00 Score=0.582141
+  ROC-AUC        : 0.849370
+  Net Profit     : 9800
+  Total Score    : 0.585134
+  Selected k     : 119 (Good=118, NG=1)
+[BestK] k=119 | ROC=0.849370 Profit=9800.00 Score=0.585134
+  ROC-AUC        : 0.849370
+  Net Profit     : 9900
+  Total Score    : 0.588112
+  Selected k     : 120 (Good=119, NG=1)
+[BestK] k=120 | ROC=0.849370 Profit=9900.00 Score=0.588112
+
+[BestK] OOF best k summary
+  k_best     : 120
+  ROC@k_best : 0.849370
+  Profit@k   : 9900.00
+  Score@k    : 0.588112
+  ROC-AUC        : 0.869919
+  Net Profit     : -600
+  Total Score    : 0.000000
+  Selected k     : 120 (Good=114, NG=6)
+[Fold 1] (k_best=120) ROC=0.869919 Profit=-600.00 Score=0.000000
+  ROC-AUC        : 0.839721
+  Net Profit     : -6900
+  Total Score    : 0.000000
+  Selected k     : 120 (Good=111, NG=9)
+[Fold 2] (k_best=120) ROC=0.839721 Profit=-6900.00 Score=0.000000
+  ROC-AUC        : 0.895858
+  Net Profit     : -4800
+  Total Score    : 0.000000
+  Selected k     : 120 (Good=112, NG=8)
+[Fold 3] (k_best=120) ROC=0.895858 Profit=-4800.00 Score=0.000000
+  ROC-AUC        : 0.898659
+  Net Profit     : -600
+  Total Score    : 0.000000
+  Selected k     : 120 (Good=114, NG=6)
+[Fold 4] (k_best=120) ROC=0.898659 Profit=-600.00 Score=0.000000
+  ROC-AUC        : 0.903875
+  Net Profit     : -600
+  Total Score    : 0.000000
+  Selected k     : 120 (Good=114, NG=6)
+[Fold 5] (k_best=120) ROC=0.903875 Profit=-600.00 Score=0.000000
+
+===== CV Summary (Deep Ensemble @ k_best) =====
+ROC-AUC  mean/std : 0.881606 / 0.024003
+Profit   mean/std : -2700.00 / 2656.31
+Score    mean/std : 0.000000 / 0.000000
+
+[Main] Test prob range: 0.1801 ~ 0.8736
+[Main] Saved submission to ../data/submission/DeepEns_Focal_OOFk_20251129_154907.csv
+[Main] Total selected products: 340
+[Main] OOF k_best = 120, Score@k_best = 0.588112

@@ -12,7 +12,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
-from CNN_encoder import (
+from Tiny_CNN_encoder_param39657 import (
     DataProcessor,
     SpatialRasterizer,
     FeatureEncoder,
@@ -76,9 +76,11 @@ class ProductionPipeline:
         if not os.path.exists(self.encoder_weight_path):
             raise FileNotFoundError(
                 f"Pretrained encoder weight not found: {self.encoder_weight_path}\n"
-                f"먼저 encoder_train.py 를 실행해서 feature_encoder.pth 를 생성하세요."
+                f"먼저 Tiny_CNN_encoder.py 를 실행해서 tiny_feature_encoder_*.pth 를 생성하거나\n"
+                f"저장된 가중치 파일 이름을 맞춰주세요."
             )
 
+        # Tiny CNN FeatureEncoder: 이미지 + basic feature 입력
         self.feature_encoder = FeatureEncoder(
             basic_feature_dim=basic_feature_dim
         ).to(self.device)
@@ -89,19 +91,24 @@ class ProductionPipeline:
         print(f"[Main] Loaded encoder weights from {self.encoder_weight_path}")
 
     def extract_features(self, loader, is_test=False):
+        """
+        Tiny CNN encoder용 feature 추출:
+          - train loader: (img, basic, label)
+          - test loader : (img, basic)
+        """
         assert self.feature_encoder is not None, "feature_encoder가 로드되지 않았습니다."
         self.feature_encoder.eval()
 
         all_features = []
         with torch.no_grad():
             if is_test:
-                for img, basic in loader:
+                for img, basic in loader:                  # test: (img, basic)
                     img = img.to(self.device)
                     basic = basic.to(self.device)
                     feats = self.feature_encoder.extract_features(img, basic)
                     all_features.append(feats.cpu().numpy())
             else:
-                for img, basic, _ in loader:
+                for img, basic, _ in loader:               # train: (img, basic, label)
                     img = img.to(self.device)
                     basic = basic.to(self.device)
                     feats = self.feature_encoder.extract_features(img, basic)
@@ -133,7 +140,7 @@ class ProductionPipeline:
         logger = TeeLogger()
         sys.stdout = logger
 
-        print("[Main] Start Production Pipeline")
+        print("[Main] Start Production Pipeline (Tiny CNN encoder)")
 
         # 1. 데이터 로딩
         train_df, test_df, train_X_basic_df, train_Y_series, test_X_basic_df = \
@@ -164,7 +171,7 @@ class ProductionPipeline:
         train_loader_seq = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=self.batch_size, shuffle=False)
 
-        # 6. 사전 학습된 FeatureEncoder 로드
+        # 6. 사전 학습된 FeatureEncoder 로드 (Tiny CNN)
         self.load_pretrained_encoder(self.data_processor.basic_feature_dim)
 
         # 7. FeatureEncoder를 이용해 feature 추출
@@ -175,10 +182,9 @@ class ProductionPipeline:
         print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
 
         # 8. 하이브리드 피처 생성
-        # X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
-        # X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
-        X_train_hybrid = X_train_feat
-        X_test_hybrid = X_test_feat
+        #   - 원본 탭ular + encoder 임베딩을 concat 해서 RF 입력으로 사용
+        X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
+        X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
 
         print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
         print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")
@@ -263,7 +269,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_RF_submission_{timestamp}.csv"
+        save_path = f"../data/submission/Tiny_CNN_RF_kfold_140_submission_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
@@ -283,11 +289,11 @@ def main():
         n_epochs=13,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/feature_encoder.pth"
+        encoder_weight_path="../weight/tiny_feature_encoder_100_earlystop_20251128_225128.pth"  # 실제 파일 이름/경로 맞춰줘야 함
     )
     submission_result = pipeline.run_production_pipeline()
 
-        # 간단 확인용 출력
+    # 간단 확인용 출력
     print("\nSubmission head:")
     print(submission_result.head())
     print("\nSubmission tail:")

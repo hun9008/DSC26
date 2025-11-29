@@ -1,0 +1,89 @@
+[Main] Start Production Pipeline (Encoder + AE + RF)
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[AE] Train AutoEncoder: input_dim=96, hidden_dim=64, latent_dim=24
+[AE] Epoch 1/200 | Recon MSE=274.765026
+[AE] Epoch 20/200 | Recon MSE=1.072985
+[AE] Epoch 40/200 | Recon MSE=0.569579
+[AE] Epoch 60/200 | Recon MSE=0.177192
+[AE] Epoch 80/200 | Recon MSE=0.165973
+[AE] Epoch 100/200 | Recon MSE=0.164950
+[AE] Epoch 120/200 | Recon MSE=0.162043
+[AE] Epoch 140/200 | Recon MSE=0.159487
+[AE] Epoch 160/200 | Recon MSE=0.153937
+[AE] Epoch 180/200 | Recon MSE=0.148961
+[AE] Epoch 200/200 | Recon MSE=0.141117
+[AE] Train latent shape      : (720, 24)
+[AE] Train recon_error shape : (720, 1)
+[AE] Test latent shape       : (466, 24)
+[AE] Test recon_error shape  : (466, 1)
+[Main] Final features (Train): (720, 121)
+[Main] Final features (Test) : (466, 121)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.875339
+  Net Profit     : 4000
+  Total Score    : 0.387473
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 1] ROC=0.875339 Profit=4000.00 Score=0.387473
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.810879
+  Net Profit     : 4000
+  Total Score    : 0.352635
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 2] ROC=0.810879 Profit=4000.00 Score=0.352635
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.871080
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[Fold 3] ROC=0.871080 Profit=-200.00 Score=0.000000
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.858979
+  Net Profit     : 4000
+  Total Score    : 0.378935
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 4] ROC=0.858979 Profit=4000.00 Score=0.378935
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.865872
+  Net Profit     : 4000
+  Total Score    : 0.382556
+  Selected k     : 40 (Good=40, NG=0)
+[Fold 5] ROC=0.865872 Profit=4000.00 Score=0.382556
+
+===== CV Summary (StratifiedKFold, Encoder+AE+RF) =====
+ROC-AUC  mean/std : 0.856430 / 0.023421
+Profit   mean/std : 3160.00 / 1680.00
+Score    mean/std : 0.300320 / 0.150644
+
+[Main] Test prob range: 0.0000 ~ 0.9900
+[Main] Saved submission to ../data/submission/CNN_AE_RF_submission_20251129_172303.csv
+[Main] Total selected products: 340

@@ -12,7 +12,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
-from Tiny_CNN_encoder import (
+from Tiny_CNN_encoder_param745 import (
     DataProcessor,
     SpatialRasterizer,
     FeatureEncoder,

@@ -1,0 +1,266 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[EncoderTrain] Train size: 576, Val size: 144
+  ROC-AUC        : 0.620209
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 1/50 TrainLoss=0.6569 Val ROC=0.620209 Profit=-4400.00 Score=0.000000
+[EncoderTrain] >>> New best model at epoch 1: Score=0.000000
+  ROC-AUC        : 0.599303
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 2/50 TrainLoss=0.6269 Val ROC=0.599303 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.620983
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 3/50 TrainLoss=0.5928 Val ROC=0.620983 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.624855
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 4/50 TrainLoss=0.5578 Val ROC=0.624855 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.628726
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 5/50 TrainLoss=0.5338 Val ROC=0.628726 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.590399
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 6/50 TrainLoss=0.4894 Val ROC=0.590399 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.608208
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 7/50 TrainLoss=0.4581 Val ROC=0.608208 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.579946
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 8/50 TrainLoss=0.4442 Val ROC=0.579946 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.620596
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 9/50 TrainLoss=0.3833 Val ROC=0.620596 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.623693
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 10/50 TrainLoss=0.3614 Val ROC=0.623693 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.639954
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 11/50 TrainLoss=0.3357 Val ROC=0.639954 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.655827
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 12/50 TrainLoss=0.3054 Val ROC=0.655827 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.637631
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 13/50 TrainLoss=0.3152 Val ROC=0.637631 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.654278
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 14/50 TrainLoss=0.3163 Val ROC=0.654278 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.637244
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 15/50 TrainLoss=0.2792 Val ROC=0.637244 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.658924
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 16/50 TrainLoss=0.2688 Val ROC=0.658924 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.655827
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 17/50 TrainLoss=0.2378 Val ROC=0.655827 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.684475
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 18/50 TrainLoss=0.2692 Val ROC=0.684475 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.597755
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 19/50 TrainLoss=0.2467 Val ROC=0.597755 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.659698
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 20/50 TrainLoss=0.2048 Val ROC=0.659698 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.586140
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 21/50 TrainLoss=0.1978 Val ROC=0.586140 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.672087
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 22/50 TrainLoss=0.1750 Val ROC=0.672087 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.584592
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 23/50 TrainLoss=0.2117 Val ROC=0.584592 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.621370
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 24/50 TrainLoss=0.1842 Val ROC=0.621370 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.682540
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 25/50 TrainLoss=0.1525 Val ROC=0.682540 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.646148
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 26/50 TrainLoss=0.1494 Val ROC=0.646148 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.596593
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 27/50 TrainLoss=0.1583 Val ROC=0.596593 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.680991
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 28/50 TrainLoss=0.1468 Val ROC=0.680991 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.667441
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 29/50 TrainLoss=0.1507 Val ROC=0.667441 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.625629
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 30/50 TrainLoss=0.1719 Val ROC=0.625629 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.647309
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 31/50 TrainLoss=0.1216 Val ROC=0.647309 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.655439
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 32/50 TrainLoss=0.1154 Val ROC=0.655439 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.622145
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 33/50 TrainLoss=0.0925 Val ROC=0.622145 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.661247
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 34/50 TrainLoss=0.1058 Val ROC=0.661247 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.569106
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 35/50 TrainLoss=0.1208 Val ROC=0.569106 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.644986
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 36/50 TrainLoss=0.1231 Val ROC=0.644986 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.625242
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 37/50 TrainLoss=0.0963 Val ROC=0.625242 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.582656
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 38/50 TrainLoss=0.0925 Val ROC=0.582656 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.636082
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 39/50 TrainLoss=0.0833 Val ROC=0.636082 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.650794
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 40/50 TrainLoss=0.0815 Val ROC=0.650794 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.593883
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 41/50 TrainLoss=0.1041 Val ROC=0.593883 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.580333
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 42/50 TrainLoss=0.0938 Val ROC=0.580333 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.629113
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 43/50 TrainLoss=0.0820 Val ROC=0.629113 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.643825
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 44/50 TrainLoss=0.0776 Val ROC=0.643825 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.612079
+  Net Profit     : -8600
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=34, NG=6)
+[EncoderTrain] Epoch 45/50 TrainLoss=0.0721 Val ROC=0.612079 Profit=-8600.00 Score=0.000000
+  ROC-AUC        : 0.570267
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[EncoderTrain] Epoch 46/50 TrainLoss=0.0773 Val ROC=0.570267 Profit=-4400.00 Score=0.000000
+  ROC-AUC        : 0.559814
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 47/50 TrainLoss=0.1236 Val ROC=0.559814 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.631049
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 48/50 TrainLoss=0.0760 Val ROC=0.631049 Profit=-2300.00 Score=0.000000
+  ROC-AUC        : 0.604723
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+[EncoderTrain] Epoch 49/50 TrainLoss=0.0561 Val ROC=0.604723 Profit=-6500.00 Score=0.000000
+  ROC-AUC        : 0.619048
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[EncoderTrain] Epoch 50/50 TrainLoss=0.0483 Val ROC=0.619048 Profit=-2300.00 Score=0.000000
+[EncoderTrain] Saved best encoder weights to: ../weight/feature_encoder_20251129_153355.pth
+[EncoderTrain] Best validation Score=0.000000 at epoch 1
+[EncoderTrain] Test prob range: 0.0000 ~ 0.9866
+[EncoderTrain] Saved submission to: ../data/submission/CNN_E2E_20251129_153715.csv
+[EncoderTrain] Total selected products: 340

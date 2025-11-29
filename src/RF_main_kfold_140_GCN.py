@@ -12,7 +12,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
-from CNN_encoder import (
+from GCN_encoder import (
     DataProcessor,
     SpatialRasterizer,
     FeatureEncoder,
@@ -263,7 +263,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_RF_submission_{timestamp}.csv"
+        save_path = f"../data/submission/GCN_RF_submission_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
@@ -280,10 +280,10 @@ class ProductionPipeline:
 
 def main():
     pipeline = ProductionPipeline(
-        n_epochs=13,
+        n_epochs=20,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/feature_encoder.pth"
+        encoder_weight_path="../weight/GCN_feature_encoder_20251129_215146.pth"
     )
     submission_result = pipeline.run_production_pipeline()
 
