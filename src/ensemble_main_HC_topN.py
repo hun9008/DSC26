@@ -724,7 +724,7 @@ def main():
         batch_size=32,
         n_cv_splits=5,
         encoder_weight_path="../weight/feature_encoder.pth",
-        top_n_models=10,
+        top_n_models=20,
     )
     submission_result = pipeline.run_production_pipeline()
 

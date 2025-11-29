@@ -130,3 +130,5 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | ensemble_main_HC_top6 | CNN + Ensemble top 6 Hill Clibing | 0.888345 | 3160 | 0.316504 | X |
 | ensemble_main_HC_top10 | CNN + Ensemble top 10 Hill Clibing | 0.888468 | 3160 | 0.346875 | X |
 | ensemble_main_HC_top15 | CNN + Ensemble top 15 Hill Clibing | 0.887410 | 3160 | 0.346315 | X |
+| ensemble_main_HC_top20 | CNN + Ensemble top 20 Hill Clibing | 0.888403 | 3160 | 0.316392 | X |
+
