@@ -156,26 +156,29 @@ class ImageCNN(nn.Module):
     def __init__(self, output_dim=8, input_size=64):
         super().__init__()
         self.conv1 = nn.Sequential(
-            nn.Conv2d(1, 8, kernel_size=3, padding=1),
+            nn.Conv2d(1, 8, kernel_size=3, stride=2, padding=1),
             nn.BatchNorm2d(8),
             nn.ReLU(),
-            nn.MaxPool2d(2)  # (B,8,32,32)
         )
-
-        self.gap = nn.AdaptiveAvgPool2d(2)  # (B,8,2,2)
+        
+        self.conv2 = nn.Sequential(
+            nn.Conv2d(8, 16, kernel_size=3, stride=2, padding=1),
+            nn.BatchNorm2d(16),
+            nn.ReLU()
+        )
         
         self.fc1 = nn.Sequential(
-            nn.Linear(8 * 2 * 2, output_dim),
+            nn.Linear(16 * 16 * 16, output_dim),
             nn.BatchNorm1d(output_dim),
             nn.ReLU(),
             nn.Dropout(0.3),
         )
 
     def forward(self, x):
-        x = self.conv1(x)              # (B,8,32,32)
-        x = self.gap(x)                # (B,8,2,2)
-        x = x.view(x.size(0), -1)      # (B,8)
-        x = self.fc1(x)                # (B,output_dim)
+        x = self.conv1(x)
+        x = self.conv2(x)
+        x = x.view(x.size(0), -1)  # Flatten: (B, 16, 16, 16) -> (B, 4096)
+        x = self.fc1(x)
         return x
 
 class FeatureEncoder(nn.Module):
@@ -192,7 +195,11 @@ class FeatureEncoder(nn.Module):
         self.image_cnn = ImageCNN(output_dim=image_cnn_output_dim, input_size=input_grid_size)
         
         self.basic_mlp = nn.Sequential(
-            nn.Linear(basic_feature_dim, basic_mlp_output_dim),
+            nn.Linear(basic_feature_dim, basic_feature_dim*2),
+            nn.BatchNorm1d(basic_feature_dim*2),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(basic_feature_dim*2, basic_mlp_output_dim),
             nn.BatchNorm1d(basic_mlp_output_dim),
             nn.ReLU(),
             nn.Dropout(0.3)
@@ -200,7 +207,11 @@ class FeatureEncoder(nn.Module):
         
         combined_dim = image_cnn_output_dim + basic_mlp_output_dim
         self.head = nn.Sequential(
-            nn.Linear(combined_dim, 1)
+            nn.Linear(combined_dim, 64),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(64, 1)
         )
     
     def forward(self, x_image, x_basic):
@@ -216,7 +227,7 @@ class FeatureEncoder(nn.Module):
         basic_feat = self.basic_mlp(x_basic)
         combined = torch.cat((img_feat, basic_feat), dim=1)
         return combined # 16차원 피처 반환
-
+    
 # ----------------------------------------------------
 # 4. Dataset
 # ----------------------------------------------------

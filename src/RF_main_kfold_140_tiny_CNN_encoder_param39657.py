@@ -12,7 +12,7 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
-from Tiny_CNN_encoder import (
+from Tiny_CNN_encoder_param39657 import (
     DataProcessor,
     SpatialRasterizer,
     FeatureEncoder,
@@ -289,7 +289,7 @@ def main():
         n_epochs=13,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/tiny_feature_encoder_100_earlystop_20251128_154557.pth"  # 실제 파일 이름/경로 맞춰줘야 함
+        encoder_weight_path="../weight/tiny_feature_encoder_100_earlystop_20251128_225128.pth"  # 실제 파일 이름/경로 맞춰줘야 함
     )
     submission_result = pipeline.run_production_pipeline()
 
