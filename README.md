@@ -125,6 +125,7 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | RF_main_k_fold_140_naive_encoder | MLP + RandomForest | 0.729769 | -1460 | 0.046882 | 0.24494 |
 | ensemble_main_kfold_140 | CNN + Ensemble(RF,ET,GB,HGB,SVM) voting | 0.868372 | 2740 | 0.312816 | X |
 | ensemble_main_kfold_140_optuna | CNN + Ensemble(RF,ET,GB,HGB,SVM) voting + optuna | 0.876271 | 3580 | 0.364064 | 0.22784 |
+| RF_main_kfold_140_tiny_CNN_encoder.py | Tiny CNN(param : 745) | 0.805122 | 1480 | 0.166432 | 0.28737 |
 | ensemble_main_HC_6 | CNN + Ensemble 6 Hill Clibing | 0.884339 | 3580 | 0.367987 | X |
 | ensemble_main_HC_13 | CNN + Ensemble 13 Hill Clibing | 0.887789 | 3160 | 0.346466 | X |
 | ensemble_main_HC_top6 | CNN + Ensemble top 6 Hill Clibing | 0.888345 | 3160 | 0.316504 | X |

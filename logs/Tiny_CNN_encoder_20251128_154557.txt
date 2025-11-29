@@ -1,0 +1,59 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[EncoderTrain] Epoch 1/100 TrainLoss=0.6878 ValLoss=0.6229
+[EncoderTrain]  ✓ Best val loss updated: 0.6229
+[EncoderTrain] Epoch 2/100 TrainLoss=0.6173 ValLoss=0.5663
+[EncoderTrain]  ✓ Best val loss updated: 0.5663
+[EncoderTrain] Epoch 3/100 TrainLoss=0.5572 ValLoss=0.5338
+[EncoderTrain]  ✓ Best val loss updated: 0.5338
+[EncoderTrain] Epoch 4/100 TrainLoss=0.5252 ValLoss=0.5039
+[EncoderTrain]  ✓ Best val loss updated: 0.5039
+[EncoderTrain] Epoch 5/100 TrainLoss=0.4999 ValLoss=0.4861
+[EncoderTrain]  ✓ Best val loss updated: 0.4861
+[EncoderTrain] Epoch 6/100 TrainLoss=0.4768 ValLoss=0.4648
+[EncoderTrain]  ✓ Best val loss updated: 0.4648
+[EncoderTrain] Epoch 7/100 TrainLoss=0.4419 ValLoss=0.4544
+[EncoderTrain]  ✓ Best val loss updated: 0.4544
+[EncoderTrain] Epoch 8/100 TrainLoss=0.4313 ValLoss=0.4309
+[EncoderTrain]  ✓ Best val loss updated: 0.4309
+[EncoderTrain] Epoch 9/100 TrainLoss=0.4167 ValLoss=0.4229
+[EncoderTrain]  ✓ Best val loss updated: 0.4229
+[EncoderTrain] Epoch 10/100 TrainLoss=0.4108 ValLoss=0.4171
+[EncoderTrain]  ✓ Best val loss updated: 0.4171
+[EncoderTrain] Epoch 11/100 TrainLoss=0.4015 ValLoss=0.4129
+[EncoderTrain]  ✓ Best val loss updated: 0.4129
+[EncoderTrain] Epoch 12/100 TrainLoss=0.3866 ValLoss=0.4065
+[EncoderTrain]  ✓ Best val loss updated: 0.4065
+[EncoderTrain] Epoch 13/100 TrainLoss=0.3845 ValLoss=0.3936
+[EncoderTrain]  ✓ Best val loss updated: 0.3936
+[EncoderTrain] Epoch 14/100 TrainLoss=0.3746 ValLoss=0.3941
+[EncoderTrain]  ↳ No improvement. patience=1/5
+[EncoderTrain] Epoch 15/100 TrainLoss=0.3658 ValLoss=0.3925
+[EncoderTrain]  ✓ Best val loss updated: 0.3925
+[EncoderTrain] Epoch 16/100 TrainLoss=0.3654 ValLoss=0.3963
+[EncoderTrain]  ↳ No improvement. patience=1/5
+[EncoderTrain] Epoch 17/100 TrainLoss=0.3624 ValLoss=0.3992
+[EncoderTrain]  ↳ No improvement. patience=2/5
+[EncoderTrain] Epoch 18/100 TrainLoss=0.3736 ValLoss=0.3897
+[EncoderTrain]  ✓ Best val loss updated: 0.3897
+[EncoderTrain] Epoch 19/100 TrainLoss=0.3603 ValLoss=0.3883
+[EncoderTrain]  ✓ Best val loss updated: 0.3883
+[EncoderTrain] Epoch 20/100 TrainLoss=0.3510 ValLoss=0.3895
+[EncoderTrain]  ↳ No improvement. patience=1/5
+[EncoderTrain] Epoch 21/100 TrainLoss=0.3429 ValLoss=0.3952
+[EncoderTrain]  ↳ No improvement. patience=2/5
+[EncoderTrain] Epoch 22/100 TrainLoss=0.3481 ValLoss=0.3944
+[EncoderTrain]  ↳ No improvement. patience=3/5
+[EncoderTrain] Epoch 23/100 TrainLoss=0.3276 ValLoss=0.3903
+[EncoderTrain]  ↳ No improvement. patience=4/5
+[EncoderTrain] Epoch 24/100 TrainLoss=0.3432 ValLoss=0.3894
+[EncoderTrain]  ↳ No improvement. patience=5/5
+[EncoderTrain] Early stopping triggered at epoch 24. Best ValLoss=0.3883
+[EncoderTrain] Saved encoder weights to: ../weight/tiny_feature_encoder_100_earlystop_20251128_154557.pth
