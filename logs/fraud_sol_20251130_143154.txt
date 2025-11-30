@@ -1,0 +1,96 @@
+[Main] Load data
+[Main] Add sequence-based statistical features
+[Main] Setup categorical & numeric preprocessing
+[Main] Categorical features: ['Mass_Pilot', 'Plant', 'Proc_Param6']
+[Main] Numeric features    : 88 columns
+[Main] X_train shape: (720, 102)
+[Main] X_test  shape: (466, 102)
+[Main] Target NG count: 107, Good count: 613
+[Main] Start StratifiedKFold CV (n_splits=5, neg_pos_ratio=2.0)
+[Main] NN device: cpu
+
+[CV] Fold 1/5
+[CV] Train size: 576, Val size: 144, NG in val: 21, Good in val: 123
+  ROC-AUC        : 0.818041
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[CV] Fold 1 Ensemble ROC-AUC : 0.818041
+[CV] Fold 1 Ensemble Profit  : -200
+[CV] Fold 1 Ensemble Score   : 0.000000
+
+[CV] Fold 2/5
+[CV] Train size: 576, Val size: 144, NG in val: 21, Good in val: 123
+  ROC-AUC        : 0.723190
+  Net Profit     : 4000
+  Total Score    : 0.298791
+  Selected k     : 40 (Good=40, NG=0)
+[CV] Fold 2 Ensemble ROC-AUC : 0.723190
+[CV] Fold 2 Ensemble Profit  : 4000
+[CV] Fold 2 Ensemble Score   : 0.298791
+
+[CV] Fold 3/5
+[CV] Train size: 576, Val size: 144, NG in val: 21, Good in val: 123
+  ROC-AUC        : 0.766163
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[CV] Fold 3 Ensemble ROC-AUC : 0.766163
+[CV] Fold 3 Ensemble Profit  : -200
+[CV] Fold 3 Ensemble Score   : 0.000000
+
+[CV] Fold 4/5
+[CV] Train size: 576, Val size: 144, NG in val: 22, Good in val: 122
+  ROC-AUC        : 0.734538
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[CV] Fold 4 Ensemble ROC-AUC : 0.734538
+[CV] Fold 4 Ensemble Profit  : -2300
+[CV] Fold 4 Ensemble Score   : 0.000000
+
+[CV] Fold 5/5
+[CV] Train size: 576, Val size: 144, NG in val: 22, Good in val: 122
+  ROC-AUC        : 0.762109
+  Net Profit     : 1900
+  Total Score    : 0.223161
+  Selected k     : 40 (Good=39, NG=1)
+[CV] Fold 5 Ensemble ROC-AUC : 0.762109
+[CV] Fold 5 Ensemble Profit  : 1900
+[CV] Fold 5 Ensemble Score   : 0.223161
+
+[Main] OOF evaluation over all folds (rank-based ensemble):
+  ROC-AUC        : 0.762216
+  Net Profit     : 1900
+  Total Score    : 0.223206
+  Selected k     : 40 (Good=39, NG=1)
+OOF Ensemble ROC-AUC Score        : 0.762216
+OOF Ensemble Total Net Profit     : 1900
+OOF Ensemble Final Total Score    : 0.223206
+  ROC-AUC        : 0.748746
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[OOF-rf] ROC-AUC=0.748746, Profit=-200, Score=0.000000
+  ROC-AUC        : 0.766736
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[OOF-lgbm] ROC-AUC=0.766736, Profit=-2300, Score=0.000000
+  ROC-AUC        : 0.754082
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+[OOF-xgb] ROC-AUC=0.754082, Profit=-2300, Score=0.000000
+  ROC-AUC        : 0.757101
+  Net Profit     : 1900
+  Total Score    : 0.221018
+  Selected k     : 40 (Good=39, NG=1)
+[OOF-cat] ROC-AUC=0.757101, Profit=1900, Score=0.221018
+  ROC-AUC        : 0.638289
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[OOF-mlp] ROC-AUC=0.638289, Profit=-200, Score=0.000000
+
+[Main] Train final bagged models on full training data

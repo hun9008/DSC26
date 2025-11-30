@@ -6,6 +6,7 @@ def compare_decisions(csv1_path, csv2_path):
 
     merged = df1.merge(df2, on="ID", suffixes=("_1", "_2"))
 
+    # decision 일치 여부
     merged["match"] = merged["decision_1"] == merged["decision_2"]
 
     total = len(merged)
@@ -15,18 +16,19 @@ def compare_decisions(csv1_path, csv2_path):
     print(f"총 {total}개 중 {matches}개 일치")
     print(f"일치율: {accuracy:.2f}%")
 
+    # probability MSE 계산
+    if "probability_1" in merged.columns and "probability_2" in merged.columns:
+        mse = ((merged["probability_1"] - merged["probability_2"]) ** 2).mean()
+        print(f"probability MSE: {mse:.6f}")
+    else:
+        print("probability 컬럼을 찾을 수 없습니다. (probability_1 / probability_2)")
 
     return accuracy
 
 
 if __name__ == "__main__":
 
-    # import sys
-    # if len(sys.argv) != 3:
-    #     print("Usage: python compare_decision.py <csv1> <csv2>")
-    #     exit(1)
-
     csv1 = '../submission_dummy/hybrid_submission_170.csv'
-    csv2 = './GCN_RF_submission_20251129_215257.csv'
+    csv2 = './full_ensemble_rank_20251130_143851.csv'
 
     compare_decisions(csv1, csv2)

@@ -138,6 +138,7 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | RF_main_kfold_140_GCN | RF + GCN | 0.905749 | 4000 | 0.402694 | 0.00000 |
 | SVM_main_kfold_140 | SVM + GCN | 0.884222 | 2740 | 0.290704 | 0.00000 |
 | RF_main_kfold_140_GCN_CNN | RF + GCN + CNN | 0.888259 | 3160 | 0.345009 | 0.00000 |
+| full_ensemble_rank | fraud dectection style | 0.760973 | 4000 | 0.323093 | 0.25163 |
 
 
 
@@ -147,3 +148,39 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | --- | --- | --- | --- | --- | --- |
 | sample_code_eval_v2.py | basecode | 0.936561 | 20000 | 0.934410 | 0.34052 |
 | RF_main_kfold_140_v2.py | CNN + RandomForest | 0.854408 | 15800 | 0.748308 | 0.41330 |
+
+## compare check
+
+hybrid_submission_170 (0.52622) 버전과의 유사도 비교
+accuracy (TF 일치여부) 가 78% 미만에서는 0.4 이상의 submission score 없음.
+참고용으로 사용가능할듯
+
+| id | file |   accuracy | probability_MSE  | submission score |
+| --- | --- | --- | --- | --- |
+|20 |                         hybrid_submission_150.csv  | 95.708155   |      0.000000 | 0.49099
+|21 |                    hybrid_submission_reupload.csv  | 93.562232   |      0.000000 | 0.50084
+|16 |    ensemble_submission_10runs_20251125_145558.csv  | 81.115880   |      0.009833 | 0.23941
+|6  |                             CNN_RF_submission.csv  | 80.257511   |      0.018251 | 0.41330
+|4  |            CNN_MLP_RF_CV_withVal60_submission.csv  | 78.540773   |      0.016994 | 0.22090
+|14 |    ensemble_optuna_submission_20251127_143822.csv  | 78.540773   |      0.018176 | 0.34231
+|1  | CNN_Extractor_RF_submission_20251129_032125_18...  | 78.111588   |      0.021018 | 0.45238
+|0  |          CNN_AE_RF_submission_20251129_172303.csv  | 77.682403   |      0.018185 | 0.21593
+|3  |    CNN_MLP_EnsembleVoting_OptunaCV_submission.csv  | 77.682403   |      0.015645 | 0.34231
+|2  |         CNN_GCN_RF_submission_20251130_133302.csv  | 76.824034   |      0.022058 | 0.00000
+|19 |            full_ensemble_rank_20251130_143851.csv  | 76.824034   |      0.162137 | 0.25163
+|23 |               hybrid_with_ablation_submission.csv  | 76.394850   |      0.013693 | 0.32606
+|26 |               submission_randomforest_display.csv  | 75.965665   |      0.019291 | 0.30644
+|11 | Tiny_CNN_RF_kfold_140_submission_20251128_1551...  | 75.536481   |      0.023223 | 0.28737
+|15 |                           ensemble_submission.csv  | 75.536481   |      0.026203 | 0.00000
+|17 |                 first_ablation_cnn_submission.csv  | 75.536481   |      0.026269 | 0.00000
+|9  |            DeepEns_Focal_OOFk_20251129_154907.csv  | 75.536481   |      0.078708 | 0.25652
+|8  |            CNN_SVM_submission_20251130_130055.csv  | 75.536481   |      0.021832 | 0.00000
+|5  | CNN_RF_kfold_140_naive_encoder_submission_2025...  | 75.107296   |      0.028884 | 0.24494
+|18 |                     first_ablation_submission.csv  | 74.248927   |      0.028029 | 0.24012
+|24 |                            my_submission_test.csv  | 74.248927   |      0.025077 | 0.32112
+|13 |                      convnext_sota_submission.csv  | 74.248927   |      0.026795 | 0.33081
+|12 | Tiny_CNN_RF_kfold_140_submission_20251128_2254...  | 73.819742   |      0.026762 | 0.08948
+|7  |                       CNN_RF_submission_NoPad.csv  | 72.961373   |      0.030370 | 0.36073
+|22 |                         hybrid_vit_submission.csv  | 71.673820   |      0.027752 | 0.18614
+|10 |             GCN_RF_submission_20251129_215257.csv  | 71.244635   |      0.034964 | 0.00000
+|25 |       submission_efficientnet_b0_randomforest.csv  | 70.386266   |      0.032399 | 0.34951
