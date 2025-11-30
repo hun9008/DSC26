@@ -29,6 +29,6 @@ def compare_decisions(csv1_path, csv2_path):
 if __name__ == "__main__":
 
     csv1 = '../submission_dummy/hybrid_submission_170.csv'
-    csv2 = './full_ensemble_rank_20251130_143851.csv'
+    csv2 = './TabPFN_submission_20251130_224630.csv'
 
     compare_decisions(csv1, csv2)
