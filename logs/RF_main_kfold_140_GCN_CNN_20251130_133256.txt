@@ -1,0 +1,74 @@
+[Main] Start Production Pipeline
+[Main] CNN/GCN weights: cnn=0.500, gcn=0.500
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded CNN encoder weights from ../weight/feature_encoder.pth
+[Main] Loaded GCN encoder weights from ../weight/GCN_feature_encoder_20251129_215146.pth
+[Main] Extract CNN features...
+[Main] Extract GCN features...
+[Main] CNN features (Train): (720, 96)
+[Main] GCN features (Train): (720, 96)
+[Main] CNN features (Test) : (466, 96)
+[Main] GCN features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 96)
+[Main] Hybrid features (Test) : (466, 96)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.895470
+  Net Profit     : 1900
+  Total Score    : 0.274116
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.858304
+  Net Profit     : 4000
+  Total Score    : 0.378579
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.909021
+  Net Profit     : 4000
+  Total Score    : 0.404485
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.880589
+  Net Profit     : 1900
+  Total Score    : 0.268909
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.897914
+  Net Profit     : 4000
+  Total Score    : 0.398955
+  Selected k     : 40 (Good=40, NG=0)
+
+===== CV Summary (StratifiedKFold, approx val~146) =====
+ROC-AUC  mean/std : 0.888259 / 0.017506
+Profit   mean/std : 3160.00 / 1028.79
+Score    mean/std : 0.345009 / 0.060649
+
+[Main] Test prob range: 0.0000 ~ 0.9850
+[Main] Saved submission to ../data/submission/CNN_GCN_RF_submission_20251130_133302.csv
+[Main] Total selected products: 340

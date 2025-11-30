@@ -499,6 +499,14 @@ class ProductionPipeline:
             min_weight=0.0,
         )
 
+        print("\n===== Model-Model Correlation (OOF preds) =====")
+        corr_mat = np.corrcoef(oof_preds, rowvar=False)  # (M, M)
+        for i, name_i in enumerate(model_names):
+            row_str = []
+            for j, name_j in enumerate(model_names):
+                row_str.append(f"{corr_mat[i, j]:.3f}")
+            print(f"{name_i:25s} | " + " ".join(row_str))
+
         # 12. Hill Climbing 앙상블 OOF 성능 + Fold별 요약
         oof_blend = oof_preds @ best_w
         roc_all, profit_all, score_all = calculate_competition_score(
@@ -559,7 +567,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/ensemble_hillclimb_{timestamp}.csv"
+        save_path = f"../data/submission/ensemble_hillclimb_6_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")

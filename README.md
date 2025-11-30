@@ -136,6 +136,9 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | deep ensemble_main | deep ensemble (MLPs) | 0.881606 | -2700 | 0.000000 | 0.25625 |
 | RF_main_kfold_140_AE | RF + AE | 0.856430 | 3160 | 0.300320 | 0.21593 |
 | RF_main_kfold_140_GCN | RF + GCN | 0.905749 | 4000 | 0.402694 | 0.00000 |
+| SVM_main_kfold_140 | SVM + GCN | 0.884222 | 2740 | 0.290704 | 0.00000 |
+| RF_main_kfold_140_GCN_CNN | RF + GCN + CNN | 0.888259 | 3160 | 0.345009 | 0.00000 |
+
 
 
 ## eval_v2 leader board
