@@ -127,7 +127,7 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | ensemble_main_kfold_140_optuna | CNN + Ensemble(RF,ET,GB,HGB,SVM) voting + optuna | 0.876271 | 3580 | 0.364064 | 0.22784 |
 | RF_main_kfold_140_tiny_CNN_encoder_param745.py | Tiny CNN(param : 745) | 0.805122 | 1480 | 0.166432 | 0.28737 |
 | RF_main_kfold_140_tiny_CNN_encoder_param39657.py | Tiny CNN(param : 39657) | 0.881620 | 2320 | 0.238705 | 0.08948 |
-| RF_main_kfold_140_1dCNN_encoder.py | 1d CNN | 0.867560 | 3160 | 0.337542 | X |
+| RF_main_kfold_140_1dCNN_encoder.py | 1d CNN | 0.867560 | 3160 | 0.337542 | 0.37968 |
 | ensemble_main_HC_6 | CNN + Ensemble 6 Hill Clibing | 0.884339 | 3580 | 0.367987 | X |
 | ensemble_main_HC_13 | CNN + Ensemble 13 Hill Clibing | 0.887789 | 3160 | 0.346466 | X |
 | ensemble_main_HC_top6 | CNN + Ensemble top 6 Hill Clibing | 0.888345 | 3160 | 0.316504 | X |
