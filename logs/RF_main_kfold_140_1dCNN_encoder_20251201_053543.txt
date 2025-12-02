@@ -1,0 +1,66 @@
+[Main] Start Production Pipeline (1D CNN encoder)
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder_1dcnn_100_earlystop_20251201_053352.pth
+[Main] Encoded features (Train): (720, 128)
+[Main] Encoded features (Test) : (466, 128)
+[Main] Hybrid features (Train): (720, 169)
+[Main] Hybrid features (Test) : (466, 169)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.903020
+  Net Profit     : 4000
+  Total Score    : 0.401507
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.883082
+  Net Profit     : 4000
+  Total Score    : 0.391449
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.878823
+  Net Profit     : 4000
+  Total Score    : 0.389268
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.854136
+  Net Profit     : 1900
+  Total Score    : 0.259395
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.818741
+  Net Profit     : 1900
+  Total Score    : 0.246091
+  Selected k     : 40 (Good=39, NG=1)
+
+===== CV Summary (StratifiedKFold, approx val~146) =====
+ROC-AUC  mean/std : 0.867560 / 0.028944
+Profit   mean/std : 3160.00 / 1028.79
+Score    mean/std : 0.337542 / 0.069489
+
+[Main] Test prob range: 0.0000 ~ 0.9950
+[Main] Saved submission to ../data/submission/1dCNN_RF_kfold_submission_20251201_053547.csv
+[Main] Total selected products: 340
