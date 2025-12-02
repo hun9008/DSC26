@@ -1,0 +1,104 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 96)
+[Main] Hybrid features (Test) : (466, 96)
+
+[Split] train_sub size : 576
+[Split] holdout size   : 144
+
+[Main] CV on train_sub with 5 folds (approx each val size: 115)
+
+===== Fold 1 on train_sub =====
+[Main] Train_sub fold train size: 460
+[Main] Train_sub fold val   size: 116 (NG=18, Good=98)
+ROC-AUC Score     : 0.869331
+Total Net Profit  : -26200
+Final Total Score : 0.000000
+Selected total    : 116 (Good=98, NG=18)
+  Fold ROC-AUC  : 0.869331
+  Fold Profit   : -26200
+  Fold Score    : 0.000000
+
+===== Fold 2 on train_sub =====
+[Main] Train_sub fold train size: 461
+[Main] Train_sub fold val   size: 115 (NG=17, Good=98)
+ROC-AUC Score     : 0.824730
+Total Net Profit  : -22200
+Final Total Score : 0.000000
+Selected total    : 114 (Good=98, NG=16)
+  Fold ROC-AUC  : 0.824730
+  Fold Profit   : -22200
+  Fold Score    : 0.000000
+
+===== Fold 3 on train_sub =====
+[Main] Train_sub fold train size: 461
+[Main] Train_sub fold val   size: 115 (NG=17, Good=98)
+ROC-AUC Score     : 0.845438
+Total Net Profit  : -22200
+Final Total Score : 0.000000
+Selected total    : 114 (Good=98, NG=16)
+  Fold ROC-AUC  : 0.845438
+  Fold Profit   : -22200
+  Fold Score    : 0.000000
+
+===== Fold 4 on train_sub =====
+[Main] Train_sub fold train size: 461
+[Main] Train_sub fold val   size: 115 (NG=17, Good=98)
+ROC-AUC Score     : 0.773109
+Total Net Profit  : -22200
+Final Total Score : 0.000000
+Selected total    : 114 (Good=98, NG=16)
+  Fold ROC-AUC  : 0.773109
+  Fold Profit   : -22200
+  Fold Score    : 0.000000
+
+===== Fold 5 on train_sub =====
+[Main] Train_sub fold train size: 461
+[Main] Train_sub fold val   size: 115 (NG=17, Good=98)
+ROC-AUC Score     : 0.855942
+Total Net Profit  : -22200
+Final Total Score : 0.000000
+Selected total    : 114 (Good=98, NG=16)
+  Fold ROC-AUC  : 0.855942
+  Fold Profit   : -22200
+  Fold Score    : 0.000000
+
+===== CV Summary on train_sub =====
+ROC-AUC  mean/std : 0.833710 / 0.033627
+Profit   mean/std : -23000.00 / 1600.00
+Score    mean/std : 0.000000 / 0.000000
+
+===== OOF-based Official Score on train_sub =====
+ROC-AUC Score     : 0.831906
+Total Net Profit  : -6200
+Final Total Score : 0.000000
+Selected total    : 400 (Good=378, NG=22)
+OOF ROC-AUC     : 0.831906
+OOF Net Profit  : -6200
+OOF Total Score : 0.000000
+
+===== Train on train_sub, Eval on holdout =====
+ROC-AUC Score     : 0.885405
+Total Net Profit  : -29700
+Final Total Score : 0.000000
+Selected total    : 144 (Good=123, NG=21)
+Holdout ROC-AUC     : 0.885405
+Holdout Net Profit  : -29700
+Holdout Total Score : 0.000000
+
+===== Train on FULL train, Predict TEST =====
+[Main] Test prob range: 0.0000 ~ 0.9800
+[Main] Saved submission to ../data/submission/CNN_RF_submission_20251130_174105.csv
+[Main] Total selected products: 400

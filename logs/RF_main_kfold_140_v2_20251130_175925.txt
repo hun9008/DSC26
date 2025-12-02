@@ -1,0 +1,25 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 96)
+[Main] Hybrid features (Test) : (466, 96)
+
+[Split] train_sub size : 576
+[Split] holdout size   : 144
+
+[Main] CV on train_sub with 5 folds (approx each val size: 115)
+
+===== Fold 1 on train_sub =====
+[Main] Train_sub fold train size: 460
+[Main] Train_sub fold val   size: 116 (NG=18, Good=98)

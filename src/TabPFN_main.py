@@ -7,9 +7,10 @@ import pandas as pd
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import StratifiedKFold, StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
+
+from tabpfn import TabPFNClassifier  # TabPFN
 
 from CNN_encoder import (
     DataProcessor,
@@ -18,53 +19,65 @@ from CNN_encoder import (
     MultiModalDataset,
 )
 
-from util.eval_v2 import evaluate_score_general
+# 평가 함수 공통 모듈
+from util.eval import (
+    evaluate_score_general,
+    calculate_competition_score,
+)
+
 from util.logger import TeeLogger
 
 
-# -----------------------------
-# 0. L/P 가짜 순서 생성 유틸
-# -----------------------------
-def make_lp_order(y, seed: int = 42):
-    """
-    주어진 y 길이에 맞춰 L/P 형식으로 가짜 순서를 만든다.
-    - 전체 인덱스를 셔플한 뒤
-      앞 절반을 L, 뒤 절반을 P로 간주하는 순서를 반환.
-    """
-    n = len(y)
-    idx = np.arange(n)
-    rng = np.random.RandomState(seed)
-    rng.shuffle(idx)
-    # 앞 half → L, 뒤 half → P 로 보고 그냥 이 순서대로 eval_v2에 넣는다.
-    return idx
-
-
 # ----------------------------------------------------
-# 1. Main Model (RandomForest 기반 이진 분류기)
+# 5. Main Model (TabPFN 기반 이진 분류기)
 # ----------------------------------------------------
 class MainModel:
-    def __init__(self, n_estimators=200, random_state=42, n_jobs=-1):
-        self.model = RandomForestClassifier(
-            n_estimators=n_estimators,
-            random_state=random_state,
-            n_jobs=n_jobs
-        )
+    """
+    Main Model: TabPFNClassifier 기반
+    """
+
+    def __init__(self, device=None, model_path=None, **kwargs):
+        """
+        device: "cpu" 또는 "cuda"
+        model_path: 오픈 버전 TabPFN ckpt 경로
+                    예: "../weight/tabpfn_open.ckpt"
+        kwargs: 호출부에서 넘기는 random_state, N_ensemble_configurations 등 무시
+        """
+        if device is None:
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        # 설치된 tabpfn 버전에 따라 model_path 인자 사용 가능
+        # - 오픈 checkpoint를 로컬에 받아두고 아래에 경로 지정
+        # - model_path를 None으로 두면 패키지 기본 설정을 사용
+        if model_path is not None:
+            self.model = TabPFNClassifier(
+                device=device,
+                model_path=model_path,
+            )
+        else:
+            self.model = TabPFNClassifier(
+                device=device,
+            )
 
     def fit(self, X, y):
+        X = np.asarray(X, dtype=np.float32)
+        y = np.asarray(y)
         self.model.fit(X, y)
 
     def predict_proba(self, X):
+        X = np.asarray(X, dtype=np.float32)
         return self.model.predict_proba(X)
 
 
 # ----------------------------------------------------
-# 2. 전체 파이프라인
+# 6. 전체 파이프라인
 # ----------------------------------------------------
 class ProductionPipeline:
-    """(사전 학습된) FeatureEncoder + MainModel 하이브리드 파이프라인"""
+    """(사전 학습된) FeatureEncoder + MainModel(TabPFN) 하이브리드 파이프라인"""
 
     def __init__(self, n_epochs=13, batch_size=32, n_cv_splits=5,
-                 encoder_weight_path="feature_encoder.pth"):
+                 encoder_weight_path="feature_encoder.pth",
+                 tabpfn_model_path=None):
         self.data_processor = DataProcessor()
         self.rasterizer = None
         self.feature_encoder = None
@@ -75,6 +88,8 @@ class ProductionPipeline:
         self.batch_size = batch_size
         self.n_cv_splits = n_cv_splits
         self.encoder_weight_path = encoder_weight_path
+        # 오픈 TabPFN ckpt 경로
+        self.tabpfn_model_path = tabpfn_model_path
 
     def load_pretrained_encoder(self, basic_feature_dim):
         if not os.path.exists(self.encoder_weight_path):
@@ -113,9 +128,14 @@ class ProductionPipeline:
 
         return np.concatenate(all_features, axis=0)
 
+    # ---------------- Stratified K-Fold CV splits 생성 ----------------
     @staticmethod
     def make_cv_splits(y_series, n_splits=5, base_seed=42):
-        y = y_series
+        """
+        StratifiedKFold를 사용하여 label 비율을 유지한 채
+        대략 len(y_series) / n_splits 개씩 validation을 만드는 함수.
+        """
+        y = y_series.values
         skf = StratifiedKFold(
             n_splits=n_splits,
             shuffle=True,
@@ -138,9 +158,6 @@ class ProductionPipeline:
         train_df, test_df, train_X_basic_df, train_Y_series, test_X_basic_df = \
             self.data_processor.load_data("../data/train.csv", "../data/test.csv")
 
-        y_all = train_Y_series.values
-        n_all = len(y_all)
-
         # 2. 좌표 범위 분석
         x_min, x_max, y_min, y_max = self.data_processor.analyze_coordinate_range()
 
@@ -157,7 +174,7 @@ class ProductionPipeline:
 
         # 5. Dataset / DataLoader (feature 추출용)
         train_dataset = MultiModalDataset(
-            train_df, X_train_basic_np, self.rasterizer, y_all
+            train_df, X_train_basic_np, self.rasterizer, train_Y_series.values
         )
         test_dataset = MultiModalDataset(
             test_df, X_test_basic_np, self.rasterizer, labels_np=None
@@ -176,179 +193,111 @@ class ProductionPipeline:
         print(f"[Main] Encoded features (Train): {X_train_feat.shape}")
         print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
 
-        # 8. 하이브리드 피처 생성 (지금은 feature만 사용)
-        X_train_hybrid = X_train_feat
-        X_test_hybrid = X_test_feat
+        # 8. 하이브리드 피처 생성
+        # X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
+        # X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
+        X_train_hybrid = X_train_feat.astype(np.float32)
+        X_test_hybrid = X_test_feat.astype(np.float32)
 
         print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
         print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")
 
-        # ------------------------------------------------
-        # 9. train_sub / valid_holdout 분리 (예: 80/20)
-        # ------------------------------------------------
-        sss = StratifiedShuffleSplit(
-            n_splits=1,
-            test_size=0.2,
-            random_state=1234
+        # 9. Cross Validation (Stratified K-Fold)
+        cv_splits = self.make_cv_splits(
+            train_Y_series,
+            n_splits=self.n_cv_splits,
+            base_seed=42
         )
-        train_sub_idx, holdout_idx = next(sss.split(X_train_hybrid, y_all))
-
-        X_sub = X_train_hybrid[train_sub_idx]
-        y_sub = y_all[train_sub_idx]
-
-        X_holdout = X_train_hybrid[holdout_idx]
-        y_holdout = y_all[holdout_idx]
-
-        print(f"\n[Split] train_sub size : {X_sub.shape[0]}")
-        print(f"[Split] holdout size   : {X_holdout.shape[0]}")
-
-        # ------------------------------------------------
-        # 10. train_sub 에서만 K-fold OOF + CV 로그
-        # ------------------------------------------------
-        cv_splits = self.make_cv_splits(y_sub, n_splits=self.n_cv_splits, base_seed=42)
-
-        oof_prob_sub = np.zeros(len(y_sub), dtype=np.float32)
 
         cv_roc_list = []
         cv_profit_list = []
         cv_score_list = []
 
-        approx_val_size = len(y_sub) // self.n_cv_splits
-        print(f"\n[Main] CV on train_sub with {self.n_cv_splits} folds "
+        approx_val_size = len(train_Y_series) // self.n_cv_splits
+        print(f"\n[Main] Cross Validation with {self.n_cv_splits} folds "
               f"(approx each val size: {approx_val_size})")
+        print(f"(calculate_competition_score 사용, 기본 k=15)")
 
-        for fold_idx, (tr_idx, val_idx) in enumerate(cv_splits):
-            print(f"\n===== Fold {fold_idx + 1} on train_sub =====")
+        for fold_idx, (train_idx, val_idx) in enumerate(cv_splits):
+            print(f"\n===== Fold {fold_idx + 1} =====")
 
-            X_tr = X_sub[tr_idx]
-            y_tr = y_sub[tr_idx]
+            X_train_fold = X_train_hybrid[train_idx]
+            y_train_fold = train_Y_series.values[train_idx]
 
-            X_val = X_sub[val_idx]
-            y_val = y_sub[val_idx]
+            X_val = X_train_hybrid[val_idx]
+            y_val = train_Y_series.values[val_idx]
 
-            print(f"[Main] Train_sub fold train size: {X_tr.shape[0]}")
-            print(f"[Main] Train_sub fold val   size: {X_val.shape[0]} "
+            print(f"[Main] Train size: {X_train_fold.shape[0]}")
+            print(f"[Main] Val size  : {X_val.shape[0]} "
                   f"(NG={ (y_val==1).sum() }, Good={ (y_val==0).sum() })")
 
+            # TabPFN 기반 MainModel 사용
             model = MainModel(
-                n_estimators=200,
-                random_state=42 + fold_idx,
-                n_jobs=-1
+                device="cuda" if torch.cuda.is_available() else "cpu",
+                model_path=self.tabpfn_model_path,
+                random_state=42 + fold_idx,  # 무시되지만 인터페이스 유지
             )
-            model.fit(X_tr, y_tr)
+            model.fit(X_train_fold, y_train_fold)
 
             val_prob_ng = model.predict_proba(X_val)[:, 1]
-            oof_prob_sub[val_idx] = val_prob_ng  # ★ OOF 채우기
 
-            # ----- 대회 방식과 유사하게 L/P 순서 재구성 후 평가 -----
-            lp_order_val = make_lp_order(y_val, seed=100 + fold_idx)
-            y_val_eval = y_val[lp_order_val]
-            val_prob_eval = val_prob_ng[lp_order_val]
-
-            n_each = min(200, len(y_val_eval) // 2)
-
-            roc, profit, score = evaluate_score_general(
-                y_ng=y_val_eval,
-                prob_ng=val_prob_eval,
+            # 공통 평가 함수 사용 (k는 기본값 15 사용)
+            roc, profit, score = calculate_competition_score(
+                y_true=y_val,
+                y_prob=val_prob_ng,
             )
-
-            print(f"  Fold ROC-AUC  : {roc:.6f}")
-            print(f"  Fold Profit   : {profit}")
-            print(f"  Fold Score    : {score:.6f}")
 
             cv_roc_list.append(roc)
             cv_profit_list.append(profit)
             cv_score_list.append(score)
 
-        print("\n===== CV Summary on train_sub =====")
+        print("\n===== CV Summary (StratifiedKFold, approx val~146) =====")
         print(f"ROC-AUC  mean/std : {np.mean(cv_roc_list):.6f} / {np.std(cv_roc_list):.6f}")
         print(f"Profit   mean/std : {np.mean(cv_profit_list):.2f} / {np.std(cv_profit_list):.2f}")
         print(f"Score    mean/std : {np.mean(cv_score_list):.6f} / {np.std(cv_score_list):.6f}")
 
-        # ------------------------------------------------
-        # 11. train_sub 전체 OOF 기반 Official Score
-        # ------------------------------------------------
-        print("\n===== OOF-based Official Score on train_sub =====")
-
-        lp_order_sub = make_lp_order(y_sub, seed=42)
-        y_sub_eval = y_sub[lp_order_sub]
-        oof_prob_eval = oof_prob_sub[lp_order_sub]
-        n_each_oof = min(200, len(y_sub_eval) // 2)
-
-        roc_oof, profit_oof, score_oof = evaluate_score_general(
-            y_ng=y_sub_eval,
-            prob_ng=oof_prob_eval,
-        )
-
-        print(f"OOF ROC-AUC     : {roc_oof:.6f}")
-        print(f"OOF Net Profit  : {profit_oof}")
-        print(f"OOF Total Score : {score_oof:.6f}")
-
-        # ------------------------------------------------
-        # 12. train_sub 전체로 학습 후, holdout 평가
-        # ------------------------------------------------
-        print("\n===== Train on train_sub, Eval on holdout =====")
-        hold_model = MainModel(
-            n_estimators=200,
-            random_state=999,
-            n_jobs=-1
-        )
-        hold_model.fit(X_sub, y_sub)
-        hold_prob_ng = hold_model.predict_proba(X_holdout)[:, 1]
-
-        lp_order_hold = make_lp_order(y_holdout, seed=2025)
-        y_hold_eval = y_holdout[lp_order_hold]
-        hold_prob_eval = hold_prob_ng[lp_order_hold]
-        n_each_hold = min(200, len(y_hold_eval) // 2)
-
-        roc_hold, profit_hold, score_hold = evaluate_score_general(
-            y_ng=y_hold_eval,
-            prob_ng=hold_prob_eval,
-        )
-
-        print(f"Holdout ROC-AUC     : {roc_hold:.6f}")
-        print(f"Holdout Net Profit  : {profit_hold}")
-        print(f"Holdout Total Score : {score_hold:.6f}")
-
-        # ------------------------------------------------
-        # 13. 최종: train 전체로 학습 후 test 예측 (submission)
-        # ------------------------------------------------
-        print("\n===== Train on FULL train, Predict TEST =====")
+        # 10. 제출용 모델 재학습 (Train 전체 사용)
         self.main_model = MainModel(
-            n_estimators=200,
+            device="cuda" if torch.cuda.is_available() else "cpu",
+            model_path=self.tabpfn_model_path,
             random_state=42,
-            n_jobs=-1
         )
-        self.main_model.fit(X_train_hybrid, y_all)
+        self.main_model.fit(X_train_hybrid, train_Y_series.values)
 
+        # 11. Test 예측
         test_prob = self.main_model.predict_proba(X_test_hybrid)[:, 1]
-        print(f"[Main] Test prob range: {test_prob.min():.4f} ~ {test_prob.max():.4f}")
+        print(f"\n[Main] Test prob range: {test_prob.min():.4f} ~ {test_prob.max():.4f}")
 
+        # 12. 제출 파일 생성
         submission = pd.read_csv("../data/submission/sample_submission.csv")
         submission['probability'] = np.concatenate([test_prob, test_prob])
         submission['decision'] = False
 
         n_sub = len(submission)
         half_sub = n_sub // 2
+
         idx_L_sub = submission.index[:half_sub]
         idx_P_sub = submission.index[half_sub:]
 
+        # 여기서는 기존 로직 유지 (L/P 각각 170개 선택)
         decision_id_L_list = submission.loc[idx_L_sub].sort_values(
             'probability', ascending=True
-        ).iloc[:200]['ID']
+        ).iloc[:170]['ID']
         decision_id_P_list = submission.loc[idx_P_sub].sort_values(
             'probability', ascending=True
-        ).iloc[:200]['ID']
+        ).iloc[:170]['ID']
 
         submission.loc[submission['ID'].isin(decision_id_L_list), 'decision'] = True
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_RF_submission_{timestamp}.csv"
+        save_path = f"../data/submission/TabPFN_submission_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
-        print(f"[Main] Total selected products: {submission['decision'].sum()}")
+
+        selected_count = submission['decision'].sum()
+        print(f"[Main] Total selected products: {selected_count}")
 
         logger.close()
         sys.stdout = sys.__stdout__
@@ -362,10 +311,14 @@ def main():
         n_epochs=13,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/feature_encoder.pth"
+        encoder_weight_path="../weight/feature_encoder.pth",
+        # 오픈 TabPFN ckpt 경로 지정
+        # 예시: "../weight/tabpfn_open.ckpt"
+        tabpfn_model_path=None,
     )
     submission_result = pipeline.run_production_pipeline()
 
+    # 간단 확인용 출력
     print("\nSubmission head:")
     print(submission_result.head())
     print("\nSubmission tail:")

@@ -7,7 +7,7 @@ from sklearn.metrics import roc_auc_score
 from datetime import datetime
 
 from util.eval_v2 import (
-    eval_official_on_probs
+    evaluate_score_general
 )
 
 from util.logger import TeeLogger
@@ -50,9 +50,23 @@ pred = model.predict_proba(preprocess(test_X))[:,1]
 
 train_pred = model.predict_proba(preprocess(train_X))[:, 1]
 
-roc_auc, total_net_profit, total_score = eval_official_on_probs(
-    y_ng=train_Y.values,
-    prob_ng=train_pred,
+# 훈련용 데이터 순서를 L/P 형식으로 재구성 (가짜 L/P)
+n = len(train_Y)
+half = n // 2
+
+idx = np.arange(n)
+np.random.seed(42)
+np.random.shuffle(idx)
+
+Lp_order = np.concatenate([idx[:half], idx[half:]])
+
+# 재정렬
+y_ng_eval = train_Y.values[Lp_order]
+train_pred_eval = train_pred[Lp_order]
+
+roc_auc, total_net_profit, total_score = evaluate_score_general(
+    y_ng=y_ng_eval,
+    prob_ng=train_pred_eval,
 )
 
 print(f"ROC-AUC Score        : {roc_auc:.6f}")

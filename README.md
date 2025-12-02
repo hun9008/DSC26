@@ -139,8 +139,7 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | SVM_main_kfold_140 | SVM + GCN | 0.884222 | 2740 | 0.290704 | 0.00000 |
 | RF_main_kfold_140_GCN_CNN | RF + GCN + CNN | 0.888259 | 3160 | 0.345009 | 0.00000 |
 | full_ensemble_rank | fraud dectection style | 0.760973 | 4000 | 0.323093 | 0.25163 |
-
-
+| TabPFN | TabPFN | 0.894560 | 4000 | 0.397271 | 0.35462 |
 
 ## eval_v2 leader board
 
@@ -148,6 +147,11 @@ print(f"[Main] Log saved to: {logger.log_path}")
 | --- | --- | --- | --- | --- | --- |
 | sample_code_eval_v2.py | basecode | 0.936561 | 20000 | 0.934410 | 0.34052 |
 | RF_main_kfold_140_v2.py | CNN + RandomForest | 0.854408 | 15800 | 0.748308 | 0.41330 |
+
+| file | details | ROC-AUC | Net Profit | Total Score | Submission Score |
+| --- | --- | --- | --- | --- | --- |
+| sample_code_eval_v2.py | basecode | 0.937156 | 26800 | 0.869400| 0.34052 |
+| RF_main_kfold_140_v2.py | CNN + RandomForest | 0.885405 | 4100 | 0.713953 | 0.41330 |
 
 ## compare check
 
