@@ -311,7 +311,7 @@ def main():
         n_epochs=13,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/feature_encoder.pth",
+        encoder_weight_path="../weight/feature_encoder_100_20251202_212738.pth",
         # 오픈 TabPFN ckpt 경로 지정
         # 예시: "../weight/tabpfn_open.ckpt"
         tabpfn_model_path=None,

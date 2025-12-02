@@ -1,5 +1,6 @@
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "6"
 
 import sys
 import random
@@ -592,10 +593,10 @@ class ProductionPipeline:
 # ----------------------------------------------------
 def main():
     pipeline = ProductionPipeline(
-        n_epochs=60,                     # epoch 살짝 줄임 (과적합 완화)
+        n_epochs=100,                     # epoch 살짝 줄임 (과적합 완화)
         batch_size=64,
         n_cv_splits=5,
-        encoder_weight_path="../weight/feature_encoder.pth",
+        encoder_weight_path="../weight/feature_encoder_100_20251202_212738.pth",
         ensemble_size=5,                # Deep Ensemble 멤버 수
     )
     submission_result = pipeline.run_production_pipeline()
