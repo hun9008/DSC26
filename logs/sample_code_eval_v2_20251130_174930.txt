@@ -1,0 +1,8 @@
+ROC-AUC Score     : 0.936607
+Total Net Profit  : 25300
+Final Total Score : 1.051007
+Selected total    : 400 (Good=393, NG=7)
+ROC-AUC Score        : 0.936607
+Total Net Profit     : 25300
+Final Total Score    : 1.051007
+[Main] Saved submission to ../data/submission/my_submission_20251130_174931.csv

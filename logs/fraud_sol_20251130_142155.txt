@@ -1,0 +1,73 @@
+[Main] Load data
+[Main] Add sequence-based statistical features
+[Main] Setup categorical & numeric preprocessing
+[Main] Categorical features: ['Mass_Pilot', 'Plant', 'Proc_Param6']
+[Main] Numeric features    : 88 columns
+[Main] X_train shape: (720, 102)
+[Main] X_test  shape: (466, 102)
+[Main] Target NG count: 107, Good count: 613
+[Main] Start StratifiedKFold CV (n_splits=5, n_bags=10, neg_pos_ratio=2.0)
+
+[CV] Fold 1/5
+[CV] Train size: 576, Val size: 144, NG in val: 21, Good in val: 123
+  ROC-AUC        : 0.819590
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[CV] Fold 1 ROC-AUC : 0.819590
+[CV] Fold 1 Profit  : -200
+[CV] Fold 1 Score   : 0.000000
+
+[CV] Fold 2/5
+[CV] Train size: 576, Val size: 144, NG in val: 21, Good in val: 123
+  ROC-AUC        : 0.745257
+  Net Profit     : 1900
+  Total Score    : 0.215868
+  Selected k     : 40 (Good=39, NG=1)
+[CV] Fold 2 ROC-AUC : 0.745257
+[CV] Fold 2 Profit  : 1900
+[CV] Fold 2 Score   : 0.215868
+
+[CV] Fold 3/5
+[CV] Train size: 576, Val size: 144, NG in val: 21, Good in val: 123
+  ROC-AUC        : 0.768099
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+[CV] Fold 3 ROC-AUC : 0.768099
+[CV] Fold 3 Profit  : -200
+[CV] Fold 3 Score   : 0.000000
+
+[CV] Fold 4/5
+[CV] Train size: 576, Val size: 144, NG in val: 22, Good in val: 122
+  ROC-AUC        : 0.723174
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[CV] Fold 4 ROC-AUC : 0.723174
+[CV] Fold 4 Profit  : -4400
+[CV] Fold 4 Score   : 0.000000
+
+[CV] Fold 5/5
+[CV] Train size: 576, Val size: 144, NG in val: 22, Good in val: 122
+  ROC-AUC        : 0.709762
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+[CV] Fold 5 ROC-AUC : 0.709762
+[CV] Fold 5 Profit  : -4400
+[CV] Fold 5 Score   : 0.000000
+
+[Main] OOF evaluation over all folds:
+  ROC-AUC        : 0.748746
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+OOF ROC-AUC Score        : 0.748746
+OOF Total Net Profit     : -200
+OOF Final Total Score    : 0.000000
+
+[Main] Train final bagged model on full training data
+[Main] Test prob range: 0.033770 ~ 0.914684
+[Main] Saved submission to ../data/submission/fraud_sol_stats_bagging_20251130_142210.csv
+[Main] Total selected products: 400

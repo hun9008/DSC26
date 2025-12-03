@@ -1,0 +1,30 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[EncoderTrain] Epoch 1/20 Loss=0.6316
+[EncoderTrain] Epoch 2/20 Loss=0.5869
+[EncoderTrain] Epoch 3/20 Loss=0.5243
+[EncoderTrain] Epoch 4/20 Loss=0.4813
+[EncoderTrain] Epoch 5/20 Loss=0.4259
+[EncoderTrain] Epoch 6/20 Loss=0.3810
+[EncoderTrain] Epoch 7/20 Loss=0.3604
+[EncoderTrain] Epoch 8/20 Loss=0.3529
+[EncoderTrain] Epoch 9/20 Loss=0.3374
+[EncoderTrain] Epoch 10/20 Loss=0.3206
+[EncoderTrain] Epoch 11/20 Loss=0.2999
+[EncoderTrain] Epoch 12/20 Loss=0.3108
+[EncoderTrain] Epoch 13/20 Loss=0.3109
+[EncoderTrain] Epoch 14/20 Loss=0.3098
+[EncoderTrain] Epoch 15/20 Loss=0.2965
+[EncoderTrain] Epoch 16/20 Loss=0.2990
+[EncoderTrain] Epoch 17/20 Loss=0.2795
+[EncoderTrain] Epoch 18/20 Loss=0.2777
+[EncoderTrain] Epoch 19/20 Loss=0.2889
+[EncoderTrain] Epoch 20/20 Loss=0.2685
+[EncoderTrain] Saved encoder weights to: ../weight/GCN_feature_encoder_20251129_213444.pth

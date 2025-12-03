@@ -1,0 +1,17 @@
+[EncoderTrain] Device: cpu
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[EncoderTrain] Epoch 1/20 Loss=0.7205
+[EncoderTrain] Epoch 2/20 Loss=0.6647
+[EncoderTrain] Epoch 3/20 Loss=0.6077
+[EncoderTrain] Epoch 4/20 Loss=0.5314
+[EncoderTrain] Epoch 5/20 Loss=0.4784
+[EncoderTrain] Epoch 6/20 Loss=0.4377
+[EncoderTrain] Epoch 7/20 Loss=0.4016
+[EncoderTrain] Epoch 8/20 Loss=0.3755

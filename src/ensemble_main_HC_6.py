@@ -413,8 +413,10 @@ class ProductionPipeline:
         print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
 
         # 8. 하이브리드 피처 생성
-        X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
-        X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
+        # X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
+        # X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
+        X_train_hybrid = X_train_feat
+        X_test_hybrid = X_test_feat
 
         print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
         print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")
@@ -497,6 +499,14 @@ class ProductionPipeline:
             min_weight=0.0,
         )
 
+        print("\n===== Model-Model Correlation (OOF preds) =====")
+        corr_mat = np.corrcoef(oof_preds, rowvar=False)  # (M, M)
+        for i, name_i in enumerate(model_names):
+            row_str = []
+            for j, name_j in enumerate(model_names):
+                row_str.append(f"{corr_mat[i, j]:.3f}")
+            print(f"{name_i:25s} | " + " ".join(row_str))
+
         # 12. Hill Climbing 앙상블 OOF 성능 + Fold별 요약
         oof_blend = oof_preds @ best_w
         roc_all, profit_all, score_all = calculate_competition_score(
@@ -557,7 +567,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/ensemble_hillclimb_{timestamp}.csv"
+        save_path = f"../data/submission/ensemble_hillclimb_6_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")

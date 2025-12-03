@@ -175,8 +175,10 @@ class ProductionPipeline:
         print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
 
         # 8. 하이브리드 피처 생성
-        X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
-        X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
+        # X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
+        # X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
+        X_train_hybrid = X_train_feat
+        X_test_hybrid = X_test_feat
 
         print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
         print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")

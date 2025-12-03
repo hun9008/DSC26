@@ -12,9 +12,9 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from datetime import datetime
 
-from Tiny_CNN_encoder import (
+from CNN_1d_encoder_earlystop import (
     DataProcessor,
-    SpatialRasterizer,
+    PCA1DProcessor,
     FeatureEncoder,
     MultiModalDataset,
 )
@@ -62,7 +62,7 @@ class ProductionPipeline:
     def __init__(self, n_epochs=13, batch_size=32, n_cv_splits=5,
                  encoder_weight_path="feature_encoder.pth"):
         self.data_processor = DataProcessor()
-        self.rasterizer = None
+        self.pca_processor = None
         self.feature_encoder = None
         self.main_model = None
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -76,11 +76,11 @@ class ProductionPipeline:
         if not os.path.exists(self.encoder_weight_path):
             raise FileNotFoundError(
                 f"Pretrained encoder weight not found: {self.encoder_weight_path}\n"
-                f"먼저 Tiny_CNN_encoder.py 를 실행해서 tiny_feature_encoder_*.pth 를 생성하거나\n"
+                f"먼저 CNN_1d_encoder.py 를 실행해서 feature_encoder_*.pth 를 생성하거나\n"
                 f"저장된 가중치 파일 이름을 맞춰주세요."
             )
 
-        # Tiny CNN FeatureEncoder: 이미지 + basic feature 입력
+        # 1D CNN FeatureEncoder: PCA로 정렬된 p값 시퀀스 + basic feature 입력
         self.feature_encoder = FeatureEncoder(
             basic_feature_dim=basic_feature_dim
         ).to(self.device)
@@ -92,9 +92,9 @@ class ProductionPipeline:
 
     def extract_features(self, loader, is_test=False):
         """
-        Tiny CNN encoder용 feature 추출:
-          - train loader: (img, basic, label)
-          - test loader : (img, basic)
+        1D CNN encoder용 feature 추출:
+          - train loader: (p_1d, basic, label)
+          - test loader : (p_1d, basic)
         """
         assert self.feature_encoder is not None, "feature_encoder가 로드되지 않았습니다."
         self.feature_encoder.eval()
@@ -102,16 +102,16 @@ class ProductionPipeline:
         all_features = []
         with torch.no_grad():
             if is_test:
-                for img, basic in loader:                  # test: (img, basic)
-                    img = img.to(self.device)
+                for p_1d, basic in loader:                  # test: (p_1d, basic)
+                    p_1d = p_1d.to(self.device)
                     basic = basic.to(self.device)
-                    feats = self.feature_encoder.extract_features(img, basic)
+                    feats = self.feature_encoder.extract_features(p_1d, basic)
                     all_features.append(feats.cpu().numpy())
             else:
-                for img, basic, _ in loader:               # train: (img, basic, label)
-                    img = img.to(self.device)
+                for p_1d, basic, _ in loader:               # train: (p_1d, basic, label)
+                    p_1d = p_1d.to(self.device)
                     basic = basic.to(self.device)
-                    feats = self.feature_encoder.extract_features(img, basic)
+                    feats = self.feature_encoder.extract_features(p_1d, basic)
                     all_features.append(feats.cpu().numpy())
 
         return np.concatenate(all_features, axis=0)
@@ -140,19 +140,16 @@ class ProductionPipeline:
         logger = TeeLogger()
         sys.stdout = logger
 
-        print("[Main] Start Production Pipeline (Tiny CNN encoder)")
+        print("[Main] Start Production Pipeline (1D CNN encoder)")
 
         # 1. 데이터 로딩
         train_df, test_df, train_X_basic_df, train_Y_series, test_X_basic_df = \
             self.data_processor.load_data("../data/train.csv", "../data/test.csv")
 
-        # 2. 좌표 범위 분석
-        x_min, x_max, y_min, y_max = self.data_processor.analyze_coordinate_range()
+        # 2. PCA 기반 1D 프로세서 초기화
+        self.pca_processor = PCA1DProcessor()
 
-        # 3. 래스터화 설정
-        self.rasterizer = SpatialRasterizer(x_min, x_max, y_min, y_max, grid_size=64)
-
-        # 4. 기본 피처 전처리
+        # 3. 기본 피처 전처리
         self.data_processor.setup_basic_preprocessing(train_X_basic_df)
         X_train_basic_np = self.data_processor.preprocess_basic(train_X_basic_df)
         X_test_basic_np = self.data_processor.preprocess_basic(test_X_basic_df)
@@ -160,36 +157,36 @@ class ProductionPipeline:
         print(f"[Main] Processed basic features (Train): {X_train_basic_np.shape}")
         print(f"[Main] Processed basic features (Test) : {X_test_basic_np.shape}")
 
-        # 5. Dataset / DataLoader (feature 추출용)
+        # 4. Dataset / DataLoader (feature 추출용)
         train_dataset = MultiModalDataset(
-            train_df, X_train_basic_np, self.rasterizer, train_Y_series.values
+            train_df, X_train_basic_np, self.pca_processor, train_Y_series.values
         )
         test_dataset = MultiModalDataset(
-            test_df, X_test_basic_np, self.rasterizer, labels_np=None
+            test_df, X_test_basic_np, self.pca_processor, labels_np=None
         )
 
         train_loader_seq = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=self.batch_size, shuffle=False)
 
-        # 6. 사전 학습된 FeatureEncoder 로드 (Tiny CNN)
+        # 5. 사전 학습된 FeatureEncoder 로드 (1D CNN)
         self.load_pretrained_encoder(self.data_processor.basic_feature_dim)
 
-        # 7. FeatureEncoder를 이용해 feature 추출
+        # 6. FeatureEncoder를 이용해 feature 추출
         X_train_feat = self.extract_features(train_loader_seq, is_test=False)
         X_test_feat = self.extract_features(test_loader, is_test=True)
 
         print(f"[Main] Encoded features (Train): {X_train_feat.shape}")
         print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
 
-        # 8. 하이브리드 피처 생성
-        #   - 원본 탭ular + encoder 임베딩을 concat 해서 RF 입력으로 사용
+        # 7. 하이브리드 피처 생성
+        #   - 원본 tabular + encoder 임베딩을 concat 해서 RF 입력으로 사용
         X_train_hybrid = np.concatenate([X_train_basic_np, X_train_feat], axis=1)
         X_test_hybrid = np.concatenate([X_test_basic_np, X_test_feat], axis=1)
 
         print(f"[Main] Hybrid features (Train): {X_train_hybrid.shape}")
         print(f"[Main] Hybrid features (Test) : {X_test_hybrid.shape}")
 
-        # 9. Cross Validation (Stratified K-Fold)
+        # 8. Cross Validation (Stratified K-Fold)
         cv_splits = self.make_cv_splits(
             train_Y_series,
             n_splits=self.n_cv_splits,
@@ -238,15 +235,15 @@ class ProductionPipeline:
         print(f"Profit   mean/std : {np.mean(cv_profit_list):.2f} / {np.std(cv_profit_list):.2f}")
         print(f"Score    mean/std : {np.mean(cv_score_list):.6f} / {np.std(cv_score_list):.6f}")
 
-        # 10. 제출용 모델 재학습 (Train 전체 사용)
+        # 9. 제출용 모델 재학습 (Train 전체 사용)
         self.main_model = MainModel(n_estimators=200, random_state=42, n_jobs=-1)
         self.main_model.fit(X_train_hybrid, train_Y_series.values)
 
-        # 11. Test 예측
+        # 10. Test 예측
         test_prob = self.main_model.predict_proba(X_test_hybrid)[:, 1]
         print(f"\n[Main] Test prob range: {test_prob.min():.4f} ~ {test_prob.max():.4f}")
 
-        # 12. 제출 파일 생성
+        # 11. 제출 파일 생성
         submission = pd.read_csv("../data/submission/sample_submission.csv")
         submission['probability'] = np.concatenate([test_prob, test_prob])
         submission['decision'] = False
@@ -269,7 +266,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/Tiny_CNN_RF_kfold_140_submission_{timestamp}.csv"
+        save_path = f"../data/submission/1dCNN_RF_kfold_submission_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
@@ -289,7 +286,7 @@ def main():
         n_epochs=13,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/tiny_feature_encoder_100_earlystop_20251128_154557.pth"  # 실제 파일 이름/경로 맞춰줘야 함
+        encoder_weight_path="../weight/feature_encoder_1dcnn_100_earlystop_20251201_053352.pth"  # 실제 파일 이름/경로 맞춰줘야 함
     )
     submission_result = pipeline.run_production_pipeline()
 
@@ -302,3 +299,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -1,0 +1,68 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 96)
+[Main] Hybrid features (Test) : (466, 96)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.867983
+  Net Profit     : -200
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=38, NG=2)
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.854046
+  Net Profit     : 4000
+  Total Score    : 0.376322
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.924119
+  Net Profit     : 4000
+  Total Score    : 0.411883
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.889344
+  Net Profit     : 4000
+  Total Score    : 0.394636
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.885618
+  Net Profit     : 1900
+  Total Score    : 0.270680
+  Selected k     : 40 (Good=39, NG=1)
+
+===== CV Summary (StratifiedKFold, approx val~146) =====
+ROC-AUC  mean/std : 0.884222 / 0.023640
+Profit   mean/std : 2740.00 / 1680.00
+Score    mean/std : 0.290704 / 0.153445
+
+[Main] Test prob range: 0.0128 ~ 0.9936
+[Main] Saved submission to ../data/submission/CNN_SVM_submission_20251130_130055.csv
+[Main] Total selected products: 340
