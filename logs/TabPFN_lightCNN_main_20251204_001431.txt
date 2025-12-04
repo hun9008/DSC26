@@ -1,0 +1,71 @@
+[Main] Start Production Pipeline (TabPFN + cubic CNN encoder)
+Train shape: (720, 799)
+Test shape: (466, 799)
+Features shape (Train): (720, 30)
+Target distribution - Good: 613, NG: 107
+📊 좌표 범위 분석 결과:
+   X 좌표 범위: 160.58 ~ 425.61
+   Y 좌표 범위: 40.52 ~ 185.62
+📐 SpatialRasterizer 초기화:
+   - 그리드 크기: 32x32
+   - 보간 방법: cubic
+기본 피처 차원: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/best_model_3232.pth
+[Main] Encoded features (Train): (720, 128)
+[Main] Encoded features (Test) : (466, 128)
+[Main] Hybrid features (Train): (720, 128)
+[Main] Hybrid features (Test) : (466, 128)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.832365
+  Net Profit     : 1900
+  Total Score    : 0.251296
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.797135
+  Net Profit     : 1900
+  Total Score    : 0.237604
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.855594
+  Net Profit     : 4000
+  Total Score    : 0.377144
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.837928
+  Net Profit     : 1900
+  Total Score    : 0.253390
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.845007
+  Net Profit     : 4000
+  Total Score    : 0.371488
+  Selected k     : 40 (Good=40, NG=0)
+
+===== CV Summary (StratifiedKFold, approx val~146) =====
+ROC-AUC  mean/std : 0.833606 / 0.019818
+Profit   mean/std : 2740.00 / 1028.79
+Score    mean/std : 0.298184 / 0.062423
+
+[Main] Test prob range: 0.0010 ~ 0.9728
+[Main] Saved submission to ../data/submission/TabPFN_lightCNN_20251204_001917.csv
+[Main] Total selected products: 340
