@@ -11,7 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 from datetime import datetime
 
-from CNN_encoder_aug_smotenc import (
+from CNN_cubic_encoder_3232_aug_smotenc import (
     DataProcessor,
     SpatialRasterizer,
     FeatureEncoder,
@@ -58,7 +58,7 @@ class MainModel:
 class ProductionPipeline:
     """(사전 학습된) FeatureEncoder + MainModel 하이브리드 파이프라인"""
 
-    def __init__(self, n_epochs=4, batch_size=32, n_cv_splits=3,
+    def __init__(self, n_epochs=4, batch_size=32, n_cv_splits=1,
                  encoder_weight_path="feature_encoder.pth", val_indices_path=None):
         self.data_processor = DataProcessor()
         self.rasterizer = None
@@ -282,7 +282,7 @@ class ProductionPipeline:
             cv_profit_list.append(profit)
             cv_score_list.append(score)
 
-        print("\n===== CV Summary (k=5, NG120/Good120) =====")
+        print("\n===== CV Summary (k=1, NG21/Good123) =====")
         print(f"ROC-AUC  mean/std : {np.mean(cv_roc_list):.6f} / {np.std(cv_roc_list):.6f}")
         print(f"Profit   mean/std : {np.mean(cv_profit_list):.2f} / {np.std(cv_profit_list):.2f}")
         print(f"Score    mean/std : {np.mean(cv_score_list):.6f} / {np.std(cv_score_list):.6f}")
@@ -317,7 +317,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_RF_aug_smotenc_submission_{timestamp}.csv"
+        save_path = f"../data/submission/CNN_cubic3232_aug_smotenc_RF_submission_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
@@ -338,8 +338,8 @@ def main():
         n_epochs=4,
         batch_size=32,
         n_cv_splits=1,
-        encoder_weight_path="../weight/feature_encoder_aug_smotenc_final_20251205_234844.pth",
-        val_indices_path="../weight/val_indices_aug_smotenc_20251205_234844.npy"  # CNN encoder 학습 시 저장된 validation 인덱스
+        encoder_weight_path="../weight/feature_encoder_aug_smotenc_final_20251205_235548.pth",
+        val_indices_path="../weight/val_indices_aug_smotenc_20251205_235548.npy"  # CNN encoder 학습 시 저장된 validation 인덱스
     )
     submission_result = pipeline.run_production_pipeline()
 
