@@ -61,11 +61,18 @@ class DataProcessor:
 
         # SMOTENC   
         self.cat_list = self.train_X_aug.select_dtypes(include=['object', 'category', 'bool']).columns.tolist()
-        self.smote_nc = SMOTENC(categorical_features=self.cat_list, random_state=42)
+        cat_idx = [self.train_X_aug.columns.get_loc(col) for col in self.cat_list]
+        self.smote_nc = SMOTENC(categorical_features=cat_idx, random_state=42)
+        print(f"[EncoderTrain] SMOTENC categorical features: {self.smote_nc.categorical_features}")
         self.train_X_aug, self.train_y_aug = self.smote_nc.fit_resample(self.train_X_aug, self.train_y_aug)
         # train_y_aug를 DataFrame으로 변환하여 concat
         train_y_df = pd.DataFrame(self.train_y_aug, columns=['Class'])
         self.train = pd.concat([self.train_X_aug.reset_index(drop=True), train_y_df], axis=1)
+        
+        print("train head:")
+        print(self.train.head())
+        print("train tail:")
+        print(self.train.tail())
 
         # 좌표/압력 256*3 컬럼 제외한 기본 피처
         self.train_X_basic = self.train.drop(columns=['Class']).iloc[:, :-256*3]
