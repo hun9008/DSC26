@@ -1,0 +1,173 @@
+[Main] Start Production Pipeline
+[EncoderTrain] Train shape: (720, 799)
+[EncoderTrain] Test shape : (466, 799)
+[EncoderTrain] Train basic features: (720, 30)
+[EncoderTrain] Test basic features : (466, 30)
+[EncoderTrain] Target distribution - Good: 613, NG: 107
+[EncoderTrain] X range: 160.58 ~ 425.61
+[EncoderTrain] Y range: 40.52 ~ 185.62
+[EncoderTrain] Basic feature dim: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+[Main] Loaded encoder weights from ../weight/feature_encoder.pth
+[Main] Encoded features (Train): (720, 96)
+[Main] Encoded features (Test) : (466, 96)
+[Main] Hybrid features (Train): (720, 96)
+[Main] Hybrid features (Test) : (466, 96)
+
+[Main] Cross Validation with 5 folds (approx each val size: 144)
+(calculate_competition_score 사용, 기본 k=15)
+
+===== Fold 1 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.855014
+  Net Profit     : 4000
+  Total Score    : 0.376836
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 2 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.830623
+  Net Profit     : 4000
+  Total Score    : 0.363661
+  Selected k     : 40 (Good=40, NG=0)
+
+===== Fold 3 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=21, Good=123)
+  ROC-AUC        : 0.871467
+  Net Profit     : 1900
+  Total Score    : 0.265667
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 4 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.854881
+  Net Profit     : 1900
+  Total Score    : 0.259668
+  Selected k     : 40 (Good=39, NG=1)
+
+===== Fold 5 =====
+[Main] Train size: 576
+[Main] Val size  : 144 (NG=22, Good=122)
+  ROC-AUC        : 0.859538
+  Net Profit     : 4000
+  Total Score    : 0.379230
+  Selected k     : 40 (Good=40, NG=0)
+
+===== CV Summary (StratifiedKFold, approx val~146) =====
+ROC-AUC  mean/std : 0.854305 / 0.013293
+Profit   mean/std : 3160.00 / 1028.79
+Score    mean/std : 0.329012 / 0.054462
+
+[Main] Train final models for seed ensemble
+[Main] Seeds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
+[Main]  -> Training RF with random_state=1
+[Main]     Test prob range (seed=1): 0.0000 ~ 0.9700
+[Main]  -> Training RF with random_state=2
+[Main]     Test prob range (seed=2): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=3
+[Main]     Test prob range (seed=3): 0.0000 ~ 0.9950
+[Main]  -> Training RF with random_state=4
+[Main]     Test prob range (seed=4): 0.0000 ~ 0.9700
+[Main]  -> Training RF with random_state=5
+[Main]     Test prob range (seed=5): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=6
+[Main]     Test prob range (seed=6): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=7
+[Main]     Test prob range (seed=7): 0.0000 ~ 1.0000
+[Main]  -> Training RF with random_state=8
+[Main]     Test prob range (seed=8): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=9
+[Main]     Test prob range (seed=9): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=10
+[Main]     Test prob range (seed=10): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=11
+[Main]     Test prob range (seed=11): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=12
+[Main]     Test prob range (seed=12): 0.0000 ~ 0.9800
+[Main]  -> Training RF with random_state=13
+[Main]     Test prob range (seed=13): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=14
+[Main]     Test prob range (seed=14): 0.0000 ~ 0.9650
+[Main]  -> Training RF with random_state=15
+[Main]     Test prob range (seed=15): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=16
+[Main]     Test prob range (seed=16): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=17
+[Main]     Test prob range (seed=17): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=18
+[Main]     Test prob range (seed=18): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=19
+[Main]     Test prob range (seed=19): 0.0000 ~ 0.9800
+[Main]  -> Training RF with random_state=20
+[Main]     Test prob range (seed=20): 0.0000 ~ 0.9650
+[Main]  -> Training RF with random_state=21
+[Main]     Test prob range (seed=21): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=22
+[Main]     Test prob range (seed=22): 0.0000 ~ 0.9800
+[Main]  -> Training RF with random_state=23
+[Main]     Test prob range (seed=23): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=24
+[Main]     Test prob range (seed=24): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=25
+[Main]     Test prob range (seed=25): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=26
+[Main]     Test prob range (seed=26): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=27
+[Main]     Test prob range (seed=27): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=28
+[Main]     Test prob range (seed=28): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=29
+[Main]     Test prob range (seed=29): 0.0000 ~ 0.9950
+[Main]  -> Training RF with random_state=30
+[Main]     Test prob range (seed=30): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=31
+[Main]     Test prob range (seed=31): 0.0000 ~ 1.0000
+[Main]  -> Training RF with random_state=32
+[Main]     Test prob range (seed=32): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=33
+[Main]     Test prob range (seed=33): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=34
+[Main]     Test prob range (seed=34): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=35
+[Main]     Test prob range (seed=35): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=36
+[Main]     Test prob range (seed=36): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=37
+[Main]     Test prob range (seed=37): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=38
+[Main]     Test prob range (seed=38): 0.0000 ~ 0.9800
+[Main]  -> Training RF with random_state=39
+[Main]     Test prob range (seed=39): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=40
+[Main]     Test prob range (seed=40): 0.0000 ~ 0.9800
+[Main]  -> Training RF with random_state=41
+[Main]     Test prob range (seed=41): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=42
+[Main]     Test prob range (seed=42): 0.0000 ~ 0.9800
+[Main]  -> Training RF with random_state=43
+[Main]     Test prob range (seed=43): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=44
+[Main]     Test prob range (seed=44): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=45
+[Main]     Test prob range (seed=45): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=46
+[Main]     Test prob range (seed=46): 0.0000 ~ 0.9750
+[Main]  -> Training RF with random_state=47
+[Main]     Test prob range (seed=47): 0.0000 ~ 0.9900
+[Main]  -> Training RF with random_state=48
+[Main]     Test prob range (seed=48): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=49
+[Main]     Test prob range (seed=49): 0.0000 ~ 0.9850
+[Main]  -> Training RF with random_state=50
+[Main]     Test prob range (seed=50): 0.0000 ~ 0.9700
+[Main]  -> Training RF with random_state=51
+[Main]     Test prob range (seed=51): 0.0000 ~ 0.9850
+
+[Main] Test prob range (rank-ensemble): 0.0309 ~ 0.9999
+[Main] Saved submission to ../data/submission/CNN_RF_seedEnsemble_20251205_183803.csv
+[Main] Total selected products: 340

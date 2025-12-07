@@ -29,6 +29,11 @@ def compare_decisions(csv1_path, csv2_path):
 if __name__ == "__main__":
 
     csv1 = '../submission_dummy/hybrid_submission_170.csv'
-    csv2 = './TabPFN_lightCNN_20251204_001917.csv'
+    csv2 = '../submission_dummy/CNN_Extractor_RF_submission_20251202_223004.csv'
+    csv3 = './CNN_MLP_KL_submission_20251206_220512.csv'
+    csv4 = './CNN_MLP_KL_shallow_submission_20251207_143559.csv'
 
-    compare_decisions(csv1, csv2)
+
+    compare_decisions(csv1, csv4)
+    compare_decisions(csv2, csv4)
+    compare_decisions(csv3, csv4)

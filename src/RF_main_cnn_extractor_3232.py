@@ -32,6 +32,10 @@ from util.eval import (
 
 from util.logger import TeeLogger
 
+SEED = 354
+torch.manual_seed(SEED)
+np.random.seed(SEED)
+
 # ----------------------------------------------------
 # 1. CNN Extractor (제공된 코드 구조 사용)
 # ----------------------------------------------------
@@ -132,7 +136,7 @@ class MainModel:
       - 출력: NG 확률
     """
 
-    def __init__(self, n_estimators=200, random_state=42, n_jobs=-1):
+    def __init__(self, n_estimators=200, random_state=SEED, n_jobs=-1):
         self.model = RandomForestClassifier(
             n_estimators=n_estimators,
             random_state=random_state,
@@ -289,7 +293,7 @@ class ProductionPipeline:
 
     # ---------------- Validation 인덱스 생성 (NG 15, Good 45) ----------------
     @staticmethod
-    def make_fixed_validation_indices(y_series, n_ng_val=15, n_good_val=45, seed=42):
+    def make_fixed_validation_indices(y_series, n_ng_val=15, n_good_val=45, seed=SEED):
         rng = np.random.RandomState(seed)
         y = y_series.values
         all_idx = np.arange(len(y))
@@ -313,7 +317,7 @@ class ProductionPipeline:
 
         return train_idx, val_idx
 
-    def make_cv_splits(self, y_series, n_splits=5, n_ng_val=15, n_good_val=45, base_seed=42):
+    def make_cv_splits(self, y_series, n_splits=5, n_ng_val=15, n_good_val=45, base_seed=SEED):
         splits = []
         for fold in range(n_splits):
             seed = base_seed + fold
@@ -412,7 +416,7 @@ class ProductionPipeline:
             n_splits=self.n_cv_splits,
             n_ng_val=15,
             n_good_val=45,
-            base_seed=42
+            base_seed=SEED
         )
 
         cv_roc_list = []
@@ -437,7 +441,7 @@ class ProductionPipeline:
                   f"(NG={ (y_val==1).sum() }, Good={ (y_val==0).sum() })")
 
             # 기존 하이퍼파라미터 유지
-            model = MainModel(n_estimators=200, random_state=42 + fold_idx, n_jobs=-1)
+            model = MainModel(n_estimators=200, random_state=SEED + fold_idx, n_jobs=-1)
             model.fit(X_train_fold, y_train_fold)
 
             val_prob_ng = model.predict_proba(X_val)[:, 1]
@@ -488,7 +492,7 @@ class ProductionPipeline:
                   f"(NG={ (y_val_test_similar==1).sum() }, Good={ (y_val_test_similar==0).sum() })")
             
             # RandomForest 학습 및 평가
-            model_test_similar = MainModel(n_estimators=200, random_state=42, n_jobs=-1)
+            model_test_similar = MainModel(n_estimators=200, random_state=SEED, n_jobs=-1)
             model_test_similar.fit(X_train_test_similar, y_train_test_similar)
             
             val_prob_test_similar = model_test_similar.predict_proba(X_val_test_similar)[:, 1]
@@ -509,7 +513,7 @@ class ProductionPipeline:
             print(f"  -> analyze_test_similar_val.py를 먼저 실행하세요.")
 
         # 10. 제출용 모델 재학습 (Train 전체 사용)
-        self.main_model = MainModel(n_estimators=200, random_state=42, n_jobs=-1)
+        self.main_model = MainModel(n_estimators=200, random_state=SEED, n_jobs=-1)
         self.main_model.fit(X_train_hybrid, train_Y_series.values)
 
         # 11. Test 예측
@@ -538,7 +542,7 @@ class ProductionPipeline:
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_Extractor_RF_submission_{timestamp}.csv"
+        save_path = f"../data/submission/CNN_3232_NEST_200_RS_{SEED}_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
@@ -558,7 +562,7 @@ def main():
         n_epochs=12,
         batch_size=32,
         n_cv_splits=5,
-        encoder_weight_path="../weight/best_model.pth"
+        encoder_weight_path="../weight/best_model_3232.pth"
     )
     submission_result = pipeline.run_production_pipeline()
 
