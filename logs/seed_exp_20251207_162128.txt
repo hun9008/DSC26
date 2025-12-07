@@ -1,0 +1,87 @@
+[Main] Start Production Pipeline (CNN Extractor Version)
+[Main] CNN Extractor: Image CNN만 추출 (64차원, MLP 제외)
+Train shape: (720, 799)
+Test shape: (466, 799)
+Features shape (Train): (720, 30)
+Target distribution - Good: 613, NG: 107
+📊 좌표 범위 분석 결과:
+   X 좌표 범위: 160.58 ~ 425.61
+   Y 좌표 범위: 40.52 ~ 185.62
+📐 SpatialRasterizer 초기화:
+   - 그리드 크기: 32x32
+   - 보간 방법: cubic
+
+[Main] 기본 피처 전처리 (Train 전체로 fit)
+기본 피처 차원: 41
+[Main] Processed basic features (Train): (720, 41)
+[Main] Processed basic features (Test) : (466, 41)
+
+[Main] CNN 학습용 Dataset / DataLoader 생성 (Train 전체)
+  - Train size: 720 (NG=107, Good=613)
+
+[Main] 기존 CNN Extractor 가중치 로드: ../weight/best_model_3232.pth
+
+[Main] CNN 피처 추출 (전체 Train 데이터 및 Test 데이터)
+  추출된 CNN 피처 형태 (Train): (720, 64)
+  추출된 CNN 피처 형태 (Test) : (466, 64)
+
+[Main] 하이브리드 피처 결합 (원본 기본 피처 + Image CNN 64차원)
+  하이브리드 피처 형태 (Train): (720, 105)
+    - 원본 기본 피처: 41차원
+    - Image CNN 피처: 64차원 (MLP 제외)
+  하이브리드 피처 형태 (Test) : (466, 105)
+
+[Main] Cross Validation with 5 folds (each val: 60 samples, NG=15, Good=45)
+(k=15 선택, Task1/Task2 공식 기반 점수)
+
+===== Fold 1 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.901481
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+
+===== Fold 2 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.731852
+  Net Profit     : -10700
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=33, NG=7)
+
+===== Fold 3 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.900000
+  Net Profit     : -2300
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=37, NG=3)
+
+===== Fold 4 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.794815
+  Net Profit     : -6500
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=35, NG=5)
+
+===== Fold 5 =====
+[Main] Train size: 660
+[Main] Val size  : 60 (NG=15, Good=45)
+  ROC-AUC        : 0.871111
+  Net Profit     : -4400
+  Total Score    : 0.000000
+  Selected k     : 40 (Good=36, NG=4)
+
+===== CV Summary (k=15, NG15/Good45) =====
+ROC-AUC  mean/std : 0.839852 / 0.066461
+Profit   mean/std : -5240.00 / 3142.99
+Score    mean/std : 0.000000 / 0.000000
+
+[Main] Test와 유사한 Validation Set 파일을 찾을 수 없습니다: ../data/val_indices_test_similar.npy
+  -> analyze_test_similar_val.py를 먼저 실행하세요.
+
+[Main] Test prob range: 0.0000 ~ 0.7650
+[Main] Saved submission to ../data/submission/CNN_3232_NEST_200_RS_354_20251207_162131.csv
+[Main] Total selected products: 400

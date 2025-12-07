@@ -30,10 +30,13 @@ if __name__ == "__main__":
 
     csv1 = '../submission_dummy/hybrid_submission_170.csv'
     csv2 = '../submission_dummy/CNN_Extractor_RF_submission_20251202_223004.csv'
-    csv3 = './CNN_MLP_KL_submission_20251206_220512.csv'
-    csv4 = './CNN_MLP_KL_shallow_submission_20251207_143559.csv'
+    csv3 = '../submission_test/CNN_3232_nest_200_RS_999.csv'
+
+    csv4 = './CNN_MLP_KL_submission_20251206_220512.csv'
+    target = './CNN_3232_NEST_200_RS_42_20251207_173442.csv'
 
 
-    compare_decisions(csv1, csv4)
-    compare_decisions(csv2, csv4)
-    compare_decisions(csv3, csv4)
+    compare_decisions(csv1, target)
+    compare_decisions(csv2, target)
+    compare_decisions(csv3, target)
+    compare_decisions(csv4, target)
