@@ -32,7 +32,7 @@ from util.eval import (
 
 from util.logger import TeeLogger
 
-SEED = 42
+SEED = 1
 torch.manual_seed(SEED)
 np.random.seed(SEED)
 
@@ -533,16 +533,16 @@ class ProductionPipeline:
 
         decision_id_L_list = submission.loc[idx_L_sub].sort_values(
             'probability', ascending=True
-        ).iloc[:200]['ID']
+        ).iloc[:170]['ID']
         decision_id_P_list = submission.loc[idx_P_sub].sort_values(
             'probability', ascending=True
-        ).iloc[:200]['ID']
+        ).iloc[:170]['ID']
 
         submission.loc[submission['ID'].isin(decision_id_L_list), 'decision'] = True
         submission.loc[submission['ID'].isin(decision_id_P_list), 'decision'] = True
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        save_path = f"../data/submission/CNN_3232_NEST_200_RS_{SEED}_{timestamp}.csv"
+        save_path = f"../data/submission/170_CNN_3232_NEST_200_RS_{SEED}_{timestamp}.csv"
 
         submission.to_csv(save_path, index=False)
         print(f"[Main] Saved submission to {save_path}")
