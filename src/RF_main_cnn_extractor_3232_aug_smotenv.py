@@ -37,12 +37,11 @@ class MainModel:
       - 출력: NG 확률
     """
 
-    def __init__(self, n_estimators=1000, random_state=42, n_jobs=-1, max_depth=5):
+    def __init__(self, n_estimators=1000, random_state=42, n_jobs=-1):
         self.model = RandomForestClassifier(
             n_estimators=n_estimators,
             random_state=random_state,
             n_jobs=n_jobs,
-            max_depth=max_depth
         )
 
     def fit(self, X, y):
@@ -88,7 +87,7 @@ class ProductionPipeline:
         self.feature_encoder.eval()
         print(f"[Main] Loaded encoder weights from {self.encoder_weight_path}")
 
-    def extract_features(self, loader, is_test=False):
+    def extract_cnn_features(self, loader, is_test=False):
         assert self.feature_encoder is not None, "feature_encoder가 로드되지 않았습니다."
         self.feature_encoder.eval()
 
@@ -98,14 +97,16 @@ class ProductionPipeline:
                 for img, basic in loader:
                     img = img.to(self.device)
                     basic = basic.to(self.device)
-                    feats = self.feature_encoder.extract_features(img, basic)
-                    all_features.append(feats.cpu().numpy())
+                    img_feat = self.feature_encoder.image_cnn(img)
+                    img_feat = img_feat.cpu().numpy()
+                    all_features.append(img_feat)
             else:
                 for img, basic, _ in loader:
                     img = img.to(self.device)
                     basic = basic.to(self.device)
-                    feats = self.feature_encoder.extract_features(img, basic)
-                    all_features.append(feats.cpu().numpy())
+                    img_feat = self.feature_encoder.image_cnn(img)
+                    img_feat = img_feat.cpu().numpy()
+                    all_features.append(img_feat)
 
         return np.concatenate(all_features, axis=0)
 
@@ -202,8 +203,8 @@ class ProductionPipeline:
         self.load_pretrained_encoder(self.data_processor.basic_feature_dim)
 
         # 7. FeatureEncoder를 이용해 feature 추출
-        X_train_feat = self.extract_features(train_loader_seq, is_test=False)
-        X_test_feat = self.extract_features(test_loader, is_test=True)
+        X_train_feat = self.extract_cnn_features(train_loader_seq, is_test=False)
+        X_test_feat = self.extract_cnn_features(test_loader, is_test=True)
 
         print(f"[Main] Encoded features (Train): {X_train_feat.shape}")
         print(f"[Main] Encoded features (Test) : {X_test_feat.shape}")
@@ -231,7 +232,7 @@ class ProductionPipeline:
         val_loader_original = DataLoader(val_dataset_original, batch_size=self.batch_size, shuffle=False)
         
         # 원본 Validation 데이터의 Feature 추출
-        X_val_feat = self.extract_features(val_loader_original, is_test=False)
+        X_val_feat = self.extract_cnn_features(val_loader_original, is_test=False)
         X_val_hybrid = np.concatenate([X_val_basic_np, X_val_feat], axis=1)
         
         print(f"[Main] Hybrid features (Val - 원본): {X_val_hybrid.shape}")
@@ -267,7 +268,7 @@ class ProductionPipeline:
             print(f"[Main] Val size (원본)  : {X_val.shape[0]} "
                   f"(NG={ (y_val==1).sum() }, Good={ (y_val==0).sum() })")
 
-            model = MainModel(n_estimators=1000, random_state=42 + fold_idx, n_jobs=-1, max_depth=5)
+            model = MainModel(n_estimators=200, random_state=1 + fold_idx, n_jobs=-1)
             model.fit(X_train_fold, y_train_fold)
 
             val_prob_ng = model.predict_proba(X_val)[:, 1]
@@ -288,7 +289,7 @@ class ProductionPipeline:
         print(f"Score    mean/std : {np.mean(cv_score_list):.6f} / {np.std(cv_score_list):.6f}")
 
         # 10. 제출용 모델 재학습 (Train 전체 사용)
-        self.main_model = MainModel(n_estimators=1000, random_state=42, n_jobs=-1, max_depth=5)
+        self.main_model = MainModel(n_estimators=200, random_state=1, n_jobs=-1)
         self.main_model.fit(X_train_hybrid, train_Y_series.values)
 
         # 11. Test 예측
